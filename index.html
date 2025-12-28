@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Aplicar modo oscuro siempre (sin posibilidad de cambio)
+      (function () {
+        try {
+          const root = document.documentElement;
+          root.classList.add('dark');
+          root.setAttribute('data-theme', 'dark');
+          root.style.colorScheme = 'dark';
+        } catch (e) {
+          // noop
+        }
+      })();
+    </script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Odimetry - Auditorías de Ciberseguridad Automatizadas</title>
+    <meta name="title" content="Odimetry - Auditorías de Ciberseguridad Automatizadas" />
+    <meta name="description" content="Descubre qué expones en Internet antes de que lo haga un atacante. Auditorías automáticas de ciberseguridad que identifican servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras. Sin instalaciones, sin agentes." />
+    <meta name="keywords" content="auditoría ciberseguridad, seguridad informática, vulnerabilidades, SSL TLS, puertos expuestos, CVEs, seguridad web" />
+    <meta name="author" content="Odimetry" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Odimetry - Auditorías de Ciberseguridad Automatizadas" />
+    <meta property="og:description" content="Auditorías automáticas de ciberseguridad. Identifica servicios expuestos, vulnerabilidades y configuraciones inseguras en minutos." />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Odimetry - Auditorías de Ciberseguridad Automatizadas" />
+    <meta property="twitter:description" content="Auditorías automáticas de ciberseguridad. Identifica servicios expuestos, vulnerabilidades y configuraciones inseguras en minutos." />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

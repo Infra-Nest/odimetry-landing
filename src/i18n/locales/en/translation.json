@@ -1,0 +1,456 @@
+{
+  "header": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "startTrial": "Start trial",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Discover what you expose on the Internet before an attacker does",
+    "description": "Automated cybersecurity audits that identify exposed services, known vulnerabilities, and insecure configurations. No installations, no agents, just clear and actionable visibility.",
+    "analyzeDomain": "Analyze your domain",
+    "viewExample": "View example report",
+    "noCreditCard": "No credit card • Results in minutes • No commitment"
+  },
+  "problem": {
+    "title": "Many companies don't know what they're exposing",
+    "subtitle": "Most organizations are unaware of the real risks they face on the Internet. Without visibility, there is no control.",
+    "risks": {
+      "exposedServices": {
+        "title": "Exposed services without protection",
+        "description": "Publicly accessible ports and services that shouldn't be, exposing sensitive data or administration interfaces."
+      },
+      "sslTls": {
+        "title": "Misconfigured SSL/TLS certificates",
+        "description": "Expired certificates, obsolete protocols, or weak configurations that compromise communication security."
+      },
+      "vulnerabilities": {
+        "title": "Unpatched known vulnerabilities",
+        "description": "Known CVEs (Common Vulnerabilities and Exposures) that haven't been fixed, leaving systems exposed to attacks."
+      },
+      "configurations": {
+        "title": "Insecure configurations",
+        "description": "Dangerous default settings, missing security headers, or overly permissive access policies."
+      }
+    }
+  },
+  "solution": {
+    "title": "Automate complex technical audits in minutes",
+    "description": "Odimetry scans your infrastructure from the outside, identifying real risks without requiring internal access or installations. We don't promise total security, but visibility and control over what you actually expose.",
+    "speed": {
+      "title": "Speed",
+      "description": "Complete audits in minutes, not days. Immediate results for quick decisions."
+    },
+    "clarity": {
+      "title": "Clarity",
+      "description": "Technical but understandable reports. No unnecessary noise, just what matters and how to fix it."
+    },
+    "actionable": {
+      "title": "Actionable",
+      "description": "Each finding includes context and concrete recommendations. Not just alerts, but solutions."
+    },
+    "auditSummary": "Audit summary",
+    "lastUpdate": "5 min ago",
+    "critical": "Critical",
+    "warnings": "Warnings",
+    "correct": "Correct",
+    "total": "Total",
+    "openPorts": "Open ports",
+    "detected": "detected",
+    "sslCertificate": "SSL Certificate",
+    "valid": "Valid",
+    "cvesFound": "CVEs found",
+    "criticalCves": "critical"
+  },
+  "features": {
+    "title": "Technical features",
+    "subtitle": "Tools designed for technical teams that need clear and actionable results.",
+    "items": {
+      "domainAudit": {
+        "title": "Automatic domain audit",
+        "description": "Enter a domain and get a complete analysis in minutes. No complex configuration or advanced technical knowledge required."
+      },
+      "sslTls": {
+        "title": "SSL/TLS analysis",
+        "description": "Evaluates certificate configuration, supported protocols, cipher suites, and detects insecure or obsolete configurations."
+      },
+      "ports": {
+        "title": "Port and service detection",
+        "description": "Identifies publicly exposed services, detectable versions, and configurations that could represent risks."
+      },
+      "cves": {
+        "title": "Known vulnerabilities (CVEs)",
+        "description": "Compares your infrastructure with CVE databases to detect known vulnerabilities that require patches."
+      },
+      "reports": {
+        "title": "Actionable reports",
+        "description": "Clear and technical documentation with specific recommendations. Not just alerts, but concrete solutions for each finding."
+      },
+      "history": {
+        "title": "History and tracking",
+        "description": "Compare audits over time to measure improvements and detect regressions in security configuration."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Technical dashboard",
+    "subtitle": "View the security status of your domains in one place.",
+    "lastAudit": "Last audit: 2 hours ago",
+    "active": "Active",
+    "warnings": "Warnings",
+    "correct": "Correct",
+    "portsAndServices": "Ports and services",
+    "sslTlsAnalysis": "SSL/TLS Analysis",
+    "certificate": "Certificate",
+    "protocols": "Protocols",
+    "cipherSuites": "Cipher suites",
+    "secure": "Secure",
+    "hsts": "HSTS",
+    "notConfigured": "Not configured",
+    "vulnerabilitiesDetected": "Vulnerabilities detected",
+    "exposed": "Exposed",
+    "risk": "Risk",
+    "secureStatus": "Secure",
+    "critical": "Critical",
+    "medium": "Medium",
+    "exampleDomain": "example.com",
+    "port": "Port",
+    "port443": "Port 443",
+    "port22": "Port 22",
+    "port3306": "Port 3306",
+    "https": "HTTPS",
+    "ssh": "SSH",
+    "mysql": "MySQL",
+    "tlsVersions": "TLS 1.2, 1.3",
+    "cve1": "CVE-2023-12345",
+    "cve1Description": "Critical vulnerability in detected Apache version",
+    "cve2": "CVE-2023-67890",
+    "cve2Description": "Insecure configuration in web server"
+  },
+  "target": {
+    "title": "Who Odimetry is for",
+    "subtitle": "Designed for teams that value visibility and control over empty promises.",
+    "smes": {
+      "title": "SMEs",
+      "description": "Companies that need visibility into their Internet exposure without dedicated technical resources. Ideal for basic compliance and awareness."
+    },
+    "startups": {
+      "title": "Startups",
+      "description": "Growing teams that prioritize speed but cannot afford security risks. Fast audits for informed decisions."
+    },
+    "ctos": {
+      "title": "CTOs / DevOps",
+      "description": "Technical professionals who need clear and actionable tools. No noise, just relevant technical data to improve security posture."
+    },
+    "consultants": {
+      "title": "Technical consultancies and IT providers",
+      "description": "Agencies that offer security services to clients. Fast external audits as part of their consulting services."
+    }
+  },
+  "differentiators": {
+    "title": "Why Odimetry is different",
+    "subtitle": "External audits that don't require changes to your infrastructure.",
+    "items": {
+      "noAgents": "No agents required",
+      "noInternalAccess": "No internal access required",
+      "noInstallations": "No installations",
+      "noNoise": "No unnecessary noise",
+      "actionable": "Designed for action, not just alerts"
+    },
+    "description": "Odimetry scans from the outside, just like an attacker would. This means you don't need to install anything, configure agents, or give access to your internal systems. Just enter a domain and get clear, actionable results in minutes."
+  },
+  "pricing": {
+    "title": "Plans and pricing",
+    "subtitle": "Choose the plan that best fits your needs. All plans include complete audits.",
+    "note": "* Indicative prices",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "0",
+        "period": "€/month",
+        "description": "Ideal for trying the platform",
+        "features": {
+          "domains": "1 domain",
+          "audit": "Basic audit",
+          "report": "Limited report",
+          "history": "No history"
+        },
+        "cta": "Start free"
+      },
+      "starter": {
+        "name": "Starter",
+        "price": "19",
+        "period": "€/month",
+        "description": "For small businesses and projects",
+        "features": {
+          "domains": "Up to 3 domains",
+          "audit": "Complete audits",
+          "report": "Downloadable reports",
+          "history": "Limited history",
+          "support": "Email support"
+        },
+        "cta": "Start trial",
+        "popular": "Most popular"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "49",
+        "period": "€/month",
+        "description": "For teams and professional use",
+        "features": {
+          "domains": "Unlimited domains",
+          "audit": "Advanced audits",
+          "history": "Full history",
+          "teams": "Team ready",
+          "api": "Integration API",
+          "support": "Priority support"
+        },
+        "cta": "Contact sales"
+      }
+    }
+  },
+  "finalCta": {
+    "title": "Analyze your domain in minutes",
+    "description": "No installation, no commitment. Discover what you expose on the Internet and take control of your security.",
+    "fastResults": {
+      "title": "Results in minutes",
+      "description": "Complete audits without waiting"
+    },
+    "noInstallation": {
+      "title": "No installation",
+      "description": "No agents or internal access required"
+    },
+    "noCommitment": {
+      "title": "No commitment",
+      "description": "Free trial without credit card"
+    }
+  },
+  "footer": {
+    "description": "Automated cybersecurity audits for companies that value visibility and control.",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "contact": "Contact",
+    "support": "Support",
+    "copyright": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated: January 1, 2025",
+    "sections": {
+      "infoCollected": {
+        "title": "1. Information we collect",
+        "description": "At Odimetry, we collect information you provide directly when using our service:",
+        "items": {
+          "account": "Account information: name, email address, and password",
+          "domain": "Domain information: the domains you request to audit",
+          "payment": "Payment information: data needed to process subscriptions (processed by secure third parties)",
+          "usage": "Usage information: how you interact with our platform"
+        }
+      },
+      "howWeUse": {
+        "title": "2. How we use your information",
+        "description": "We use the collected information to:",
+        "items": {
+          "provide": "Provide and improve our cybersecurity audit services",
+          "process": "Process your requests and manage your account",
+          "notify": "Send notifications about the status of your audits",
+          "communicate": "Communicate with you about service updates",
+          "comply": "Comply with legal obligations and protect our rights"
+        }
+      },
+      "sharing": {
+        "title": "3. Sharing information",
+        "description": "We do not sell or rent your personal information. We may share information only under the following circumstances:",
+        "items": {
+          "providers": "With service providers who help us operate (payment processors, hosting, etc.)",
+          "law": "When required by law or to protect our legal rights",
+          "merger": "In case of merger, acquisition, or asset sale (with prior notice)"
+        }
+      },
+      "security": {
+        "title": "4. Data security",
+        "description": "We implement technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure."
+      },
+      "rights": {
+        "title": "5. Your rights",
+        "description": "You have the right to:",
+        "items": {
+          "access": "Access your personal data",
+          "rectify": "Rectify inaccurate information",
+          "delete": "Request deletion of your data",
+          "oppose": "Oppose the processing of your data",
+          "portability": "Data portability"
+        },
+        "contact": "To exercise these rights, contact us at:"
+      },
+      "retention": {
+        "title": "6. Data retention",
+        "description": "We retain your personal information while your account is active or as necessary to provide our services. Audit data is retained according to your subscription plan."
+      },
+      "changes": {
+        "title": "7. Changes to this policy",
+        "description": "We may update this privacy policy occasionally. We will notify you of significant changes via email or a notice on our website."
+      },
+      "contact": {
+        "title": "8. Contact",
+        "description": "If you have questions about this privacy policy, you can contact us at:"
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdate": "Last updated: January 1, 2025",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of terms",
+        "description": "By accessing and using Odimetry, you agree to comply with these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you must not use our service."
+      },
+      "description": {
+        "title": "2. Service description",
+        "description": "Odimetry provides automated cybersecurity audit services that scan domains from the outside to identify exposed services, known vulnerabilities, and insecure configurations. Our service is informative in nature and does not guarantee absolute security."
+      },
+      "usage": {
+        "title": "3. Service use",
+        "description": "When using Odimetry, you agree to:",
+        "items": {
+          "accurate": "Provide accurate and up-to-date information",
+          "authorized": "Use the service only for domains you own or have authorization to audit",
+          "legal": "Not use the service for illegal or unauthorized activities",
+          "access": "Not attempt unauthorized access to systems or data",
+          "interfere": "Not interfere with the service operation",
+          "credentials": "Maintain the confidentiality of your account credentials"
+        }
+      },
+      "accounts": {
+        "title": "4. Accounts and subscriptions",
+        "description": "To use certain Odimetry features, you must create an account and subscribe to a plan. You are responsible for maintaining the confidentiality of your account and password.",
+        "items": {
+          "renewal": "Subscriptions automatically renew according to the selected plan",
+          "cancel": "You can cancel your subscription at any time from your account",
+          "refunds": "No refunds are made for partial subscription periods",
+          "pricing": "We reserve the right to modify prices with prior notice"
+        }
+      },
+      "liability": {
+        "title": "5. Limitation of liability",
+        "description": "Odimetry provides information about possible vulnerabilities and configurations. However:",
+        "items": {
+          "detection": "We do not guarantee detection of all vulnerabilities",
+          "security": "We do not guarantee absolute security of your systems",
+          "damages": "We are not responsible for damages arising from the use or inability to use our service",
+          "informative": "Our service is informative in nature and does not constitute legal or professional advice"
+        }
+      },
+      "intellectual": {
+        "title": "6. Intellectual property",
+        "description": "All content of Odimetry, including but not limited to texts, graphics, logos, and software, is the property of Odimetry or its content providers and is protected by intellectual property laws."
+      },
+      "ethical": {
+        "title": "7. Ethical use",
+        "description": "You must use Odimetry ethically and legally. It is prohibited to:",
+        "items": {
+          "unauthorized": "Audit domains without owner authorization",
+          "malicious": "Use results for malicious activities",
+          "share": "Share account credentials",
+          "massive": "Perform massive automated audits without authorization"
+        }
+      },
+      "modifications": {
+        "title": "8. Service modifications",
+        "description": "We reserve the right to modify, suspend, or discontinue any aspect of the service at any time, with or without prior notice."
+      },
+      "termination": {
+        "title": "9. Termination",
+        "description": "We may terminate or suspend your account and access to the service immediately, without prior notice, for any reason, including but not limited to violation of these terms."
+      },
+      "law": {
+        "title": "10. Applicable law",
+        "description": "These terms are governed by applicable laws. Any dispute will be resolved in the competent courts."
+      },
+      "contact": {
+        "title": "11. Contact",
+        "description": "For questions about these terms, contact:"
+      }
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "lastUpdate": "Last updated: January 1, 2025",
+    "sections": {
+      "whatAre": {
+        "title": "1. What are cookies?",
+        "description": "Cookies are small text files that are stored on your device when you visit a website. Cookies help us provide, protect, and improve our services."
+      },
+      "types": {
+        "title": "2. Types of cookies we use",
+        "essential": {
+          "title": "Essential cookies",
+          "description": "These cookies are necessary for the basic functioning of the website and cannot be disabled:",
+          "items": {
+            "session": "Session cookies: Keep your session active while browsing",
+            "auth": "Authentication cookies: Identify your user session",
+            "security": "Security cookies: Protect against fraudulent activities"
+          }
+        },
+        "functionality": {
+          "title": "Functionality cookies",
+          "description": "These cookies allow the website to remember your preferences:",
+          "items": {
+            "language": "Language preferences: Remember your preferred language",
+            "settings": "Account settings: Maintain your user preferences"
+          }
+        },
+        "analytics": {
+          "title": "Analytics cookies",
+          "description": "These cookies help us understand how visitors interact with our website:",
+          "items": {
+            "google": "Google Analytics: Collects information about site usage (you can opt out)",
+            "metrics": "Performance metrics: Help us improve site speed and functionality"
+          }
+        }
+      },
+      "thirdParty": {
+        "title": "3. Third-party cookies",
+        "description": "Some third-party services may set cookies on your device:",
+        "items": {
+          "payment": "Payment providers: To process transactions securely",
+          "analytics": "Analytics services: To understand site usage",
+          "support": "Support services: To provide customer assistance"
+        }
+      },
+      "duration": {
+        "title": "4. Cookie duration",
+        "description": "We use two types of cookies based on their duration:",
+        "items": {
+          "session": "Session cookies: Deleted when you close your browser",
+          "persistent": "Persistent cookies: Remain on your device for a specified period or until you delete them"
+        }
+      },
+      "management": {
+        "title": "5. Cookie management",
+        "description": "You can control and manage cookies in several ways:",
+        "items": {
+          "browser": "Browser settings: Most browsers allow you to reject or accept cookies",
+          "tools": "Third-party tools: You can use tools like your browser's \"Do Not Track\"",
+          "panel": "Preferences panel: If available, you can manage your cookie preferences from your account"
+        },
+        "note": "Note: Disabling certain cookies may affect website functionality."
+      },
+      "personalData": {
+        "title": "6. Cookies and personal data",
+        "description": "Some cookies may collect personal information. This information is handled in accordance with our"
+      },
+      "updates": {
+        "title": "7. Updates to this policy",
+        "description": "We may update this Cookie Policy occasionally to reflect changes in our practices or for other operational, legal, or regulatory reasons."
+      },
+      "contact": {
+        "title": "8. Contact",
+        "description": "If you have questions about our Cookie Policy, contact:"
+      }
+    }
+  }
+}
+

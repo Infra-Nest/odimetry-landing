@@ -1,0 +1,456 @@
+{
+  "header": {
+    "features": "Características",
+    "pricing": "Precios",
+    "startTrial": "Iniciar prueba",
+    "menu": "Menú"
+  },
+  "hero": {
+    "title": "Descubre qué expones en Internet antes de que lo haga un atacante",
+    "description": "Auditorías automáticas de ciberseguridad que identifican servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras. Sin instalaciones, sin agentes, solo visibilidad clara y accionable.",
+    "analyzeDomain": "Analiza tu dominio",
+    "viewExample": "Ver ejemplo de informe",
+    "noCreditCard": "Sin tarjeta de crédito • Resultados en minutos • Sin compromiso"
+  },
+  "problem": {
+    "title": "Muchas empresas no saben qué están exponiendo",
+    "subtitle": "La mayoría de organizaciones desconocen los riesgos reales que enfrentan en Internet. Sin visibilidad, no hay control.",
+    "risks": {
+      "exposedServices": {
+        "title": "Servicios expuestos sin protección",
+        "description": "Puertos y servicios accesibles públicamente que no deberían estarlo, exponiendo datos sensibles o interfaces de administración."
+      },
+      "sslTls": {
+        "title": "Certificados SSL/TLS mal configurados",
+        "description": "Certificados expirados, protocolos obsoletos o configuraciones débiles que comprometen la seguridad de las comunicaciones."
+      },
+      "vulnerabilities": {
+        "title": "Vulnerabilidades conocidas sin parchear",
+        "description": "CVEs (Common Vulnerabilities and Exposures) conocidas que no han sido corregidas, dejando sistemas expuestos a ataques."
+      },
+      "configurations": {
+        "title": "Configuraciones inseguras",
+        "description": "Ajustes por defecto peligrosos, headers de seguridad faltantes o políticas de acceso demasiado permisivas."
+      }
+    }
+  },
+  "solution": {
+    "title": "Automatiza auditorías técnicas complejas en minutos",
+    "description": "Odimetry escanea tu infraestructura desde fuera, identificando riesgos reales sin necesidad de acceso interno ni instalaciones. No prometemos seguridad total, pero sí visibilidad y control sobre lo que realmente expones.",
+    "speed": {
+      "title": "Rapidez",
+      "description": "Auditorías completas en minutos, no en días. Resultados inmediatos para decisiones rápidas."
+    },
+    "clarity": {
+      "title": "Claridad",
+      "description": "Informes técnicos pero comprensibles. Sin ruido innecesario, solo lo que importa y cómo solucionarlo."
+    },
+    "actionable": {
+      "title": "Accionable",
+      "description": "Cada hallazgo incluye contexto y recomendaciones concretas. No solo alertas, sino soluciones."
+    },
+    "auditSummary": "Resumen de auditoría",
+    "lastUpdate": "Hace 5 min",
+    "critical": "Críticos",
+    "warnings": "Advertencias",
+    "correct": "Correctos",
+    "total": "Total",
+    "openPorts": "Puertos abiertos",
+    "detected": "detectados",
+    "sslCertificate": "Certificado SSL",
+    "valid": "Válido",
+    "cvesFound": "CVEs encontradas",
+    "criticalCves": "críticas"
+  },
+  "features": {
+    "title": "Características técnicas",
+    "subtitle": "Herramientas diseñadas para equipos técnicos que necesitan resultados claros y accionables.",
+    "items": {
+      "domainAudit": {
+        "title": "Auditoría automática por dominio",
+        "description": "Introduce un dominio y obtén un análisis completo en minutos. Sin configuración compleja ni conocimientos técnicos avanzados."
+      },
+      "sslTls": {
+        "title": "Análisis SSL/TLS",
+        "description": "Evalúa la configuración de certificados, protocolos soportados, cipher suites y detecta configuraciones inseguras o obsoletas."
+      },
+      "ports": {
+        "title": "Detección de puertos y servicios",
+        "description": "Identifica servicios expuestos públicamente, versiones detectables y configuraciones que podrían representar riesgos."
+      },
+      "cves": {
+        "title": "Vulnerabilidades conocidas (CVEs)",
+        "description": "Compara tu infraestructura con bases de datos de CVEs para detectar vulnerabilidades conocidas que requieren parches."
+      },
+      "reports": {
+        "title": "Informes accionables",
+        "description": "Documentación clara y técnica con recomendaciones específicas. No solo alertas, sino soluciones concretas para cada hallazgo."
+      },
+      "history": {
+        "title": "Historial y seguimiento",
+        "description": "Compara auditorías a lo largo del tiempo para medir mejoras y detectar regresiones en la configuración de seguridad."
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Panel de control técnico",
+    "subtitle": "Visualiza el estado de seguridad de tus dominios en un solo lugar.",
+    "lastAudit": "Última auditoría: hace 2 horas",
+    "active": "Activo",
+    "warnings": "Advertencias",
+    "correct": "Correctos",
+    "portsAndServices": "Puertos y servicios",
+    "sslTlsAnalysis": "Análisis SSL/TLS",
+    "certificate": "Certificado",
+    "protocols": "Protocolos",
+    "cipherSuites": "Cipher suites",
+    "secure": "Seguros",
+    "hsts": "HSTS",
+    "notConfigured": "No configurado",
+    "vulnerabilitiesDetected": "Vulnerabilidades detectadas",
+    "exposed": "Expuesto",
+    "risk": "Riesgo",
+    "secureStatus": "Seguro",
+    "critical": "Crítico",
+    "medium": "Medio",
+    "exampleDomain": "ejemplo.com",
+    "port": "Puerto",
+    "port443": "Puerto 443",
+    "port22": "Puerto 22",
+    "port3306": "Puerto 3306",
+    "https": "HTTPS",
+    "ssh": "SSH",
+    "mysql": "MySQL",
+    "tlsVersions": "TLS 1.2, 1.3",
+    "cve1": "CVE-2023-12345",
+    "cve1Description": "Vulnerabilidad crítica en versión detectada de Apache",
+    "cve2": "CVE-2023-67890",
+    "cve2Description": "Configuración insegura en servidor web"
+  },
+  "target": {
+    "title": "Para quién es Odimetry",
+    "subtitle": "Diseñado para equipos que valoran la visibilidad y el control sobre promesas vacías.",
+    "smes": {
+      "title": "Pymes",
+      "description": "Empresas que necesitan visibilidad sobre su exposición en Internet sin recursos técnicos dedicados. Ideal para cumplimiento básico y concienciación."
+    },
+    "startups": {
+      "title": "Startups",
+      "description": "Equipos en crecimiento que priorizan la velocidad pero no pueden permitirse riesgos de seguridad. Auditorías rápidas para decisiones informadas."
+    },
+    "ctos": {
+      "title": "CTOs / DevOps",
+      "description": "Profesionales técnicos que necesitan herramientas claras y accionables. Sin ruido, solo datos técnicos relevantes para mejorar la postura de seguridad."
+    },
+    "consultants": {
+      "title": "Consultoras técnicas y proveedores IT",
+      "description": "Agencias que ofrecen servicios de seguridad a clientes. Auditorías externas rápidas como parte de sus servicios de consultoría."
+    }
+  },
+  "differentiators": {
+    "title": "Por qué Odimetry es diferente",
+    "subtitle": "Auditorías externas que no requieren cambios en tu infraestructura.",
+    "items": {
+      "noAgents": "No requiere agentes",
+      "noInternalAccess": "No requiere acceso interno",
+      "noInstallations": "Sin instalaciones",
+      "noNoise": "Sin ruido innecesario",
+      "actionable": "Pensado para acción, no solo alertas"
+    },
+    "description": "Odimetry escanea desde fuera, igual que lo haría un atacante. Esto significa que no necesitas instalar nada, configurar agentes ni dar acceso a tus sistemas internos. Solo introduce un dominio y obtén resultados claros y accionables en minutos."
+  },
+  "pricing": {
+    "title": "Planes y precios",
+    "subtitle": "Elige el plan que mejor se adapte a tus necesidades. Todos los planes incluyen auditorías completas.",
+    "note": "* Precios orientativos",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "0",
+        "period": "€/mes",
+        "description": "Ideal para probar la plataforma",
+        "features": {
+          "domains": "1 dominio",
+          "audit": "Auditoría básica",
+          "report": "Informe limitado",
+          "history": "Sin histórico"
+        },
+        "cta": "Empezar gratis"
+      },
+      "starter": {
+        "name": "Starter",
+        "price": "19",
+        "period": "€/mes",
+        "description": "Para pequeñas empresas y proyectos",
+        "features": {
+          "domains": "Hasta 3 dominios",
+          "audit": "Auditorías completas",
+          "report": "Informes descargables",
+          "history": "Histórico limitado",
+          "support": "Soporte por email"
+        },
+        "cta": "Comenzar prueba",
+        "popular": "Más popular"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "49",
+        "period": "€/mes",
+        "description": "Para equipos y uso profesional",
+        "features": {
+          "domains": "Dominios ilimitados",
+          "audit": "Auditorías avanzadas",
+          "history": "Histórico completo",
+          "teams": "Preparado para equipos",
+          "api": "API de integración",
+          "support": "Soporte prioritario"
+        },
+        "cta": "Contactar ventas"
+      }
+    }
+  },
+  "finalCta": {
+    "title": "Analiza tu dominio en minutos",
+    "description": "Sin instalación, sin compromiso. Descubre qué expones en Internet y toma el control de tu seguridad.",
+    "fastResults": {
+      "title": "Resultados en minutos",
+      "description": "Auditorías completas sin esperas"
+    },
+    "noInstallation": {
+      "title": "Sin instalación",
+      "description": "No requiere agentes ni acceso interno"
+    },
+    "noCommitment": {
+      "title": "Sin compromiso",
+      "description": "Prueba gratuita sin tarjeta de crédito"
+    }
+  },
+  "footer": {
+    "description": "Auditorías de ciberseguridad automatizadas para empresas que valoran la visibilidad y el control.",
+    "legal": "Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
+    "contact": "Contacto",
+    "support": "Soporte",
+    "copyright": "Todos los derechos reservados."
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdate": "Última actualización: 1 de enero de 2025",
+    "sections": {
+      "infoCollected": {
+        "title": "1. Información que recopilamos",
+        "description": "En Odimetry, recopilamos información que nos proporcionas directamente cuando utilizas nuestro servicio:",
+        "items": {
+          "account": "Información de cuenta: nombre, dirección de correo electrónico y contraseña",
+          "domain": "Información de dominio: los dominios que solicitas auditar",
+          "payment": "Información de pago: datos necesarios para procesar suscripciones (procesados por terceros seguros)",
+          "usage": "Información de uso: cómo interactúas con nuestra plataforma"
+        }
+      },
+      "howWeUse": {
+        "title": "2. Cómo utilizamos tu información",
+        "description": "Utilizamos la información recopilada para:",
+        "items": {
+          "provide": "Proporcionar y mejorar nuestros servicios de auditoría de ciberseguridad",
+          "process": "Procesar tus solicitudes y gestionar tu cuenta",
+          "notify": "Enviar notificaciones sobre el estado de tus auditorías",
+          "communicate": "Comunicarnos contigo sobre actualizaciones del servicio",
+          "comply": "Cumplir con obligaciones legales y proteger nuestros derechos"
+        }
+      },
+      "sharing": {
+        "title": "3. Compartir información",
+        "description": "No vendemos ni alquilamos tu información personal. Podemos compartir información únicamente en las siguientes circunstancias:",
+        "items": {
+          "providers": "Con proveedores de servicios que nos ayudan a operar (procesadores de pago, hosting, etc.)",
+          "law": "Cuando sea requerido por ley o para proteger nuestros derechos legales",
+          "merger": "En caso de fusión, adquisición o venta de activos (con previo aviso)"
+        }
+      },
+      "security": {
+        "title": "4. Seguridad de los datos",
+        "description": "Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal. Sin embargo, ningún método de transmisión por Internet es 100% seguro."
+      },
+      "rights": {
+        "title": "5. Tus derechos",
+        "description": "Tienes derecho a:",
+        "items": {
+          "access": "Acceder a tus datos personales",
+          "rectify": "Rectificar información inexacta",
+          "delete": "Solicitar la eliminación de tus datos",
+          "oppose": "Oponerte al procesamiento de tus datos",
+          "portability": "Portabilidad de datos"
+        },
+        "contact": "Para ejercer estos derechos, contáctanos en:"
+      },
+      "retention": {
+        "title": "6. Retención de datos",
+        "description": "Conservamos tu información personal mientras tu cuenta esté activa o según sea necesario para proporcionar nuestros servicios. Los datos de auditoría se conservan según tu plan de suscripción."
+      },
+      "changes": {
+        "title": "7. Cambios a esta política",
+        "description": "Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos sobre cambios significativos mediante correo electrónico o un aviso en nuestro sitio web."
+      },
+      "contact": {
+        "title": "8. Contacto",
+        "description": "Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en:"
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos de Servicio",
+    "lastUpdate": "Última actualización: 1 de enero de 2025",
+    "sections": {
+      "acceptance": {
+        "title": "1. Aceptación de los términos",
+        "description": "Al acceder y utilizar Odimetry, aceptas cumplir con estos Términos de Servicio y todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no debes utilizar nuestro servicio."
+      },
+      "description": {
+        "title": "2. Descripción del servicio",
+        "description": "Odimetry proporciona servicios de auditoría de ciberseguridad automatizados que escanean dominios desde fuera para identificar servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras. Nuestro servicio es de naturaleza informativa y no garantiza seguridad absoluta."
+      },
+      "usage": {
+        "title": "3. Uso del servicio",
+        "description": "Al utilizar Odimetry, te comprometes a:",
+        "items": {
+          "accurate": "Proporcionar información precisa y actualizada",
+          "authorized": "Utilizar el servicio solo para dominios que posees o tienes autorización para auditar",
+          "legal": "No utilizar el servicio para actividades ilegales o no autorizadas",
+          "access": "No intentar acceder no autorizado a sistemas o datos",
+          "interfere": "No interferir con el funcionamiento del servicio",
+          "credentials": "Mantener la confidencialidad de tus credenciales de cuenta"
+        }
+      },
+      "accounts": {
+        "title": "4. Cuentas y suscripciones",
+        "description": "Para utilizar ciertas funcionalidades de Odimetry, debes crear una cuenta y suscribirte a un plan. Eres responsable de mantener la confidencialidad de tu cuenta y contraseña.",
+        "items": {
+          "renewal": "Las suscripciones se renuevan automáticamente según el plan seleccionado",
+          "cancel": "Puedes cancelar tu suscripción en cualquier momento desde tu cuenta",
+          "refunds": "No se realizan reembolsos por períodos parciales de suscripción",
+          "pricing": "Nos reservamos el derecho de modificar precios con previo aviso"
+        }
+      },
+      "liability": {
+        "title": "5. Limitación de responsabilidad",
+        "description": "Odimetry proporciona información sobre posibles vulnerabilidades y configuraciones. Sin embargo:",
+        "items": {
+          "detection": "No garantizamos la detección de todas las vulnerabilidades",
+          "security": "No garantizamos seguridad absoluta de tus sistemas",
+          "damages": "No somos responsables de daños derivados del uso o la imposibilidad de usar nuestro servicio",
+          "informative": "Nuestro servicio es de naturaleza informativa y no constituye asesoramiento legal o profesional"
+        }
+      },
+      "intellectual": {
+        "title": "6. Propiedad intelectual",
+        "description": "Todo el contenido de Odimetry, incluyendo pero no limitado a textos, gráficos, logos, y software, es propiedad de Odimetry o sus proveedores de contenido y está protegido por leyes de propiedad intelectual."
+      },
+      "ethical": {
+        "title": "7. Uso ético",
+        "description": "Debes utilizar Odimetry de manera ética y legal. Está prohibido:",
+        "items": {
+          "unauthorized": "Auditar dominios sin autorización del propietario",
+          "malicious": "Utilizar los resultados para actividades maliciosas",
+          "share": "Compartir credenciales de cuenta",
+          "massive": "Realizar auditorías masivas automatizadas sin autorización"
+        }
+      },
+      "modifications": {
+        "title": "8. Modificaciones del servicio",
+        "description": "Nos reservamos el derecho de modificar, suspender o discontinuar cualquier aspecto del servicio en cualquier momento, con o sin previo aviso."
+      },
+      "termination": {
+        "title": "9. Terminación",
+        "description": "Podemos terminar o suspender tu cuenta y acceso al servicio inmediatamente, sin previo aviso, por cualquier motivo, incluyendo pero no limitado a violación de estos términos."
+      },
+      "law": {
+        "title": "10. Ley aplicable",
+        "description": "Estos términos se rigen por las leyes aplicables. Cualquier disputa será resuelta en los tribunales competentes."
+      },
+      "contact": {
+        "title": "11. Contacto",
+        "description": "Para preguntas sobre estos términos, contacta:"
+      }
+    }
+  },
+  "cookies": {
+    "title": "Política de Cookies",
+    "lastUpdate": "Última actualización: 1 de enero de 2025",
+    "sections": {
+      "whatAre": {
+        "title": "1. ¿Qué son las cookies?",
+        "description": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Las cookies nos ayudan a proporcionar, proteger y mejorar nuestros servicios."
+      },
+      "types": {
+        "title": "2. Tipos de cookies que utilizamos",
+        "essential": {
+          "title": "Cookies esenciales",
+          "description": "Estas cookies son necesarias para el funcionamiento básico del sitio web y no se pueden desactivar:",
+          "items": {
+            "session": "Cookies de sesión: Mantienen tu sesión activa mientras navegas",
+            "auth": "Cookies de autenticación: Identifican tu sesión de usuario",
+            "security": "Cookies de seguridad: Protegen contra actividades fraudulentas"
+          }
+        },
+        "functionality": {
+          "title": "Cookies de funcionalidad",
+          "description": "Estas cookies permiten que el sitio web recuerde tus preferencias:",
+          "items": {
+            "language": "Preferencias de idioma: Recuerdan tu idioma preferido",
+            "settings": "Configuración de cuenta: Mantienen tus preferencias de usuario"
+          }
+        },
+        "analytics": {
+          "title": "Cookies analíticas",
+          "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web:",
+          "items": {
+            "google": "Google Analytics: Recopila información sobre el uso del sitio (puedes optar por no participar)",
+            "metrics": "Métricas de rendimiento: Nos ayudan a mejorar la velocidad y funcionalidad del sitio"
+          }
+        }
+      },
+      "thirdParty": {
+        "title": "3. Cookies de terceros",
+        "description": "Algunos servicios de terceros pueden establecer cookies en tu dispositivo:",
+        "items": {
+          "payment": "Proveedores de pago: Para procesar transacciones de forma segura",
+          "analytics": "Servicios de análisis: Para entender el uso del sitio",
+          "support": "Servicios de soporte: Para proporcionar asistencia al cliente"
+        }
+      },
+      "duration": {
+        "title": "4. Duración de las cookies",
+        "description": "Utilizamos dos tipos de cookies según su duración:",
+        "items": {
+          "session": "Cookies de sesión: Se eliminan cuando cierras tu navegador",
+          "persistent": "Cookies persistentes: Permanecen en tu dispositivo durante un período determinado o hasta que las elimines"
+        }
+      },
+      "management": {
+        "title": "5. Gestión de cookies",
+        "description": "Puedes controlar y gestionar las cookies de varias maneras:",
+        "items": {
+          "browser": "Configuración del navegador: La mayoría de los navegadores te permiten rechazar o aceptar cookies",
+          "tools": "Herramientas de terceros: Puedes usar herramientas como \"Do Not Track\" de tu navegador",
+          "panel": "Panel de preferencias: Si está disponible, puedes gestionar tus preferencias de cookies desde tu cuenta"
+        },
+        "note": "Nota: Desactivar ciertas cookies puede afectar la funcionalidad del sitio web."
+      },
+      "personalData": {
+        "title": "6. Cookies y datos personales",
+        "description": "Algunas cookies pueden recopilar información personal. Esta información se trata de acuerdo con nuestra"
+      },
+      "updates": {
+        "title": "7. Actualizaciones de esta política",
+        "description": "Podemos actualizar esta Política de Cookies ocasionalmente para reflejar cambios en nuestras prácticas o por otras razones operativas, legales o regulatorias."
+      },
+      "contact": {
+        "title": "8. Contacto",
+        "description": "Si tienes preguntas sobre nuestra Política de Cookies, contacta:"
+      }
+    }
+  }
+}
+
