@@ -13,6 +13,7 @@ import { FinalCTA } from './components/sections/FinalCTA';
 import { PrivacyPolicy } from './components/sections/PrivacyPolicy';
 import { TermsOfService } from './components/sections/TermsOfService';
 import { CookiePolicy } from './components/sections/CookiePolicy';
+import { SignUp } from './components/sections/SignUp';
 
 function App() {
   return (
@@ -45,6 +46,11 @@ function App() {
       <Route path="/cookies" element={
         <Layout>
           <CookiePolicy />
+        </Layout>
+      } />
+      <Route path="/signup" element={
+        <Layout>
+          <SignUp />
         </Layout>
       } />
       </Routes>

@@ -450,7 +450,29 @@
         "title": "8. Contact",
         "description": "If you have questions about our Cookie Policy, contact:"
       }
-    }
-  }
+    }  },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Start your free trial",
+    "email": "Email",
+    "password": "Password (min 12 characters)",
+    "passwordPlaceholder": "At least 12 characters",
+    "firstname": "First name",
+    "surname": "Last name",
+    "createOrganization": "Create organization",
+    "organization": {
+      "name": "Organization name",
+      "org_type": "Organization type",
+      "description": "Description (optional)",
+      "website_url": "Website (optional)"
+    },
+    "submit": "Create account",
+    "submitting": "Creating...",
+    "success": "Account created! Check your email.",
+    "errors": {
+      "general": "Something went wrong, please try again.",
+      "emailRequired": "Please enter your email.",
+      "passwordLength": "Password must be at least 12 characters long."
+    }  }
 }
 

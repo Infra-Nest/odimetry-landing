@@ -110,7 +110,7 @@ export const Header = () => {
             >
               {translate('header.pricing')}
             </button>
-            <Button variant="primary" size="sm" aria-label={translate('header.startTrial')}>
+            <Button variant="primary" size="sm" aria-label={translate('header.startTrial')} onClick={() => navigate('/signup')}>
               {translate('header.startTrial')}
             </Button>
             <LanguageSelector />
@@ -149,6 +149,7 @@ export const Header = () => {
                   </button>
                   <div className="border-t border-gray-700 my-1"></div>
                   <button
+                    onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }}
                     className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
                     role="menuitem"
                   >

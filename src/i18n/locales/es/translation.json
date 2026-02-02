@@ -450,7 +450,29 @@
         "title": "8. Contacto",
         "description": "Si tienes preguntas sobre nuestra Política de Cookies, contacta:"
       }
-    }
-  }
+    }  },
+  "signup": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Comienza tu prueba gratuita",
+    "email": "Correo electrónico",
+    "password": "Contraseña (mínimo 12 caracteres)",
+    "passwordPlaceholder": "Al menos 12 caracteres",
+    "firstname": "Nombre",
+    "surname": "Apellidos",
+    "createOrganization": "Crear organización",
+    "organization": {
+      "name": "Nombre de la organización",
+      "org_type": "Tipo de organización",
+      "description": "Descripción (opcional)",
+      "website_url": "Sitio web (opcional)"
+    },
+    "submit": "Crear cuenta",
+    "submitting": "Creando...",
+    "success": "¡Cuenta creada! Revisa tu correo.",
+    "errors": {
+      "general": "Algo salió mal, por favor inténtalo de nuevo.",
+      "emailRequired": "Por favor introduce tu correo.",
+      "passwordLength": "La contraseña debe tener al menos 12 caracteres."
+    }  }
 }
 

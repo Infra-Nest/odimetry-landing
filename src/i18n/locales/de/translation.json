@@ -450,7 +450,29 @@
         "title": "8. Kontakt",
         "description": "Wenn Sie Fragen zu unserer Cookie-Richtlinie haben, kontaktieren Sie:"
       }
-    }
-  }
+    }  },
+  "signup": {
+    "title": "Erstelle dein Konto",
+    "subtitle": "Beginne deine kostenlose Testphase",
+    "email": "E-Mail",
+    "password": "Passwort (mindestens 12 Zeichen)",
+    "passwordPlaceholder": "Mindestens 12 Zeichen",
+    "firstname": "Vorname",
+    "surname": "Nachname",
+    "createOrganization": "Organisation erstellen",
+    "organization": {
+      "name": "Organisationsname",
+      "org_type": "Organisationstyp",
+      "description": "Beschreibung (optional)",
+      "website_url": "Webseite (optional)"
+    },
+    "submit": "Konto erstellen",
+    "submitting": "Erstelle...",
+    "success": "Konto erstellt! Prüfe deine E-Mails.",
+    "errors": {
+      "general": "Etwas ist schief gelaufen, bitte versuche es erneut.",
+      "emailRequired": "Bitte gebe deine E-Mail ein.",
+      "passwordLength": "Das Passwort muss mindestens 12 Zeichen lang sein."
+    }  }
 }
 

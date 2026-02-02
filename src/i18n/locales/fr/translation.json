@@ -450,7 +450,29 @@
         "title": "8. Contact",
         "description": "Si vous avez des questions sur notre Politique des cookies, contactez :"
       }
-    }
-  }
+    }  },
+  "signup": {
+    "title": "Créez votre compte",
+    "subtitle": "Commencez votre essai gratuit",
+    "email": "Email",
+    "password": "Mot de passe (au moins 12 caractères)",
+    "passwordPlaceholder": "Au moins 12 caractères",
+    "firstname": "Prénom",
+    "surname": "Nom",
+    "createOrganization": "Créer une organisation",
+    "organization": {
+      "name": "Nom de l'organisation",
+      "org_type": "Type d'organisation",
+      "description": "Description (optionnelle)",
+      "website_url": "Site Web (optionnel)"
+    },
+    "submit": "Créer un compte",
+    "submitting": "Création...",
+    "success": "Compte créé! Vérifiez votre email.",
+    "errors": {
+      "general": "Une erreur est survenue, veuillez réessayer.",
+      "emailRequired": "Veuillez entrer votre email.",
+      "passwordLength": "Le mot de passe doit contenir au moins 12 caractères."
+    }  }
 }
 
