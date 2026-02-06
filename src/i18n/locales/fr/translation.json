@@ -473,6 +473,29 @@
       "general": "Une erreur est survenue, veuillez réessayer.",
       "emailRequired": "Veuillez entrer votre email.",
       "passwordLength": "Le mot de passe doit contenir au moins 12 caractères."
-    }  }
+    }
+  },
+  "login": {
+    "title": "Bienvenue de retour",
+    "subtitle": "Accédez à votre tableau de bord de sécurité",
+    "email": "Email professionnel",
+    "emailPlaceholder": "nom@entreprise.com",
+    "password": "Mot de passe",
+    "forgotPassword": "Avez-vous oublié votre mot de passe?",
+    "rememberDevice": "Se souvenir de l'appareil pendant 30 jours",
+    "submit": "Se connecter",
+    "loading": "Connexion en cours...",
+    "noAccount": "Vous n'avez pas de compte?",
+    "registerHere": "S'inscrire ici",
+    "errors": {
+      "general": "Erreur de connexion. Veuillez réessayer.",
+      "emailRequired": "Veuillez entrer votre email.",
+      "invalidEmail": "Veuillez entrer une adresse email valide.",
+      "passwordRequired": "Veuillez entrer votre mot de passe."
+    }
+  },
+  "common": {
+    "allRightsReserved": "Tous les droits réservés"
+  }
 }
 

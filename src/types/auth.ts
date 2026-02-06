@@ -1,5 +1,11 @@
 export type OrgType = 'personal' | 'business';
 
+export interface LoginRequest {
+  email: string;
+  password: string;
+  rememberDevice?: boolean;
+}
+
 export interface CreateUserRequest {
   user: {
     organization_id?: number | null;

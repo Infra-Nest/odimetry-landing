@@ -473,6 +473,29 @@
       "general": "Algo salió mal, por favor inténtalo de nuevo.",
       "emailRequired": "Por favor introduce tu correo.",
       "passwordLength": "La contraseña debe tener al menos 12 caracteres."
-    }  }
+    }
+  },
+  "login": {
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Accede a tu panel de control de seguridad",
+    "email": "Email corporativo",
+    "emailPlaceholder": "nombre@empresa.com",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "rememberDevice": "Recordar dispositivo por 30 días",
+    "submit": "Iniciar Sesión",
+    "loading": "Iniciando sesión...",
+    "noAccount": "¿No tienes cuenta?",
+    "registerHere": "Regístrate aquí",
+    "errors": {
+      "general": "Error al iniciar sesión. Por favor, inténtalo de nuevo.",
+      "emailRequired": "Por favor introduce tu email.",
+      "invalidEmail": "Por favor introduce un correo válido.",
+      "passwordRequired": "Por favor introduce tu contraseña."
+    }
+  },
+  "common": {
+    "allRightsReserved": "Todos los derechos reservados"
+  }
 }
 
