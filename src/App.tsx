@@ -14,6 +14,7 @@ import { PrivacyPolicy } from './components/sections/PrivacyPolicy';
 import { TermsOfService } from './components/sections/TermsOfService';
 import { CookiePolicy } from './components/sections/CookiePolicy';
 import { SignUp } from './components/sections/SignUp';
+import ScansList from './components/sections/ScansList';
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
       <Route path="/signup" element={
         <Layout>
           <SignUp />
+        </Layout>
+      } />
+      <Route path="/scans" element={
+        <Layout>
+          <ScansList />
         </Layout>
       } />
       </Routes>
