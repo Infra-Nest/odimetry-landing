@@ -450,7 +450,8 @@
         "title": "8. Contact",
         "description": "If you have questions about our Cookie Policy, contact:"
       }
-    }  },
+    }
+  },
   "signup": {
     "title": "Create your account",
     "subtitle": "Start your free trial",
@@ -472,7 +473,48 @@
     "errors": {
       "general": "Something went wrong, please try again.",
       "emailRequired": "Please enter your email.",
-      "passwordLength": "Password must be at least 12 characters long."
-    }  }
+      "passwordLength": "Password must be at least 12 characters long.",
+      "noToken": "No authentication token found.",
+      "fetchScan": "Failed to fetch scans."
+    }
+  },
+  "scans": {
+    "title": "Scan History",
+    "total": "Total Scans",
+    "noScans": "No scans found",
+    "asset": "Asset",
+    "scanId": "Scan ID",
+    "hostsScanned": "Hosts Scanned",
+    "portsFound": "Ports Found",
+    "fields": {
+      "type": "Type",
+      "created": "Created",
+      "started": "Started",
+      "finished": "Finished"
+    }
+  },
+  "status": {
+    "pending": "Pending",
+    "running": "Running",
+    "completed": "Completed",
+    "failed": "Failed"
+  },
+  "common": {
+    "refresh": "Refresh",
+    "loading": "Loading...",
+    "loadingScans": "Loading scans...",
+    "more": "more",
+    "error": "Error"
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "of",
+    "total": "total",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "errors": {
+    "noToken": "Authentication token missing",
+    "fetchScan": "Error fetching scan history"
+  }
 }
-
