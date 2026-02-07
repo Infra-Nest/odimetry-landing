@@ -14,7 +14,7 @@ const STATUS_STYLES: Record<ScanStatus, string> = {
   failed: "bg-red-950/40 border-red-600 text-red-400",
 };
 
-export default function ScansList() {
+export const ScansList = () => {
   const { t } = useTranslation();
   const [scans, setScans] = useState<Scan[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +29,8 @@ export default function ScansList() {
   });
 
   /** * TODO: Replace with useAuth() hook once AuthContext is available.
- * Accessing localStorage directly is a temporary solution for current development.
- */
+   * Accessing localStorage directly is a temporary solution for current development.
+   */
   const token = localStorage.getItem("access_token") || "";
 
   useEffect(() => {
@@ -229,7 +229,7 @@ export default function ScansList() {
                         {scan.hosts.map((host) => (
                           <span
                             key={host.id}
-                            className="bg-gray-800 text-gray-300 border border-gray-700 px-2 py-1 rounded text-sm text-gray-300"
+                            className="bg-gray-800 text-gray-300 border border-gray-700 px-2 py-1 rounded text-sm"
                           >
                             {host.hostname || host.ip_address}
                           </span>

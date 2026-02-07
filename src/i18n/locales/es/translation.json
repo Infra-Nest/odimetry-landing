@@ -503,7 +503,8 @@
     "refresh": "Actualizar",
     "loading": "Cargando...",
     "loadingScans": "Cargando escaneos...",
-    "more": "más"
+    "more": "más",
+    "error": "Error"
   },
   "pagination": {
     "page": "Página",
