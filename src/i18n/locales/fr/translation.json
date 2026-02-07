@@ -450,7 +450,8 @@
         "title": "8. Contact",
         "description": "Si vous avez des questions sur notre Politique des cookies, contactez :"
       }
-    }  },
+    }
+  },
   "signup": {
     "title": "Créez votre compte",
     "subtitle": "Commencez votre essai gratuit",
@@ -472,7 +473,47 @@
     "errors": {
       "general": "Une erreur est survenue, veuillez réessayer.",
       "emailRequired": "Veuillez entrer votre email.",
-      "passwordLength": "Le mot de passe doit contenir au moins 12 caractères."
-    }  }
+      "passwordLength": "Le mot de passe doit contenir au moins 12 caractères.",
+      "noToken": "Aucun token d'authentification trouvé.",
+      "fetchScan": "Erreur lors de la récupération des données de scan."
+    }
+  },
+  "scans": {
+    "title": "Historique des Analyses",
+    "total": "Total des Analyses",
+    "noScans": "Aucune analyse trouvée",
+    "asset": "Actif",
+    "scanId": "ID d'Analyse",
+    "hostsScanned": "Hôtes Analysés",
+    "portsFound": "Ports Trouvés",
+    "fields": {
+      "type": "Type",
+      "created": "Créé",
+      "started": "Commencé",
+      "finished": "Terminé"
+    }
+  },
+  "status": {
+    "pending": "En attente",
+    "running": "En cours",
+    "completed": "Terminé",
+    "failed": "Échoué"
+  },
+  "common": {
+    "refresh": "Actualiser",
+    "loading": "Chargement...",
+    "loadingScans": "Chargement des analyses...",
+    "more": "plus"
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "sur",
+    "total": "total",
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "errors": {
+    "noToken": "Jeton d'authentification manquant",
+    "fetchScan": "Erreur lors de la récupération de l'historique"
+  }
 }
-

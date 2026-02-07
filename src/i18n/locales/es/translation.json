@@ -450,7 +450,8 @@
         "title": "8. Contacto",
         "description": "Si tienes preguntas sobre nuestra Política de Cookies, contacta:"
       }
-    }  },
+    }
+  },
   "signup": {
     "title": "Crea tu cuenta",
     "subtitle": "Comienza tu prueba gratuita",
@@ -472,7 +473,47 @@
     "errors": {
       "general": "Algo salió mal, por favor inténtalo de nuevo.",
       "emailRequired": "Por favor introduce tu correo.",
-      "passwordLength": "La contraseña debe tener al menos 12 caracteres."
-    }  }
+      "passwordLength": "La contraseña debe tener al menos 12 caracteres.",
+      "noToken": "No se encontró el token de autenticación.",
+      "fetchScan": "Error al recuperar los datos del escaneo."
+    }
+  },
+  "scans": {
+    "title": "Historial de Escaneos",
+    "total": "Total de Escaneos",
+    "noScans": "No se encontraron escaneos",
+    "asset": "Activo",
+    "scanId": "ID de Escaneo",
+    "hostsScanned": "Hosts Escaneados",
+    "portsFound": "Puertos Encontrados",
+    "fields": {
+      "type": "Tipo",
+      "created": "Creado",
+      "started": "Iniciado",
+      "finished": "Finalizado"
+    }
+  },
+  "status": {
+    "pending": "Pendiente",
+    "running": "En ejecución",
+    "completed": "Completado",
+    "failed": "Fallido"
+  },
+  "common": {
+    "refresh": "Actualizar",
+    "loading": "Cargando...",
+    "loadingScans": "Cargando escaneos...",
+    "more": "más"
+  },
+  "pagination": {
+    "page": "Página",
+    "of": "de",
+    "total": "total",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "errors": {
+    "noToken": "Falta el token de autenticación",
+    "fetchScan": "Error al obtener el historial"
+  }
 }
-

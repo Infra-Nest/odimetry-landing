@@ -39,7 +39,6 @@ export async function getScanHistory(
   const res = await fetch(`${API_BASE}/scans/history?${params.toString()}`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
   });

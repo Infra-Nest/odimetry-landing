@@ -450,7 +450,8 @@
         "title": "8. Kontakt",
         "description": "Wenn Sie Fragen zu unserer Cookie-Richtlinie haben, kontaktieren Sie:"
       }
-    }  },
+    }
+  },
   "signup": {
     "title": "Erstelle dein Konto",
     "subtitle": "Beginne deine kostenlose Testphase",
@@ -472,7 +473,47 @@
     "errors": {
       "general": "Etwas ist schief gelaufen, bitte versuche es erneut.",
       "emailRequired": "Bitte gebe deine E-Mail ein.",
-      "passwordLength": "Das Passwort muss mindestens 12 Zeichen lang sein."
-    }  }
+      "passwordLength": "Das Passwort muss mindestens 12 Zeichen lang sein.",
+      "noToken": "Kein Authentifizierungs-Token gefunden.",
+      "fetchScan": "Fehler beim Abrufen der Scan-Daten."
+    }
+  },
+  "scans": {
+    "title": "Scan-Verlauf",
+    "total": "Scans insgesamt",
+    "noScans": "Keine Scans gefunden",
+    "asset": "Asset",
+    "scanId": "Scan-ID",
+    "hostsScanned": "Gescannte Hosts",
+    "portsFound": "Gefundene Ports",
+    "fields": {
+      "type": "Typ",
+      "created": "Erstellt",
+      "started": "Gestartet",
+      "finished": "Abgeschlossen"
+    }
+  },
+  "status": {
+    "pending": "Ausstehend",
+    "running": "Laufend",
+    "completed": "Abgeschlossen",
+    "failed": "Fehlgeschlagen"
+  },
+  "common": {
+    "refresh": "Aktualisieren",
+    "loading": "Laden...",
+    "loadingScans": "Scans werden geladen...",
+    "more": "mehr"
+  },
+  "pagination": {
+    "page": "Seite",
+    "of": "von",
+    "total": "insgesamt",
+    "previous": "Zurück",
+    "next": "Weiter"
+  },
+  "errors": {
+    "noToken": "Authentifizierungstoken fehlt",
+    "fetchScan": "Fehler beim Abrufen des Scan-Verlaufs"
+  }
 }
-
