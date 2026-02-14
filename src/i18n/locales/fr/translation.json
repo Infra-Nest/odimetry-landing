@@ -455,26 +455,37 @@
   "signup": {
     "title": "Créez votre compte",
     "subtitle": "Commencez votre essai gratuit",
-    "email": "Email",
-    "password": "Mot de passe (au moins 12 caractères)",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe (min. 12 caractères)",
     "passwordPlaceholder": "Au moins 12 caractères",
-    "firstname": "Prénom",
-    "surname": "Nom",
+    "firstname": "Prénom (optionnel)",
+    "surname": "Nom (optionnel)",
     "createOrganization": "Créer une organisation",
+    "phoneNumber": "Numéro de téléphone (optionnel)",
     "organization": {
+      "id": "ID de l'organisation",
       "name": "Nom de l'organisation",
-      "org_type": "Type d'organisation",
-      "description": "Description (optionnelle)",
-      "website_url": "Site Web (optionnel)"
+      "orgType": "Type d'organisation",
+      "description": "Description (optionnel)",
+      "websiteUrl": "URL du site web (optionnel)",
+      "taxId": "Numéro de TVA (optionnel)",
+      "legalAddress": "Adresse fiscale (optionnel)",
+      "city": "Ville (optionnel)",
+      "postalCode": "Code postal (optionnel)",
+      "country": "Pays (optionnel)"
+    },
+    "orgType": {
+      "personal": "Personnel",
+      "business": "Entreprise"
     },
     "submit": "Créer un compte",
     "submitting": "Création...",
-    "success": "Compte créé! Vérifiez votre email.",
+    "success": "Compte créé ! Veuillez vérifier vos e-mails.",
     "errors": {
-      "general": "Une erreur est survenue, veuillez réessayer.",
-      "emailRequired": "Veuillez entrer votre email.",
+      "general": "Un problème est survenu, veuillez réessayer.",
+      "emailRequired": "Veuillez entrer votre adresse e-mail.",
       "passwordLength": "Le mot de passe doit contenir au moins 12 caractères.",
-      "noToken": "Aucun token d'authentification trouvé.",
+      "noToken": "Jeton d'authentification non trouvé.",
       "fetchScan": "Erreur lors de la récupération des données de scan."
     }
   },

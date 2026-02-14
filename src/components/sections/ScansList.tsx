@@ -305,7 +305,7 @@ export const ScansList = () => {
                   onClick={handlePreviousPage}
                   disabled={!hasPreviousPage || isLoading}
                   variant="secondary"
-                  className="bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700 disabled:opacity-50"
+                  className="border-gray-700 disabled:opacity-50"
                 >
                   {t("pagination.previous")}
                 </Button>
@@ -313,7 +313,7 @@ export const ScansList = () => {
                   onClick={handleNextPage}
                   disabled={!hasNextPage || isLoading}
                   variant="secondary"
-                  className="bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700 disabled:opacity-50"
+                  className="border-gray-700 disabled:opacity-50"
                 >
                   {t("pagination.next")}
                 </Button>

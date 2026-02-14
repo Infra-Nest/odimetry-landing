@@ -455,27 +455,40 @@
   "signup": {
     "title": "Create your account",
     "subtitle": "Start your free trial",
-    "email": "Email",
-    "password": "Password (min 12 characters)",
+    "email": "Email address",
+    "password": "Password (min. 12 characters)",
     "passwordPlaceholder": "At least 12 characters",
-    "firstname": "First name",
-    "surname": "Last name",
+    "firstname": "First Name (optional)",
+    "surname": "Surname (optional)",
     "createOrganization": "Create organization",
+    "phoneNumber": "Phone Number (optional)",
     "organization": {
-      "name": "Organization name",
-      "org_type": "Organization type",
+      "id": "Organization ID",
+      "name": "Organization Name",
+      "orgType": "Organization Type",
       "description": "Description (optional)",
-      "website_url": "Website (optional)"
+      "websiteUrl": "Website URL (optional)",
+      "taxId": "Tax ID (optional)",
+      "legalAddress": "Legal Address (optional)",
+      "city": "City (optional)",
+      "postalCode": "Postal Code (optional)",
+      "country": "Country (optional)"
+    },
+    "orgType": {
+      "personal": "Personal",
+      "business": "Business"
     },
     "submit": "Create account",
     "submitting": "Creating...",
-    "success": "Account created! Check your email.",
+    "success": "Account created! Please check your email.",
     "errors": {
       "general": "Something went wrong, please try again.",
       "emailRequired": "Please enter your email.",
       "passwordLength": "Password must be at least 12 characters long.",
-      "noToken": "No authentication token found.",
-      "fetchScan": "Failed to fetch scans."
+      "orgRequired": "Please select an organization or create a new one.",
+      "orgNameRequired": "Organization name is required.",
+      "noToken": "Authentication token not found.",
+      "fetchScan": "Error retrieving scan data."
     }
   },
   "scans": {

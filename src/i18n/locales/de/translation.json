@@ -453,29 +453,42 @@
     }
   },
   "signup": {
-    "title": "Erstelle dein Konto",
-    "subtitle": "Beginne deine kostenlose Testphase",
-    "email": "E-Mail",
-    "password": "Passwort (mindestens 12 Zeichen)",
+    "title": "Konto erstellen",
+    "subtitle": "Starten Sie Ihre kostenlose Testversion",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort (mind. 12 Zeichen)",
     "passwordPlaceholder": "Mindestens 12 Zeichen",
-    "firstname": "Vorname",
-    "surname": "Nachname",
+    "firstname": "Vorname (optional)",
+    "surname": "Nachname (optional)",
     "createOrganization": "Organisation erstellen",
+    "phoneNumber": "Telefonnummer (optional)",
     "organization": {
-      "name": "Organisationsname",
-      "org_type": "Organisationstyp",
+      "id": "Organisation-ID",
+      "name": "Name der Organisation",
+      "orgType": "Organisationstyp",
       "description": "Beschreibung (optional)",
-      "website_url": "Webseite (optional)"
+      "websiteUrl": "Website-URL (optional)",
+      "taxId": "Steuernummer (optional)",
+      "legalAddress": "Steueradresse (optional)",
+      "city": "Stadt (optional)",
+      "postalCode": "Postleitzahl (optional)",
+      "country": "Land (optional)"
+    },
+    "orgType": {
+      "personal": "Privat",
+      "business": "Geschäftlich"
     },
     "submit": "Konto erstellen",
-    "submitting": "Erstelle...",
-    "success": "Konto erstellt! Prüfe deine E-Mails.",
+    "submitting": "Wird erstellt...",
+    "success": "Konto erstellt! Bitte überprüfen Sie Ihre E-Mails.",
     "errors": {
-      "general": "Etwas ist schief gelaufen, bitte versuche es erneut.",
-      "emailRequired": "Bitte gebe deine E-Mail ein.",
+      "general": "Etwas ist schief gelaufen, bitte versuchen Sie es erneut.",
+      "emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
       "passwordLength": "Das Passwort muss mindestens 12 Zeichen lang sein.",
-      "noToken": "Kein Authentifizierungs-Token gefunden.",
-      "fetchScan": "Fehler beim Abrufen der Scan-Daten."
+      "orgRequired": "Bitte wählen Sie eine Organisation aus oder erstellen Sie eine neue.",
+      "orgNameRequired": "Der Name der Organisation ist erforderlich.",
+      "noToken": "Authentifizierungstoken nicht gefunden.",
+      "fetchScan": "Fehler beim Abrufen der Scandaten."
     }
   },
   "scans": {

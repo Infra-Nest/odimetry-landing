@@ -146,8 +146,8 @@ export const SignUp = () => {
 
             {/* Optional user fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input placeholder="First Name" value={firstname} onChange={(e) => setFirstname(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-              <input placeholder="Surname" value={surname} onChange={(e) => setSurname(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+              <input placeholder={translate('signup.firstname')} value={firstname} onChange={(e) => setFirstname(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+              <input placeholder={translate('signup.surname')} value={surname} onChange={(e) => setSurname(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
@@ -155,8 +155,17 @@ export const SignUp = () => {
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files?.[0];
+                const maxSize = 2 * 1024 * 1024; // Límite de 2MB
+
                 if (file) {
-                  // Convert to base64 to send as profile_image_url (or handle upload separately)
+                  if (file.size > maxSize) {
+                    setError(translate('signup.errors.fileTooLarge')); 
+                    e.target.value = ""; 
+                    setProfileImageUrl(""); 
+                    return;
+                  }
+
+                  setError(null); // Limpia errores previos si el archivo es válido
                   const reader = new FileReader();
                   reader.onloadend = () => {
                     setProfileImageUrl(reader.result as string);
@@ -165,7 +174,7 @@ export const SignUp = () => {
                 }
               }}
               className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-            />              <input placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+            />              <input placeholder={translate('signup.phoneNumber')} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
             </div>
 
             {/* Existing org id or create new org toggle */}
@@ -178,7 +187,7 @@ export const SignUp = () => {
             {!createOrg && (
               <div>
                   <label className="block text-sm font-medium text-gray-300 mb-1" htmlFor="organizationId">
-                  Organization ID
+                    {translate('signup.organization.id')}
                   </label>
                   <input
                   type="number"
@@ -194,20 +203,20 @@ export const SignUp = () => {
             {/* Organization fields */}
             {createOrg && (
               <div className="space-y-3">
-                <input placeholder="Organization Name *" value={orgName} onChange={(e) => setOrgName(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.name')} value={orgName} onChange={(e) => setOrgName(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                 <select value={orgType} onChange={(e) => setOrgType(e.target.value as 'personal' | 'business')} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                  <option value="personal">Personal</option>
-                  <option value="business">Business</option>
+                  <option value="personal">{translate('signup.orgTypes.personal')}</option>
+                  <option value="business">{translate('signup.orgTypes.business')}</option>
                 </select>
-                <input placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-                <input placeholder="Website URL" value={websiteUrl} onChange={(e) => setWebsiteUrl(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-                <input placeholder="Tax ID" value={taxId} onChange={(e) => setTaxId(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-                <input placeholder="Address" value={legalAddress} onChange={(e) => setLegalAddress(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.description')} value={description} onChange={(e) => setDescription(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.websiteUrl')} value={websiteUrl} onChange={(e) => setWebsiteUrl(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.taxId')} value={taxId} onChange={(e) => setTaxId(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.legalAddress')} value={legalAddress} onChange={(e) => setLegalAddress(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-                  <input placeholder="Postal Code" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                  <input placeholder={translate('signup.organization.city')} value={city} onChange={(e) => setCity(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                  <input placeholder={translate('signup.organization.postalCode')} value={postalCode} onChange={(e) => setPostalCode(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
                 </div>
-                <input placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <input placeholder={translate('signup.organization.country')} value={country} onChange={(e) => setCountry(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
               </div>
             )}
 
