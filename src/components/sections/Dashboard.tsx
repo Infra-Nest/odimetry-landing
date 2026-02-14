@@ -1,10 +1,13 @@
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
+import { Button } from '../ui/Button';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, XCircle, AlertCircle, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { CheckCircle2, XCircle, AlertCircle, TrendingUp, LogOut } from 'lucide-react';
 
 export const Dashboard = () => {
   const { t: translate } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <section 
@@ -30,10 +33,18 @@ export const Dashboard = () => {
                 <h3 className="font-semibold text-gray-100">{translate('dashboard.exampleDomain')}</h3>
                 <p className="text-sm text-gray-400">{translate('dashboard.lastAudit')}</p>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-4">
                 <span className="px-3 py-1 bg-green-900/30 text-green-400 rounded-full text-sm font-medium">
                   {translate('dashboard.active')}
                 </span>
+                <button
+                  onClick={() => navigate('/login')}
+                  className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
+                  aria-label="Ir a login"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Login
+                </button>
               </div>
             </div>
           </div>
