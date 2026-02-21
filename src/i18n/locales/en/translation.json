@@ -2,6 +2,7 @@
   "header": {
     "features": "Features",
     "pricing": "Pricing",
+    "login": "Sign In",
     "startTrial": "Start trial",
     "menu": "Menu"
   },
@@ -529,5 +530,25 @@
   "errors": {
     "noToken": "Authentication token missing",
     "fetchScan": "Error fetching scan history"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Access your security control panel",
+    "email": "Corporate email",
+    "emailPlaceholder": "name@company.com",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "rememberDevice": "Remember device for 30 days",
+    "submit": "Sign In",
+    "loading": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here",
+    "errors": {
+      "general": "Login failed. Please try again.",
+      "emailRequired": "Please enter your email.",
+      "invalidEmail": "Please enter a valid email address.",
+      "passwordRequired": "Please enter your password."
+    }
   }
 }
+

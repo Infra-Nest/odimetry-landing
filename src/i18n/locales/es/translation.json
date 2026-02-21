@@ -2,6 +2,7 @@
   "header": {
     "features": "Características",
     "pricing": "Precios",
+    "login": "Iniciar sesión",
     "startTrial": "Iniciar prueba",
     "menu": "Menú"
   },
@@ -530,5 +531,25 @@
   "errors": {
     "noToken": "Falta el token de autenticación",
     "fetchScan": "Error al obtener el historial"
+  },
+  "login": {
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Accede a tu panel de control de seguridad",
+    "email": "Email corporativo",
+    "emailPlaceholder": "nombre@empresa.com",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "rememberDevice": "Recordar dispositivo por 30 días",
+    "submit": "Iniciar Sesión",
+    "loading": "Iniciando sesión...",
+    "noAccount": "¿No tienes cuenta?",
+    "registerHere": "Regístrate aquí",
+    "errors": {
+      "general": "Error al iniciar sesión. Por favor, inténtalo de nuevo.",
+      "emailRequired": "Por favor introduce tu email.",
+      "invalidEmail": "Por favor introduce un correo válido.",
+      "passwordRequired": "Por favor introduce tu contraseña."
+    }
   }
 }
+

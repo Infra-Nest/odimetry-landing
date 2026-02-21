@@ -2,6 +2,7 @@
   "header": {
     "features": "Funktionen",
     "pricing": "Preise",
+    "login": "Anmelden",
     "startTrial": "Test starten",
     "menu": "Menü"
   },
@@ -529,5 +530,28 @@
   "errors": {
     "noToken": "Authentifizierungstoken fehlt",
     "fetchScan": "Fehler beim Abrufen des Scan-Verlaufs"
+  },
+  "login": {
+    "title": "Willkommen zurück",
+    "subtitle": "Greifen Sie auf Ihr Sicherheits-Dashboard zu",
+    "email": "Firmen-E-Mail",
+    "emailPlaceholder": "name@unternehmen.de",
+    "password": "Passwort",
+    "forgotPassword": "Passwort vergessen?",
+    "rememberDevice": "Gerät 30 Tage lang merken",
+    "submit": "Anmelden",
+    "loading": "Wird angemeldet...",
+    "noAccount": "Haben Sie kein Konto?",
+    "registerHere": "Hier registrieren",
+    "errors": {
+      "general": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "emailRequired": "Bitte geben Sie Ihre E-Mail ein.",
+      "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "passwordRequired": "Bitte geben Sie Ihr Passwort ein."
+    }
+  },
+  "common": {
+    "allRightsReserved": "Alle Rechte vorbehalten"
   }
 }
+

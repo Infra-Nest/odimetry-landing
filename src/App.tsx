@@ -15,6 +15,7 @@ import { TermsOfService } from "./components/sections/TermsOfService";
 import { CookiePolicy } from "./components/sections/CookiePolicy";
 import { SignUp } from "./components/sections/SignUp";
 import { ScansList } from "./components/sections/ScansList";
+import { Login } from './components/sections/Login';
 
 function App() {
   return (
@@ -80,6 +81,11 @@ function App() {
             </Layout>
           }
         />
+      <Route path="/login" element={
+        <Layout>
+          <Login />
+        </Layout>
+      } />
       </Routes>
     </>
   );
