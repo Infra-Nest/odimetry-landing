@@ -451,21 +451,33 @@
         "title": "8. Contacto",
         "description": "Si tienes preguntas sobre nuestra Política de Cookies, contacta:"
       }
-    }  },
+    }
+  },
   "signup": {
     "title": "Crea tu cuenta",
     "subtitle": "Comienza tu prueba gratuita",
     "email": "Correo electrónico",
     "password": "Contraseña (mínimo 12 caracteres)",
     "passwordPlaceholder": "Al menos 12 caracteres",
-    "firstname": "Nombre",
-    "surname": "Apellidos",
+    "firstname": "Nombre (opcional)",
+    "surname": "Apellidos (opcional)",
     "createOrganization": "Crear organización",
+    "phoneNumber": "Número de teléfono (opcional)",
     "organization": {
+      "id": "ID de la organización",
       "name": "Nombre de la organización",
-      "org_type": "Tipo de organización",
+      "orgType": "Tipo de organización",
       "description": "Descripción (opcional)",
-      "website_url": "Sitio web (opcional)"
+      "websiteUrl": "Sitio web (opcional)",
+      "taxId": "Identificación fiscal (opcional)",
+      "legalAddress": "Dirección fiscal (opcional)",
+      "city": "Ciudad (opcional)",
+      "postalCode": "Código Postal (opcional)",
+      "country": "País (opcional)"
+    },
+    "orgTypes": {
+      "personal": "Personal",
+      "business": "Negocio"
     },
     "submit": "Crear cuenta",
     "submitting": "Creando...",
@@ -473,8 +485,52 @@
     "errors": {
       "general": "Algo salió mal, por favor inténtalo de nuevo.",
       "emailRequired": "Por favor introduce tu correo.",
-      "passwordLength": "La contraseña debe tener al menos 12 caracteres."
+      "passwordLength": "La contraseña debe tener al menos 12 caracteres.",
+      "orgRequired": "Por favor selecciona una organización o crea una nueva.",
+      "orgNameRequired": "El nombre de la organización es obligatorio.",
+      "noToken": "No se encontró el token de autenticación.",
+      "fetchScan": "Error al recuperar los datos del escaneo.",
+      "fileTooLarge": "El archivo es demasiado grande (máximo 2MB)"
     }
+  },
+  "scans": {
+    "title": "Historial de Escaneos",
+    "total": "Total de Escaneos",
+    "noScans": "No se encontraron escaneos",
+    "asset": "Activo",
+    "scanId": "ID de Escaneo",
+    "hostsScanned": "Hosts Escaneados",
+    "portsFound": "Puertos Encontrados",
+    "fields": {
+      "type": "Tipo",
+      "created": "Creado",
+      "started": "Iniciado",
+      "finished": "Finalizado"
+    }
+  },
+  "status": {
+    "pending": "Pendiente",
+    "running": "En ejecución",
+    "completed": "Completado",
+    "failed": "Fallido"
+  },
+  "common": {
+    "refresh": "Actualizar",
+    "loading": "Cargando...",
+    "loadingScans": "Cargando escaneos...",
+    "more": "más",
+    "error": "Error"
+  },
+  "pagination": {
+    "page": "Página",
+    "of": "de",
+    "total": "total",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "errors": {
+    "noToken": "Falta el token de autenticación",
+    "fetchScan": "Error al obtener el historial"
   },
   "login": {
     "title": "Bienvenido de nuevo",
@@ -494,9 +550,6 @@
       "invalidEmail": "Por favor introduce un correo válido.",
       "passwordRequired": "Por favor introduce tu contraseña."
     }
-  },
-  "common": {
-    "allRightsReserved": "Todos los derechos reservados"
   }
 }
 
