@@ -2,8 +2,8 @@
   "header": {
     "features": "Features",
     "pricing": "Pricing",
-    "login": "Sign In",
-    "startTrial": "Start trial",
+    "login": "Sign In",    "logout": "Logout",
+    "assets": "Assets",    "startTrial": "Start trial",
     "menu": "Menu"
   },
   "hero": {
@@ -548,6 +548,82 @@
       "emailRequired": "Please enter your email.",
       "invalidEmail": "Please enter a valid email address.",
       "passwordRequired": "Please enter your password."
+    }
+  },
+  "assets": {
+    "title": "Assets",
+    "subtitle": "Manage and monitor your organization assets",
+    "addNew": "Add Asset",
+    "searchPlaceholder": "Search by name or type...",
+    "allStatuses": "All Statuses",
+    "noAssets": "No assets found",
+    "loading": "Loading assets...",
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "maintenance": "Maintenance",
+      "retired": "Retired",
+      "pending": "Pending"
+    },
+    "table": {
+      "name": "Name",
+      "type": "Type",
+      "status": "Status",
+      "location": "Location",
+      "createdAt": "Created",
+      "actions": "Actions",
+      "view": "View"
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of"
+    },
+    "errors": {
+      "error": "Error",
+      "fetchFailed": "Failed to fetch assets"
+    }
+  },
+  "createAsset": {
+    "title": "Create New Asset",
+    "subtitle": "Add a new asset to your organization",
+    "backToList": "Back to Assets",
+    "selectType": "Select asset type...",
+    "create": "Create Asset",
+    "creating": "Creating...",
+    "cancel": "Cancel",
+    "fields": {
+      "name": "Asset Name",
+      "type": "Asset Type",
+      "serial": "Serial Number",
+      "assetTag": "Asset Tag",
+      "status": "Status",
+      "owner": "Owner ID",
+      "location": "Location",
+      "purchaseDate": "Purchase Date",
+      "warrantyMonths": "Warranty (months)"
+    },
+    "placeholders": {
+      "name": "e.g., Server 01, Laptop XYZ",
+      "owner": "User ID",
+      "location": "e.g., Office Building A, Room 201",
+      "warrantyMonths": "e.g., 12"
+    },
+    "types": {
+      "domain": "Domain",
+      "host": "Host",
+      "ip": "IP Address"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "maintenance": "Maintenance"
+    },
+    "errors": {
+      "nameRequired": "Asset name is required",
+      "typeRequired": "Asset type is required",
+      "invalidType": "Invalid asset type",
+      "invalidStatus": "Invalid status",
+      "general": "Failed to create asset"
     }
   }
 }

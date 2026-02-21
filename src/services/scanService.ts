@@ -1,58 +1,123 @@
-import type { ScanHistoryFilters, ScanHistoryResponse } from '../types/scan';
+import type { ScanHistoryFilters, ScanHistoryResponse, Scan } from '../types/scan';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 
-export async function getScanHistory(
-  filters: ScanHistoryFilters,
-  token: string
-): Promise<ScanHistoryResponse> {
-  const params = new URLSearchParams();
+function getAuthToken(): string | null {
+  return localStorage.getItem('access_token');
+}
 
-  // Add filters to query params
-  if (filters.organization_id) params.append('organization_id', String(filters.organization_id));
-  if (filters.client_id) params.append('client_id', String(filters.client_id));
-  if (filters.asset_id) params.append('asset_id', String(filters.asset_id));
-  if (filters.requested_by_user_id) params.append('requested_by_user_id', String(filters.requested_by_user_id));
-  if (filters.status?.length) {
-    filters.status.forEach(s => params.append('status', s));
-  }
-  if (filters.scan_type?.length) {
-    filters.scan_type.forEach(t => params.append('scan_type', t));
-  }
-  if (filters.created_from) params.append('created_from', filters.created_from);
-  if (filters.created_to) params.append('created_to', filters.created_to);
-  if (filters.started_from) params.append('started_from', filters.started_from);
-  if (filters.finished_to) params.append('finished_to', filters.finished_to);
-  if (filters.has_error !== undefined) params.append('has_error', String(filters.has_error));
-  if (filters.include_deleted) params.append('include_deleted', String(filters.include_deleted));
-  if (filters.asset_name) params.append('asset_name', filters.asset_name);
-  if (filters.hostname) params.append('hostname', filters.hostname);
-  if (filters.ip_address) params.append('ip_address', filters.ip_address);
-  if (filters.port) params.append('port', String(filters.port));
-  if (filters.protocol) params.append('protocol', filters.protocol);
-  if (filters.state) params.append('state', filters.state);
-  if (filters.limit) params.append('limit', String(filters.limit));
-  if (filters.offset !== undefined) params.append('offset', String(filters.offset));
-  if (filters.sort_by) params.append('sort_by', filters.sort_by);
-  if (filters.order) params.append('order', filters.order);
+export interface ScansListResponse {
+  items: Scan[];
+  meta: {
+    total: number;
+    page: number;
+    per_page: number;
+    total_pages: number;
+  };
+}
 
-  const res = await fetch(`${API_BASE}/scans/history?${params.toString()}`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    },
-  });
-
-  const data = await res.json().catch(() => null);
-
-  if (!res.ok) {
-    console.error('Scan history error response:', data);
-    throw new Error(
-      data?.detail
-        ? JSON.stringify(data.detail, null, 2)
-        : 'Failed to fetch scan history'
-    );
+export async function getScans(filter: ScanHistoryFilters & { page?: number; per_page?: number }): Promise<ScansListResponse> {
+  const token = getAuthToken();
+  if (!token) {
+    throw new Error('No authentication token found');
   }
 
-  return data;
+  const orgId = localStorage.getItem('organization_id');
+  if (!orgId) {
+    throw new Error('Organization ID not found. Please log in again.');
+  }
+
+  const url = new URL('/scans/history', API_BASE);
+  
+  const params: Record<string, string> = {
+    organization_id: orgId,
+    page: (filter.page || 1).toString(),
+    per_page: (filter.per_page || 25).toString(),
+  };
+
+  if (filter.client_id) {
+    params.client_id = filter.client_id.toString();
+  }
+
+  if (filter.asset_id) {
+    params.asset_id = filter.asset_id.toString();
+  }
+
+  if (filter.asset_name) {
+    params.asset_name = filter.asset_name;
+  }
+
+  if (filter.status && filter.status.length > 0) {
+    params.status = filter.status.join(',');
+  }
+
+  if (filter.scan_type && filter.scan_type.length > 0) {
+    params.scan_type = filter.scan_type.join(',');
+  }
+
+  url.search = new URLSearchParams(params).toString();
+
+  try {
+    const res = await fetch(url.toString(), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    
+    const data = await res.json().catch(() => null);
+
+    if (!res.ok) {
+      let errorMessage = 'Failed to fetch scans';
+      if (Array.isArray(data) && data.length > 0 && data[0].msg) {
+        errorMessage = data[0].msg;
+      } else if (data?.detail) {
+        errorMessage = typeof data.detail === 'string' ? data.detail : 'Failed to fetch scans';
+      }
+      
+      throw new Error(errorMessage);
+    }
+
+    // Normalize response to standard format
+    let normalizedData: ScansListResponse;
+    
+    if (data?.items && data?.meta) {
+      normalizedData = data;
+    } else if (Array.isArray(data)) {
+      normalizedData = {
+        items: data,
+        meta: {
+          page: filter.page || 1,
+          per_page: filter.per_page || 25,
+          total: data.length,
+          total_pages: 1,
+        },
+      };
+    } else if (data?.data && Array.isArray(data.data)) {
+      normalizedData = {
+        items: data.data,
+        meta: {
+          page: data.pagination?.page || filter.page || 1,
+          per_page: data.pagination?.per_page || filter.per_page || 25,
+          total: data.pagination?.total || data.data.length,
+          total_pages: data.pagination?.total_pages || 1,
+        },
+      };
+    } else {
+      normalizedData = {
+        items: [],
+        meta: {
+          page: 1,
+          per_page: 25,
+          total: 0,
+          total_pages: 0,
+        },
+      };
+    }
+
+    return normalizedData;
+  } catch (error) {
+    throw error instanceof Error ? error : new Error('Failed to fetch scans');
+  }
 }

@@ -16,6 +16,8 @@ import { CookiePolicy } from "./components/sections/CookiePolicy";
 import { SignUp } from "./components/sections/SignUp";
 import { ScansList } from "./components/sections/ScansList";
 import { Login } from './components/sections/Login';
+import { Assets } from './components/sections/Assets';
+import { CreateAsset } from './components/sections/CreateAsset';
 
 function App() {
   return (
@@ -84,6 +86,16 @@ function App() {
       <Route path="/login" element={
         <Layout>
           <Login />
+        </Layout>
+      } />
+      <Route path="/assets" element={
+        <Layout>
+          <Assets />
+        </Layout>
+      } />
+      <Route path="/assets/new" element={
+        <Layout>
+          <CreateAsset />
         </Layout>
       } />
       </Routes>

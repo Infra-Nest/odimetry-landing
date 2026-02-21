@@ -1,327 +1,286 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import type { Scan, ScanHistoryFilters, ScanStatus } from "../../types/scan";
-import { getScanHistory } from "../../services/scanService";
-import { Container } from "../ui/Container";
-import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
-import { LockOpen, Lock } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { Container } from '../ui/Container';
+import { Button } from '../ui/Button';
+import { getScans } from '../../services/scanService';
+import type { Scan, ScanStatus, ScanType } from '../../types/scan';
+import { Search, Plus, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 
-const STATUS_STYLES: Record<ScanStatus, string> = {
-  pending: "bg-amber-950/40 border-amber-600 text-amber-400",
-  running: "bg-blue-950/40 border-blue-600 text-blue-400",
-  completed: "bg-green-950/40 border-green-600 text-green-400",
-  failed: "bg-red-950/40 border-red-600 text-red-400",
+const STATUS_COLORS: Record<ScanStatus, { bg: string; text: string }> = {
+  pending: { bg: 'bg-blue-900/30', text: 'text-blue-400' },
+  running: { bg: 'bg-yellow-900/30', text: 'text-yellow-400' },
+  completed: { bg: 'bg-green-900/30', text: 'text-green-400' },
+  failed: { bg: 'bg-red-900/30', text: 'text-red-400' },
 };
 
 export const ScansList = () => {
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
+  const navigate = useNavigate();
+
+  // State
   const [scans, setScans] = useState<Scan[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [total, setTotal] = useState(0);
-  const [refreshKey, setRefreshKey] = useState(0);
-  const [filters, setFilters] = useState<ScanHistoryFilters>({
-    limit: 50,
-    offset: 0,
-    sort_by: "created_at",
-    order: "desc",
-  });
+  const [search, setSearch] = useState('');
+  const [statusFilter, setStatusFilter] = useState<ScanStatus | ''>('');
+  const [typeFilter, setTypeFilter] = useState<ScanType | ''>('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [perPage] = useState(25);
 
-  /** * TODO: Replace with useAuth() hook once AuthContext is available.
-   * Accessing localStorage directly is a temporary solution for current development.
-   */
-  const token = localStorage.getItem("access_token") || "";
-
-  useEffect(() => {
-    if (!token) {
-      setError(t("errors.noToken"));
-      return;
-    }
-
-    const fetchScans = async () => {
-      setIsLoading(true);
+  // Fetch scans
+  const fetchScans = async (page: number = 1) => {
+    try {
+      setLoading(true);
       setError(null);
-      try {
-        const response = await getScanHistory(filters, token);
-        setScans(response.results);
-        setTotal(response.total);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : t("errors.fetchScan"));
-        setScans([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchScans();
-  }, [filters, token, t, refreshKey]);
-
-  const handleRefresh = () => {
-    setRefreshKey((prev) => prev + 1);
+      
+      const filters = {
+        page,
+        per_page: perPage,
+        status: statusFilter ? [statusFilter as ScanStatus] : undefined,
+        scan_type: typeFilter ? [typeFilter as ScanType] : undefined,
+        asset_name: search || undefined,
+      };
+      
+      const data = await getScans(filters);
+      setScans(data.items);
+      setCurrentPage(data.meta.page);
+      setTotalPages(data.meta.total_pages);
+    } catch (err: any) {
+      setError(err?.message || translate('scans.errors.fetchFailed', 'Failed to fetch scans'));
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleNextPage = () => {
-    setFilters((prev) => ({
-      ...prev,
-      offset: (prev.offset || 0) + (prev.limit || 50),
-    }));
+  // Load scans on mount and when filters change
+  useEffect(() => {
+    fetchScans(1);
+  }, [search, statusFilter, typeFilter]);
+
+  const handleSearch = (value: string) => {
+    setSearch(value);
+    setCurrentPage(1);
   };
 
-  const handlePreviousPage = () => {
-    const newOffset = Math.max(
-      0,
-      (filters.offset || 0) - (filters.limit || 50),
-    );
-    setFilters((prev) => ({ ...prev, offset: newOffset }));
+  const handleStatusChange = (status: ScanStatus | '') => {
+    setStatusFilter(status);
+    setCurrentPage(1);
   };
 
-  const handleStatusFilter = (status: ScanStatus) => {
-    setFilters((prev) => ({
-      ...prev,
-      status: prev.status?.includes(status)
-        ? prev.status.filter((s) => s !== status)
-        : [...(prev.status || []), status],
-      offset: 0,
-    }));
+  const handleTypeChange = (type: ScanType | '') => {
+    setTypeFilter(type);
+    setCurrentPage(1);
   };
 
-  const currentPage =
-    Math.floor((filters.offset || 0) / (filters.limit || 50)) + 1;
-  const totalPages = Math.ceil(total / (filters.limit || 50));
-  const hasNextPage = currentPage < totalPages;
-  const hasPreviousPage = currentPage > 1;
+  const getStatusLabel = (status: ScanStatus): string => {
+    return translate(`scans.status.${status}`, status);
+  };
+
+  const getTypeLabel = (type: ScanType): string => {
+    return translate(`scans.type.${type}`, type);
+  };
+
+  const formatDate = (dateString: string | undefined): string => {
+    if (!dateString) return '-';
+    return new Date(dateString).toLocaleDateString('es-ES');
+  };
+
+  const formatTime = (dateString: string | undefined): string => {
+    if (!dateString) return '-';
+    return new Date(dateString).toLocaleTimeString('es-ES');
+  };
+
+  const getDuration = (startedAt: string | undefined, finishedAt: string | undefined): string => {
+    if (!startedAt || !finishedAt) return '-';
+    const start = new Date(startedAt).getTime();
+    const finish = new Date(finishedAt).getTime();
+    const seconds = Math.round((finish - start) / 1000);
+    if (seconds < 60) return `${seconds}s`;
+    const minutes = Math.round(seconds / 60);
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.round(minutes / 60);
+    return `${hours}h`;
+  };
 
   return (
-    <section className="py-12 bg-gray-900 min-h-screen">
+    <section className="py-16 md:py-24 bg-gray-950 text-white min-h-screen" aria-labelledby="scans-heading">
       <Container>
-        <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-100">
-                {t("scans.title")}
-              </h2>
-              <p className="mt-2 text-gray-400">
-                {t("scans.total")}:{" "}
-                <span className="font-semibold text-gray-200">{total}</span>
-              </p>
-            </div>
-            <Button onClick={handleRefresh} disabled={isLoading}>
-              {isLoading ? t("common.loading") : t("common.refresh")}
-            </Button>
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+          <div>
+            <h1 id="scans-heading" className="text-3xl md:text-4xl font-bold text-gray-100 mb-2">
+              {translate('scans.title', 'Scans')}
+            </h1>
+            <p className="text-gray-400">{translate('scans.subtitle', 'View and manage your security scans')}</p>
+          </div>
+          <Button variant="primary" size="md" className="mt-4 md:mt-0 flex items-center gap-2" onClick={() => navigate('/scans/new')}>
+            <Plus className="w-4 h-4" />
+            {translate('scans.startNew', 'Start New Scan')}
+          </Button>
+        </div>
+
+        {/* Filters */}
+        <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Search */}
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <input
+              type="text"
+              placeholder={translate('scans.searchPlaceholder', 'Search by asset name...')}
+              value={search}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+            />
           </div>
 
-          {/* Status Filters */}
-          <div className="flex gap-2 flex-wrap">
-            {(
-              ["pending", "running", "completed", "failed"] as ScanStatus[]
-            ).map((status) => (
-              <button
-                key={status}
-                onClick={() => handleStatusFilter(status)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border ${
-                  filters.status?.includes(status)
-                    ? "bg-gray-700 border-blue-500 text-blue-400"
-                    : "bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700"
-                }`}
-              >
-                {t(`status.${status}`)}
-              </button>
-            ))}
+          {/* Status Filter */}
+          <select
+            value={statusFilter}
+            onChange={(e) => handleStatusChange((e.target.value as ScanStatus) || '')}
+            className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+          >
+            <option value="">{translate('scans.allStatuses', 'All Statuses')}</option>
+            <option value="pending">{translate('scans.status.pending', 'Pending')}</option>
+            <option value="running">{translate('scans.status.running', 'Running')}</option>
+            <option value="completed">{translate('scans.status.completed', 'Completed')}</option>
+            <option value="failed">{translate('scans.status.failed', 'Failed')}</option>
+          </select>
+
+          {/* Type Filter */}
+          <select
+            value={typeFilter}
+            onChange={(e) => handleTypeChange((e.target.value as ScanType) || '')}
+            className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-100 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+          >
+            <option value="">{translate('scans.allTypes', 'All Types')}</option>
+            <option value="full">{translate('scans.type.full', 'Full Scan')}</option>
+            <option value="quick">{translate('scans.type.quick', 'Quick Scan')}</option>
+            <option value="custom">{translate('scans.type.custom', 'Custom Scan')}</option>
+          </select>
+        </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+            <p className="text-red-400 font-medium text-sm mb-1">{translate('scans.errors.error', 'Error')}</p>
+            <p className="text-red-300 text-sm">{error}</p>
           </div>
+        )}
 
-          {/* Error State General */}
-          {error && (
-            <div className="bg-red-950/40 border border-red-600 rounded-lg p-4">
-              <p className="text-red-200">{error}</p>
+        {/* Scans Table */}
+        <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden">
+          {loading ? (
+            <div className="p-8 text-center text-gray-400">
+              {translate('scans.loading', 'Loading scans...')}
             </div>
-          )}
-
-          {/* Loading State */}
-          {isLoading && !scans.length && (
-            <div className="text-center py-12">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-600 border-t-blue-400"></div>
-              <p className="mt-4 text-gray-400">{t("common.loadingScans")}</p>
+          ) : scans.length === 0 ? (
+            <div className="p-8 text-center text-gray-400">
+              {translate('scans.noScans', 'No scans found')}
             </div>
-          )}
-
-          {/* Empty State */}
-          {!isLoading && scans.length === 0 && !error && (
-            <div className="text-center py-12 bg-gray-800 rounded-lg border border-gray-700">
-              <p className="text-gray-400">{t("scans.noScans")}</p>
-            </div>
-          )}
-
-          {/* Scans List */}
-          {scans.length > 0 && (
-            <div className="space-y-4">
-              {scans.map((scan) => (
-                <Card
-                  key={scan.id}
-                  className="p-6 bg-gray-800 border-gray-700 hover:shadow-xl transition-shadow shadow-black/40"
-                >
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-semibold text-gray-100">
-                          {scan.asset_name ||
-                            `${t("scans.asset")} ${scan.asset_id}`}
-                        </h3>
-                        <span
-                          className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${STATUS_STYLES[scan.status]}`}
-                        >
-                          {t(`status.${scan.status}`)}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-500 mt-1">
-                        {t("scans.scanId")}: {scan.id}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Grid fields: Type, Created, Started, Finished */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wide">
-                        {t("scans.fields.type")}
-                      </p>
-                      <p className="font-medium text-gray-200 capitalize">
-                        {scan.scan_type}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wide">
-                        {t("scans.fields.created")}
-                      </p>
-                      <p className="font-medium text-gray-200">
-                        {new Date(scan.created_at).toLocaleString()}
-                      </p>
-                    </div>
-                    {scan.started_at && (
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">
-                          {t("scans.fields.started")}
-                        </p>
-                        <p className="font-medium text-gray-200">
-                          {new Date(scan.started_at).toLocaleString()}
-                        </p>
-                      </div>
-                    )}
-                    {scan.finished_at && (
-                      <div>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">
-                          {t("scans.fields.finished")}
-                        </p>
-                        <p className="font-medium text-gray-200">
-                          {new Date(scan.finished_at).toLocaleString()}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Hosts Scanned */}
-                  {scan.hosts && scan.hosts.length > 0 && (
-                    <div className="mb-4">
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-2">
-                        {t("scans.hostsScanned")}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {scan.hosts.map((host) => (
+          ) : (
+            <>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-800 bg-gray-800/50">
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-300">
+                        {translate('scans.table.assetName', 'Asset Name')}
+                      </th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-300">
+                        {translate('scans.table.type', 'Type')}
+                      </th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-300">
+                        {translate('scans.table.status', 'Status')}
+                      </th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-300">
+                        {translate('scans.table.createdAt', 'Created')}
+                      </th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-300">
+                        {translate('scans.table.duration', 'Duration')}
+                      </th>
+                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-300">
+                        {translate('scans.table.actions', 'Actions')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {scans.map((scan) => (
+                      <tr key={scan.id} className="border-b border-gray-800 hover:bg-gray-800/50 transition">
+                        <td className="px-6 py-4">
+                          <div>
+                            <p className="font-medium text-gray-100">{scan.asset_name || `Asset #${scan.asset_id}`}</p>
+                            <p className="text-xs text-gray-500">ID: {scan.id}</p>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="text-gray-300 text-sm">{getTypeLabel(scan.scan_type)}</span>
+                        </td>
+                        <td className="px-6 py-4">
                           <span
-                            key={host.id}
-                            className="bg-gray-800 text-gray-300 border border-gray-700 px-2 py-1 rounded text-sm"
+                            className={`px-3 py-1 rounded-full text-xs font-medium ${STATUS_COLORS[scan.status].bg} ${STATUS_COLORS[scan.status].text}`}
                           >
-                            {host.hostname || host.ip_address}
+                            {getStatusLabel(scan.status)}
                           </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Ports Found */}
-                  {scan.ports && scan.ports.length > 0 && (
-                    <div className="mb-4">
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-2">
-                        {t("scans.portsFound")}: {scan.ports.length}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {scan.ports.slice(0, 5).map((port) => (
-                          <span
-                            key={port.id}
-                            className={`px-2 py-1 rounded border text-sm font-medium flex items-center gap-1 ${
-                              port.state === "open"
-                                ? "bg-red-950/40 text-red-400"
-                                : port.state === "closed"
-                                  ? "bg-green-950/40 text-green-400"
-                                  : "bg-amber-950/40 text-amber-400"
-                            }`}
+                        </td>
+                        <td className="px-6 py-4 text-gray-400 text-sm">
+                          <div>
+                            <p>{formatDate(scan.created_at)}</p>
+                            <p className="text-xs text-gray-500">{formatTime(scan.created_at)}</p>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-gray-300 text-sm">
+                          {scan.status === 'completed' || scan.status === 'failed'
+                            ? getDuration(scan.started_at, scan.finished_at)
+                            : scan.status === 'running'
+                            ? translate('scans.inProgress', 'In progress...')
+                            : '-'}
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <button
+                            onClick={() => navigate(`/scans/${scan.id}`)}
+                            className="text-blue-400 hover:text-blue-300 text-sm font-medium transition inline-flex items-center gap-1"
                           >
-                            {port.port}/{port.protocol}{" "}
-                            {port.state === "open" ? (
-                              <LockOpen size={14} aria-hidden="true" />
-                            ) : (
-                              <Lock size={14} aria-hidden="true" />
-                            )}
-                          </span>
-                        ))}
-                        {scan.ports.length > 5 && (
-                          <span className="px-2 py-1 text-sm text-gray-500">
-                            +{scan.ports.length - 5} {t("common.more")}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Individual Scan Error Message */}
-                  {scan.error_message && (
-                    <div className="mt-4 p-4 bg-red-950/40 border border-red-600 rounded-lg">
-                      <div className="flex items-start">
-                        <div className="flex-1">
-                          <span className="font-bold text-red-100 text-sm block mb-1 uppercase tracking-tight">
-                            {t("common.error")}
-                          </span>
-                          <p className="text-sm text-red-200 leading-relaxed">
-                            {scan.error_message}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </Card>
-              ))}
-            </div>
-          )}
-
-          {/* Pagination Controls */}
-          {total > (filters.limit || 50) && (
-            <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-800">
-              <div className="text-sm text-gray-500">
-                {t("pagination.page")} {currentPage} {t("pagination.of")}{" "}
-                {totalPages} ({total} {t("pagination.total")})
+                            <Eye className="w-4 h-4" />
+                            {translate('scans.table.view', 'View')}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="flex gap-2">
-                <Button
-                  onClick={handlePreviousPage}
-                  disabled={!hasPreviousPage || isLoading}
-                  variant="secondary"
-                  className="border-gray-700 disabled:opacity-50"
-                >
-                  {t("pagination.previous")}
-                </Button>
-                <Button
-                  onClick={handleNextPage}
-                  disabled={!hasNextPage || isLoading}
-                  variant="secondary"
-                  className="border-gray-700 disabled:opacity-50"
-                >
-                  {t("pagination.next")}
-                </Button>
-              </div>
-            </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="px-6 py-4 border-t border-gray-800 flex items-center justify-between">
+                  <p className="text-sm text-gray-400">
+                    {translate('scans.pagination.page', 'Page')} {currentPage} {translate('scans.pagination.of', 'of')}{' '}
+                    {totalPages}
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => fetchScans(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="p-2 bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-gray-300 rounded transition"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => fetchScans(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="p-2 bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-gray-300 rounded transition"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </Container>
     </section>
   );
-}
+};

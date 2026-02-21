@@ -3,6 +3,8 @@
     "features": "Características",
     "pricing": "Precios",
     "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "assets": "Activos",
     "startTrial": "Iniciar prueba",
     "menu": "Menú"
   },
@@ -549,6 +551,82 @@
       "emailRequired": "Por favor introduce tu email.",
       "invalidEmail": "Por favor introduce un correo válido.",
       "passwordRequired": "Por favor introduce tu contraseña."
+    }
+  },
+  "assets": {
+    "title": "Activos",
+    "subtitle": "Gestiona y supervisa los activos de tu organización",
+    "addNew": "Agregar Activo",
+    "searchPlaceholder": "Buscar por nombre o tipo...",
+    "allStatuses": "Todos los estados",
+    "noAssets": "No se encontraron activos",
+    "loading": "Cargando activos...",
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "maintenance": "Mantenimiento",
+      "retired": "Retirado",
+      "pending": "Pendiente"
+    },
+    "table": {
+      "name": "Nombre",
+      "type": "Tipo",
+      "status": "Estado",
+      "location": "Ubicación",
+      "createdAt": "Creado",
+      "actions": "Acciones",
+      "view": "Ver"
+    },
+    "pagination": {
+      "page": "Página",
+      "of": "de"
+    },
+    "errors": {
+      "error": "Error",
+      "fetchFailed": "Error al cargar los activos"
+    }
+  },
+  "createAsset": {
+    "title": "Crear Nuevo Activo",
+    "subtitle": "Agrega un nuevo activo a tu organización",
+    "backToList": "Volver a Activos",
+    "selectType": "Selecciona un tipo de activo...",
+    "create": "Crear Activo",
+    "creating": "Creando...",
+    "cancel": "Cancelar",
+    "fields": {
+      "name": "Nombre del Activo",
+      "type": "Tipo de Activo",
+      "serial": "Número de Serie",
+      "assetTag": "Etiqueta del Activo",
+      "status": "Estado",
+      "owner": "ID del Propietario",
+      "location": "Ubicación",
+      "purchaseDate": "Fecha de Compra",
+      "warrantyMonths": "Garantía (meses)"
+    },
+    "placeholders": {
+      "name": "p.ej., Servidor 01, Laptop XYZ",
+      "owner": "ID de Usuario",
+      "location": "p.ej., Edificio de Oficinas A, Sala 201",
+      "warrantyMonths": "p.ej., 12"
+    },
+    "types": {
+      "domain": "Dominio",
+      "host": "Host",
+      "ip": "Dirección IP"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "maintenance": "Mantenimiento"
+    },
+    "errors": {
+      "nameRequired": "El nombre del activo es requerido",
+      "typeRequired": "El tipo de activo es requerido",
+      "invalidType": "Tipo de activo inválido",
+      "invalidStatus": "Estado inválido",
+      "general": "Error al crear el activo"
     }
   }
 }

@@ -3,6 +3,8 @@
     "features": "Funktionen",
     "pricing": "Preise",
     "login": "Anmelden",
+    "logout": "Abmelden",
+    "assets": "Vermögenswerte",
     "startTrial": "Test starten",
     "menu": "Menü"
   },
@@ -552,6 +554,82 @@
   },
   "common": {
     "allRightsReserved": "Alle Rechte vorbehalten"
+  },
+  "assets": {
+    "title": "Vermögenswerte",
+    "subtitle": "Verwalten und überwachen Sie die Vermögenswerte Ihrer Organisation",
+    "addNew": "Vermögenswert hinzufügen",
+    "searchPlaceholder": "Nach Name oder Typ suchen...",
+    "allStatuses": "Alle Status",
+    "noAssets": "Keine Vermögenswerte gefunden",
+    "loading": "Vermögenswerte werden geladen...",
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "maintenance": "Wartung",
+      "retired": "Stillgelegt",
+      "pending": "Ausstehend"
+    },
+    "table": {
+      "name": "Name",
+      "type": "Typ",
+      "status": "Status",
+      "location": "Standort",
+      "createdAt": "Erstellt",
+      "actions": "Maßnahmen",
+      "view": "Anzeigen"
+    },
+    "pagination": {
+      "page": "Seite",
+      "of": "von"
+    },
+    "errors": {
+      "error": "Fehler",
+      "fetchFailed": "Fehler beim Laden der Vermögenswerte"
+    }
+  },
+  "createAsset": {
+    "title": "Neues Vermögenswert erstellen",
+    "subtitle": "Fügen Sie ein neues Vermögenswert zu Ihrer Organisation hinzu",
+    "backToList": "Zurück zu Vermögenswerte",
+    "selectType": "Wählen Sie einen Vermögenstyp...",
+    "create": "Vermögenswert erstellen",
+    "creating": "Erstellen...",
+    "cancel": "Abbrechen",
+    "fields": {
+      "name": "Name des Vermögens",
+      "type": "Typ des Vermögens",
+      "serial": "Seriennummer",
+      "assetTag": "Vermögens-Tag",
+      "status": "Status",
+      "owner": "Eigentümer-ID",
+      "location": "Standort",
+      "purchaseDate": "Kaufdatum",
+      "warrantyMonths": "Garantie (Monate)"
+    },
+    "placeholders": {
+      "name": "z.B. Server 01, Laptop XYZ",
+      "owner": "Benutzer-ID",
+      "location": "z.B. Bürogebäude A, Raum 201",
+      "warrantyMonths": "z.B. 12"
+    },
+    "types": {
+      "domain": "Domäne",
+      "host": "Host",
+      "ip": "IP-Adresse"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "maintenance": "Wartung"
+    },
+    "errors": {
+      "nameRequired": "Der Name des Vermögens ist erforderlich",
+      "typeRequired": "Der Typ des Vermögens ist erforderlich",
+      "invalidType": "Ungültiger Vermögenstyp",
+      "invalidStatus": "Ungültiger Status",
+      "general": "Fehler beim Erstellen des Vermögens"
+    }
   }
 }
 

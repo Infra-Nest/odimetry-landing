@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Shield, Menu, X } from 'lucide-react';
+import { Shield, Menu, X, LogOut } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
@@ -11,7 +11,25 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Check if user is authenticated
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    setIsAuthenticated(!!token);
+    console.log('🔐 Auth state updated:', !!token ? 'Authenticated' : 'Not authenticated');
+  }, [location]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('organization_id');
+    localStorage.removeItem('rememberDevice');
+    setIsMobileMenuOpen(false);
+    console.log('✅ Session cleared. Logged out.');
+    navigate('/');
+  };
 
   const handleNavClick = (hash: string) => {
     setIsMobileMenuOpen(false); // Cerrar el menú móvil al hacer clic
@@ -110,12 +128,26 @@ export const Header = () => {
             >
               {translate('header.pricing')}
             </button>
-            <Button variant="secondary" size="sm" aria-label="Iniciar sesión" onClick={() => navigate('/login')}>
-              {translate('header.login')}
-            </Button>
-            <Button variant="primary" size="sm" aria-label={translate('header.startTrial')} onClick={() => navigate('/signup')}>
-              {translate('header.startTrial')}
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <Button variant="secondary" size="sm" aria-label={translate('header.logout', 'Logout')} onClick={() => navigate('/assets')}>
+                  {translate('header.assets', 'Assets')}
+                </Button>
+                <Button variant="primary" size="sm" aria-label={translate('header.logout', 'Logout')} onClick={handleLogout}>
+                  <LogOut className="w-4 h-4 mr-2" />
+                  {translate('header.logout', 'Logout')}
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="secondary" size="sm" aria-label="Iniciar sesión" onClick={() => navigate('/login')}>
+                  {translate('header.login')}
+                </Button>
+                <Button variant="primary" size="sm" aria-label={translate('header.startTrial')} onClick={() => navigate('/signup')}>
+                  {translate('header.startTrial')}
+                </Button>
+              </>
+            )}
             <LanguageSelector />
           </nav>
           <div className="md:hidden flex items-center space-x-2 relative" ref={mobileMenuRef}>
@@ -151,21 +183,43 @@ export const Header = () => {
                     {translate('header.pricing')}
                   </button>
                   <div className="border-t border-gray-700 my-1"></div>
-                  <button
-                    onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
-                    className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
-                    role="menuitem"
-                  >
-                    {translate('header.login')}
-                  </button>
-                  <div className="border-t border-gray-700 my-1"></div>
-                  <button
-                    onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }}
-                    className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    {translate('header.startTrial')}
-                  </button>
+                  {isAuthenticated ? (
+                    <>
+                      <button
+                        onClick={() => { setIsMobileMenuOpen(false); navigate('/assets'); }}
+                        className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
+                        role="menuitem"
+                      >
+                        {translate('header.assets', 'Assets')}
+                      </button>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center px-4 py-2 text-left text-red-400 hover:bg-red-900/30 hover:text-red-300 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-inset"
+                        role="menuitem"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        {translate('header.logout', 'Logout')}
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
+                        className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
+                        role="menuitem"
+                      >
+                        {translate('header.login')}
+                      </button>
+                      <div className="border-t border-gray-700 my-1"></div>
+                      <button
+                        onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }}
+                        className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
+                        role="menuitem"
+                      >
+                        {translate('header.startTrial')}
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             )}
