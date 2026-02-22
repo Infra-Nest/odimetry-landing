@@ -4,7 +4,33 @@
     "pricing": "Preise",
     "login": "Anmelden",
     "startTrial": "Test starten",
-    "menu": "Menü"
+    "menu": "Menü",
+    "goToPanel": "Zum Dashboard"
+  },
+  "appNav": {
+    "panel": "Navigationsbereich",
+    "dashboard": "Dashboard",
+    "scans": "Scans",
+    "settings": "Einstellungen",
+    "profile": "Profil",
+    "logout": "Abmelden",
+    "collapse": "Seitenmenü einklappen",
+    "expand": "Seitenmenü ausklappen"
+  },
+  "appPages": {
+    "comingSoon": "Bald verfügbar",
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Hier erhalten Sie eine Gesamtansicht Ihrer Assets, letzten Scans und wichtigsten Warnungen."
+    },
+    "settings": {
+      "title": "Einstellungen",
+      "description": "Verwalten Sie hier Kontopräferenzen, Benachrichtigungen und Sicherheitseinstellungen."
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Prüfen und aktualisieren Sie Ihre persönlichen und organisatorischen Informationen."
+    }
   },
   "hero": {
     "title": "Entdecken Sie, was Sie im Internet preisgeben, bevor ein Angreifer es tut",
@@ -518,7 +544,8 @@
     "loading": "Laden...",
     "loadingScans": "Scans werden geladen...",
     "more": "mehr",
-    "error": "Fehler"
+    "error": "Fehler",
+    "allRightsReserved": "Alle Rechte vorbehalten"
   },
   "pagination": {
     "page": "Seite",
@@ -549,9 +576,5 @@
       "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
       "passwordRequired": "Bitte geben Sie Ihr Passwort ein."
     }
-  },
-  "common": {
-    "allRightsReserved": "Alle Rechte vorbehalten"
   }
 }
-

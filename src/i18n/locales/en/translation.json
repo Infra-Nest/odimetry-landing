@@ -4,7 +4,33 @@
     "pricing": "Pricing",
     "login": "Sign In",
     "startTrial": "Start trial",
-    "menu": "Menu"
+    "menu": "Menu",
+    "goToPanel": "Go to dashboard"
+  },
+  "appNav": {
+    "panel": "Navigation panel",
+    "dashboard": "Dashboard",
+    "scans": "Scans",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Log out",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "appPages": {
+    "comingSoon": "Coming soon",
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "This section will give you a global view of your assets, recent scans, and key alerts."
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Manage account preferences, notifications, and security settings from here."
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Review and update your personal and organization information."
+    }
   },
   "hero": {
     "title": "Discover what you expose on the Internet before an attacker does",
@@ -551,4 +577,3 @@
     }
   }
 }
-
