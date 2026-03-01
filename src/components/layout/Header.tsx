@@ -5,11 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { LanguageSelector } from '../ui/LanguageSelector';
+import { useAuth } from '../../hooks/useAuth';
 
 export const Header = () => {
   const { t: translate } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
@@ -110,12 +112,35 @@ export const Header = () => {
             >
               {translate('header.pricing')}
             </button>
-            <Button variant="secondary" size="sm" aria-label="Iniciar sesión" onClick={() => navigate('/login')}>
-              {translate('header.login')}
-            </Button>
-            <Button variant="primary" size="sm" aria-label={translate('header.startTrial')} onClick={() => navigate('/signup')}>
-              {translate('header.startTrial')}
-            </Button>
+            {isAuthenticated ? (
+              <Button
+                variant="secondary"
+                size="sm"
+                aria-label={translate('header.goToPanel')}
+                onClick={() => navigate('/dashboard')}
+              >
+                {translate('header.goToPanel')}
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  aria-label="Iniciar sesión"
+                  onClick={() => navigate('/login')}
+                >
+                  {translate('header.login')}
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  aria-label={translate('header.startTrial')}
+                  onClick={() => navigate('/signup')}
+                >
+                  {translate('header.startTrial')}
+                </Button>
+              </>
+            )}
             <LanguageSelector />
           </nav>
           <div className="md:hidden flex items-center space-x-2 relative" ref={mobileMenuRef}>
@@ -151,21 +176,42 @@ export const Header = () => {
                     {translate('header.pricing')}
                   </button>
                   <div className="border-t border-gray-700 my-1"></div>
-                  <button
-                    onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
-                    className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
-                    role="menuitem"
-                  >
-                    {translate('header.login')}
-                  </button>
-                  <div className="border-t border-gray-700 my-1"></div>
-                  <button
-                    onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }}
-                    className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
-                    role="menuitem"
-                  >
-                    {translate('header.startTrial')}
-                  </button>
+                  {isAuthenticated ? (
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/dashboard');
+                      }}
+                      className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
+                      role="menuitem"
+                    >
+                      {translate('header.goToPanel')}
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          navigate('/login');
+                        }}
+                        className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
+                        role="menuitem"
+                      >
+                        {translate('header.login')}
+                      </button>
+                      <div className="border-t border-gray-700 my-1"></div>
+                      <button
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          navigate('/signup');
+                        }}
+                        className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
+                        role="menuitem"
+                      >
+                        {translate('header.startTrial')}
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             )}
@@ -175,4 +221,3 @@ export const Header = () => {
     </header>
   );
 };
-

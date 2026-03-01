@@ -4,7 +4,33 @@
     "pricing": "Precios",
     "login": "Iniciar sesión",
     "startTrial": "Iniciar prueba",
-    "menu": "Menú"
+    "menu": "Menú",
+    "goToPanel": "Ir al panel"
+  },
+  "appNav": {
+    "panel": "Panel de navegación",
+    "dashboard": "Dashboard",
+    "scans": "Escaneos",
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "collapse": "Contraer menú lateral",
+    "expand": "Expandir menú lateral"
+  },
+  "appPages": {
+    "comingSoon": "Disponible muy pronto",
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Aquí tendrás una vista global de tus activos, escaneos recientes y alertas clave."
+    },
+    "settings": {
+      "title": "Configuración",
+      "description": "Desde esta sección podrás gestionar preferencias de cuenta, notificaciones y ajustes de seguridad."
+    },
+    "profile": {
+      "title": "Perfil",
+      "description": "Revisa y actualiza tu información personal y la de tu organización."
+    }
   },
   "hero": {
     "title": "Descubre qué expones en Internet antes de que lo haga un atacante",
@@ -552,4 +578,3 @@
     }
   }
 }
-

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Scan, ScanHistoryFilters, ScanStatus } from "../../types/scan";
 import { getScanHistory } from "../../services/scanService";
+import { useAuth } from "../../hooks/useAuth";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
@@ -16,6 +17,7 @@ const STATUS_STYLES: Record<ScanStatus, string> = {
 
 export const ScansList = () => {
   const { t } = useTranslation();
+  const { token } = useAuth();
   const [scans, setScans] = useState<Scan[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,11 +29,6 @@ export const ScansList = () => {
     sort_by: "created_at",
     order: "desc",
   });
-
-  /** * TODO: Replace with useAuth() hook once AuthContext is available.
-   * Accessing localStorage directly is a temporary solution for current development.
-   */
-  const token = localStorage.getItem("access_token") || "";
 
   useEffect(() => {
     if (!token) {
