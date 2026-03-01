@@ -12,8 +12,7 @@
   "appNav": {
     "panel": "Navigationsbereich",
     "dashboard": "Dashboard",
-    "scans": "Scans",
-    "settings": "Einstellungen",
+    "scans": "Scans",    "assets": "Vermögenswerte",    "settings": "Einstellungen",
     "profile": "Profil",
     "logout": "Abmelden",
     "collapse": "Seitenmenü einklappen",
@@ -23,7 +22,56 @@
     "comingSoon": "Bald verfügbar",
     "dashboard": {
       "title": "Dashboard",
-      "description": "Hier erhalten Sie eine Gesamtansicht Ihrer Assets, letzten Scans und wichtigsten Warnungen."
+      "description": "Hier erhalten Sie eine Gesamtansicht Ihrer Assets, letzten Scans und wichtigsten Warnungen.",
+      "error": "Dashboard-Metriken konnten nicht geladen werden.",
+      "refresh": "Aktualisieren",
+      "loading": "Ihre Cybersicherheitsmetriken werden vorbereitet...",
+      "errorTitle": "Fehler beim Laden des Dashboards",
+      "pulse": "Sicherheitspuls",
+      "heroTitle": "Führungsperspektive zu Risiko und Resilienz",
+      "heroDescription": "Überwachen Sie Assets, Scans und Sicherheitsmetriken in Echtzeit.",
+      "lastScan": "Letzter Scan",
+      "scanReliability": "Scan-Zuverlässigkeit",
+      "securityScore": "Sicherheitsbewertung",
+      "scoreHigh": "Ausgezeichnet",
+      "scoreMedium": "Stabil",
+      "scoreLow": "Kritisch",
+      "kpi": {
+        "totalAssets": "Gesamtzahl der Assets",
+        "activeHint": "aktive Assets",
+        "scansTotal": "Durchgeführte Scans",
+        "weekHint": "in den letzten 7 Tagen",
+        "successRate": "Erfolgsquote",
+        "completedHint": "abgeschlossen",
+        "riskLoad": "Risikobewertung",
+        "riskHint": "Fehlgeschlagene Scans + instabile Assets"
+      },
+      "assetsStatus": "Asset-Verteilung nach Status",
+      "realData": "Echtdaten",
+      "weeklyTrend": "Wöchentlicher Scan-Trend",
+      "last7Days": "Letzte 7 Tage",
+      "scanPipeline": "Scan-Pipeline",
+      "completed": "Abgeschlossen",
+      "runningPending": "Läuft + Ausstehend",
+      "failed": "Fehlgeschlagen",
+      "insightsTitle": "Geschäftseinblicke",
+      "insightCoverage": "Betriebliche Abdeckung",
+      "insightCoverageText": "der Assets befinden sich im aktiven Status",
+      "insightRisk": "Aufstrebendes Risiko",
+      "insightRiskText": "Assets erfordern vorbeugende Aufmerksamkeit",
+      "insightType": "Dominante Typologie",
+      "noData": "Unzureichende Daten",
+      "recommendation": "Prioritäre Empfehlung",
+      "recommendationFailed": "Reduzieren Sie Scan-Fehler, um Ihre Gesamtbewertung zu erhöhen und das operative Vertrauen zu verbessern.",
+      "recommendationStable": "Halten Sie die Scan-Kadenz ein und konzentrieren Sie sich auf Assets im Wartungs-/Warteschlangen-Status, um die Leistung zu erhalten.",
+      "assetsLabel": "Vermögenswerte",
+      "statusLabels": {
+        "active": "Aktiv",
+        "maintenance": "Wartung",
+        "pending": "Ausstehend",
+        "inactive": "Inaktiv",
+        "retired": "Stillgelegt"
+      }
     },
     "settings": {
       "title": "Einstellungen",
@@ -31,7 +79,31 @@
     },
     "profile": {
       "title": "Profil",
-      "description": "Prüfen und aktualisieren Sie Ihre persönlichen und organisatorischen Informationen."
+      "description": "Überprüfen und aktualisieren Sie Ihre persönlichen Informationen und Organisationsdetails.",
+      "personalInfo": "Persönliche Informationen",
+      "organizationInfo": "Organisation",
+      "email": "E-Mail",
+      "firstname": "Vorname",
+      "surname": "Nachname",
+      "phone": "Telefon",
+      "accountCreated": "Konto erstellt",
+      "currentOrganization": "Aktuelle Organisation",
+      "selectOrganization": "Organisation auswählen",
+      "switchOrganization": "Organisation wechseln",
+      "organizationType": "Typ",
+      "personal": "Persönlich",
+      "business": "Geschäftlich",
+      "loading": "Lädt...",
+      "singleOrg": "Sie haben nur eine aktive Organisation",
+      "noOrgs": "Keine Organisationen verfügbar",
+      "errors": {
+        "fetchUser": "Fehler beim Laden des Profils",
+        "fetchOrgs": "Fehler beim Laden der Organisationen",
+        "switchOrg": "Fehler beim Wechseln der Organisation"
+      },
+      "success": {
+        "switchOrg": "Organisation erfolgreich gewechselt"
+      }
     }
   },
   "hero": {

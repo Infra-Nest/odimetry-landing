@@ -13,6 +13,7 @@
     "panel": "Panneau de navigation",
     "dashboard": "Tableau de bord",
     "scans": "Analyses",
+    "assets": "Actifs",
     "settings": "Paramètres",
     "profile": "Profil",
     "logout": "Se déconnecter",
@@ -23,7 +24,56 @@
     "comingSoon": "Disponible bientôt",
     "dashboard": {
       "title": "Tableau de bord",
-      "description": "Vous aurez ici une vue globale de vos actifs, analyses récentes et alertes clés."
+      "description": "Vous aurez ici une vue globale de vos actifs, analyses récentes et alertes clés.",
+      "error": "Impossible de charger les métriques du tableau de bord.",
+      "refresh": "Actualiser",
+      "loading": "Préparation de vos métriques de cybersécurité...",
+      "errorTitle": "Erreur lors du chargement du tableau de bord",
+      "pulse": "Pouls de Sécurité",
+      "heroTitle": "Vue exécutive des risques et de la résilience",
+      "heroDescription": "Supervisez les actifs, analyses et métriques de sécurité en temps réel.",
+      "lastScan": "Dernière analyse",
+      "scanReliability": "Fiabilité de l'analyse",
+      "securityScore": "Score de Sécurité",
+      "scoreHigh": "Excellent",
+      "scoreMedium": "Stable",
+      "scoreLow": "Critique",
+      "kpi": {
+        "totalAssets": "Actifs totaux",
+        "activeHint": "actifs actifs",
+        "scansTotal": "Analyses exécutées",
+        "weekHint": "au cours des 7 derniers jours",
+        "successRate": "Taux de réussite",
+        "completedHint": "complétées",
+        "riskLoad": "Charge de risque",
+        "riskHint": "Analyses échouées + actifs instables"
+      },
+      "assetsStatus": "Distribution des actifs par statut",
+      "realData": "Données réelles",
+      "weeklyTrend": "Tendance hebdomadaire des analyses",
+      "last7Days": "7 derniers jours",
+      "scanPipeline": "Pipeline d'analyse",
+      "completed": "Complétées",
+      "runningPending": "En cours + En attente",
+      "failed": "Échouées",
+      "insightsTitle": "Informations métier",
+      "insightCoverage": "Couverture opérationnelle",
+      "insightCoverageText": "des actifs sont en état actif",
+      "insightRisk": "Risque émergent",
+      "insightRiskText": "actifs nécessitent une attention préventive",
+      "insightType": "Typologie dominante",
+      "noData": "Données insuffisantes",
+      "recommendation": "Recommandation prioritaire",
+      "recommendationFailed": "Réduisez les échecs d'analyse pour augmenter votre score global et améliorer la confiance opérationnelle.",
+      "recommendationStable": "Maintenez la cadence d'analyse et concentrez-vous sur les actifs en maintenance/attente pour maintenir les performances.",
+      "assetsLabel": "Actifs",
+      "statusLabels": {
+        "active": "Actif",
+        "maintenance": "Maintenance",
+        "pending": "En attente",
+        "inactive": "Inactif",
+        "retired": "Retiré"
+      }
     },
     "settings": {
       "title": "Paramètres",
@@ -31,7 +81,31 @@
     },
     "profile": {
       "title": "Profil",
-      "description": "Consultez et mettez à jour vos informations personnelles et organisationnelles."
+      "description": "Consultez et mettez à jour vos informations personnelles et celles de votre organisation.",
+      "personalInfo": "Informations personnelles",
+      "organizationInfo": "Organisation",
+      "email": "Email",
+      "firstname": "Prénom",
+      "surname": "Nom",
+      "phone": "Téléphone",
+      "accountCreated": "Compte créé",
+      "currentOrganization": "Organisation actuelle",
+      "selectOrganization": "Sélectionner une organisation",
+      "switchOrganization": "Changer d'organisation",
+      "organizationType": "Type",
+      "personal": "Personnel",
+      "business": "Entreprise",
+      "loading": "Chargement...",
+      "singleOrg": "Vous n'avez qu'une seule organisation active",
+      "noOrgs": "Aucune organisation disponible",
+      "errors": {
+        "fetchUser": "Erreur lors du chargement du profil",
+        "fetchOrgs": "Erreur lors du chargement des organisations",
+        "switchOrg": "Erreur lors du changement d'organisation"
+      },
+      "success": {
+        "switchOrg": "Organisation changée avec succès"
+      }
     }
   },
   "hero": {

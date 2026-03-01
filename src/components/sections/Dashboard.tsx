@@ -1,6 +1,5 @@
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/Button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle2, XCircle, AlertCircle, TrendingUp, LogOut } from 'lucide-react';

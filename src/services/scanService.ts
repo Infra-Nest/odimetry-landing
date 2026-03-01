@@ -1,4 +1,4 @@
-import type { ScanHistoryFilters, ScanHistoryResponse, Scan } from '../types/scan';
+import type { ScanHistoryFilters, Scan } from '../types/scan';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 

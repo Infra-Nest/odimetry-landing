@@ -43,8 +43,8 @@ export const Assets = () => {
       
       // Filter out assets with undefined status when a specific status is selected
       let filteredAssets = data.items;
-      if (statusFilter && statusFilter !== '') {
-        filteredAssets = data.items.filter(asset => asset.status !== undefined && asset.status !== '');
+      if (statusFilter) {
+        filteredAssets = data.items.filter(asset => asset.status !== undefined);
       }
       
       setAssets(filteredAssets);

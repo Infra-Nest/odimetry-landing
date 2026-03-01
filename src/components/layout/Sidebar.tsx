@@ -3,6 +3,7 @@ import {
   ChevronRight,
   LayoutDashboard,
   LogOut,
+  Package,
   PanelLeftClose,
   PanelLeftOpen,
   ScanSearch,
@@ -20,7 +21,7 @@ interface SidebarProps {
   onToggleCollapse: () => void;
 }
 
-type NavItemKey = 'dashboard' | 'scans' | 'settings' | 'profile';
+type NavItemKey = 'dashboard' | 'scans' | 'assets' | 'settings' | 'profile';
 
 interface NavItem {
   key: NavItemKey;
@@ -32,6 +33,7 @@ interface NavItem {
 const navigationItems: NavItem[] = [
   { key: 'dashboard', to: '/dashboard', icon: LayoutDashboard, end: true },
   { key: 'scans', to: '/scans', icon: ScanSearch },
+  { key: 'assets', to: '/assets', icon: Package },
   { key: 'settings', to: '/settings', icon: Settings },
   { key: 'profile', to: '/profile', icon: UserCircle },
 ];

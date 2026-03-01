@@ -13,6 +13,7 @@
     "panel": "Panel de navegación",
     "dashboard": "Dashboard",
     "scans": "Escaneos",
+    "assets": "Activos",
     "settings": "Configuración",
     "profile": "Perfil",
     "logout": "Cerrar sesión",
@@ -23,7 +24,56 @@
     "comingSoon": "Disponible muy pronto",
     "dashboard": {
       "title": "Dashboard",
-      "description": "Aquí tendrás una vista global de tus activos, escaneos recientes y alertas clave."
+      "description": "Aquí tendrás una vista global de tus activos, escaneos recientes y alertas clave.",
+      "error": "No se pudieron cargar las métricas del dashboard.",
+      "refresh": "Actualizar",
+      "loading": "Preparando tus métricas de ciberseguridad...",
+      "errorTitle": "Error al cargar el dashboard",
+      "pulse": "Pulso de Seguridad",
+      "heroTitle": "Visión ejecutiva de riesgo y resiliencia",
+      "heroDescription": "Supervisa activos, escaneos y métricas de seguridad en tiempo real.",
+      "lastScan": "Último escaneo",
+      "scanReliability": "Fiabilidad de escaneo",
+      "securityScore": "Puntuación de Seguridad",
+      "scoreHigh": "Excelente",
+      "scoreMedium": "Estable",
+      "scoreLow": "Crítico",
+      "kpi": {
+        "totalAssets": "Activos totales",
+        "activeHint": "activos operativos",
+        "scansTotal": "Escaneos ejecutados",
+        "weekHint": "en los últimos 7 días",
+        "successRate": "Tasa de éxito",
+        "completedHint": "completados",
+        "riskLoad": "Carga de riesgo",
+        "riskHint": "Incidencias + activos no estables"
+      },
+      "assetsStatus": "Distribución de activos por estado",
+      "realData": "Datos reales",
+      "weeklyTrend": "Tendencia semanal de escaneos",
+      "last7Days": "Últimos 7 días",
+      "scanPipeline": "Pipeline de escaneos",
+      "completed": "Completados",
+      "runningPending": "En curso + pendientes",
+      "failed": "Fallidos",
+      "insightsTitle": "Insights de negocio",
+      "insightCoverage": "Cobertura operativa",
+      "insightCoverageText": "de activos están en estado activo",
+      "insightRisk": "Riesgo emergente",
+      "insightRiskText": "activos requieren atención preventiva",
+      "insightType": "Tipología dominante",
+      "noData": "Sin datos suficientes",
+      "recommendation": "Recomendación prioritaria",
+      "recommendationFailed": "Reduce fallos en escaneos para aumentar el score global y mejorar la confianza operativa.",
+      "recommendationStable": "Mantén la cadencia de escaneo y enfócate en activos en maintenance/pending para sostener el rendimiento.",
+      "assetsLabel": "Activos",
+      "statusLabels": {
+        "active": "Activo",
+        "maintenance": "Mantenimiento",
+        "pending": "Pendiente",
+        "inactive": "Inactivo",
+        "retired": "Retirado"
+      }
     },
     "settings": {
       "title": "Configuración",
@@ -31,7 +81,31 @@
     },
     "profile": {
       "title": "Perfil",
-      "description": "Revisa y actualiza tu información personal y la de tu organización."
+      "description": "Revisa y actualiza tu información personal y la de tu organización.",
+      "personalInfo": "Información Personal",
+      "organizationInfo": "Organización",
+      "email": "Correo electrónico",
+      "firstname": "Nombre",
+      "surname": "Apellidos",
+      "phone": "Teléfono",
+      "accountCreated": "Cuenta creada",
+      "currentOrganization": "Organización actual",
+      "selectOrganization": "Selecciona una organización",
+      "switchOrganization": "Cambiar organización",
+      "organizationType": "Tipo",
+      "personal": "Personal",
+      "business": "Empresa",
+      "loading": "Cargando...",
+      "singleOrg": "Solo tienes una organización activa",
+      "noOrgs": "No hay organizaciones disponibles",
+      "errors": {
+        "fetchUser": "Error al cargar el perfil de usuario",
+        "fetchOrgs": "Error al cargar las organizaciones",
+        "switchOrg": "Error al cambiar de organización"
+      },
+      "success": {
+        "switchOrg": "Organización cambiada correctamente"
+      }
     }
   },
   "hero": {

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Shield, Menu, X, LogOut } from 'lucide-react';
+import { Shield, Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
@@ -13,25 +13,7 @@ export const Header = () => {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-
-  // Check if user is authenticated
-  useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    setIsAuthenticated(!!token);
-    console.log('🔐 Auth state updated:', !!token ? 'Authenticated' : 'Not authenticated');
-  }, [location]);
-
-  const handleLogout = () => {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('organization_id');
-    localStorage.removeItem('rememberDevice');
-    setIsMobileMenuOpen(false);
-    console.log('✅ Session cleared. Logged out.');
-    navigate('/');
-  };
 
   const handleNavClick = (hash: string) => {
     setIsMobileMenuOpen(false); // Cerrar el menú móvil al hacer clic

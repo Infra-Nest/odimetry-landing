@@ -128,3 +128,11 @@ export async function createUser(payload: CreateUserRequest): Promise<void> {
     );
   }
 }
+
+export function logoutUser(): void {
+  localStorage.removeItem(ACCESS_TOKEN_KEY);
+  localStorage.removeItem('user_id');
+  localStorage.removeItem('organization_id');
+  localStorage.removeItem(REMEMBER_DEVICE_KEY);
+  console.log('✅ Session cleared. Logged out.');
+}

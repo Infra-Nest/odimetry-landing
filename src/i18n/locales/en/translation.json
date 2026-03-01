@@ -11,6 +11,7 @@
     "panel": "Navigation panel",
     "dashboard": "Dashboard",
     "scans": "Scans",
+    "assets": "Assets",
     "settings": "Settings",
     "profile": "Profile",
     "logout": "Log out",
@@ -21,7 +22,56 @@
     "comingSoon": "Coming soon",
     "dashboard": {
       "title": "Dashboard",
-      "description": "This section will give you a global view of your assets, recent scans, and key alerts."
+      "description": "This section will give you a global view of your assets, recent scans, and key alerts.",
+      "error": "Failed to load dashboard metrics.",
+      "refresh": "Refresh",
+      "loading": "Preparing your cybersecurity metrics...",
+      "errorTitle": "Error loading dashboard",
+      "pulse": "Security Pulse",
+      "heroTitle": "Executive view of risk and resilience",
+      "heroDescription": "Monitor assets, scans, and security metrics in real-time.",
+      "lastScan": "Last scan",
+      "scanReliability": "Scan reliability",
+      "securityScore": "Security Score",
+      "scoreHigh": "Excellent",
+      "scoreMedium": "Stable",
+      "scoreLow": "Critical",
+      "kpi": {
+        "totalAssets": "Total assets",
+        "activeHint": "active assets",
+        "scansTotal": "Scans executed",
+        "weekHint": "in the last 7 days",
+        "successRate": "Success rate",
+        "completedHint": "completed",
+        "riskLoad": "Risk load",
+        "riskHint": "Failed scans + unstable assets"
+      },
+      "assetsStatus": "Asset distribution by status",
+      "realData": "Real data",
+      "weeklyTrend": "Weekly scan trend",
+      "last7Days": "Last 7 days",
+      "scanPipeline": "Scan pipeline",
+      "completed": "Completed",
+      "runningPending": "Running + Pending",
+      "failed": "Failed",
+      "insightsTitle": "Business insights",
+      "insightCoverage": "Operational coverage",
+      "insightCoverageText": "of assets are in active state",
+      "insightRisk": "Emerging risk",
+      "insightRiskText": "assets require preventive attention",
+      "insightType": "Dominant typology",
+      "noData": "Insufficient data",
+      "recommendation": "Priority recommendation",
+      "recommendationFailed": "Reduce scan failures to increase your overall score and improve operational confidence.",
+      "recommendationStable": "Maintain scan cadence and focus on maintenance/pending assets to maintain performance.",
+      "assetsLabel": "Assets",
+      "statusLabels": {
+        "active": "Active",
+        "maintenance": "Maintenance",
+        "pending": "Pending",
+        "inactive": "Inactive",
+        "retired": "Retired"
+      }
     },
     "settings": {
       "title": "Settings",
@@ -29,7 +79,31 @@
     },
     "profile": {
       "title": "Profile",
-      "description": "Review and update your personal and organization information."
+      "description": "Review and update your personal information and organization details.",
+      "personalInfo": "Personal Information",
+      "organizationInfo": "Organization",
+      "email": "Email",
+      "firstname": "First Name",
+      "surname": "Last Name",
+      "phone": "Phone",
+      "accountCreated": "Account created",
+      "currentOrganization": "Current Organization",
+      "selectOrganization": "Select an organization",
+      "switchOrganization": "Switch Organization",
+      "organizationType": "Type",
+      "personal": "Personal",
+      "business": "Business",
+      "loading": "Loading...",
+      "singleOrg": "You only have one active organization",
+      "noOrgs": "No organizations available",
+      "errors": {
+        "fetchUser": "Error loading user profile",
+        "fetchOrgs": "Error loading organizations",
+        "switchOrg": "Error switching organization"
+      },
+      "success": {
+        "switchOrg": "Organization switched successfully"
+      }
     }
   },
   "hero": {

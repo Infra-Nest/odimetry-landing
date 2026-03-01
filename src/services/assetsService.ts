@@ -6,10 +6,6 @@ function getAuthToken(): string | null {
   return localStorage.getItem('access_token');
 }
 
-function getOrgId(): string | null {
-  return localStorage.getItem('organization_id');
-}
-
 export async function getAssets(filter: AssetsFilter): Promise<AssetsListResponse> {
   const token = getAuthToken();
   if (!token) {

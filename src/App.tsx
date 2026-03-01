@@ -84,16 +84,14 @@ function App() {
           <Login />
         </Layout>
       } />
-      <Route path="/assets" element={
-        <Layout>
-          <Assets />
-        </Layout>
-      } />
-      <Route path="/assets/new" element={
-        <Layout>
-          <CreateAsset />
-        </Layout>
-      } />
+      <Route
+        path="/assets"
+        element={withAuthenticatedLayout(<Assets />)}
+      />
+      <Route
+        path="/assets/new"
+        element={withAuthenticatedLayout(<CreateAsset />)}
+      />
       </Routes>
     </>
   );
