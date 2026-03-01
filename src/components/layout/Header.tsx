@@ -5,11 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { LanguageSelector } from '../ui/LanguageSelector';
+import { useAuth } from '../../hooks/useAuth';
 
 export const Header = () => {
   const { t: translate } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -129,21 +131,30 @@ export const Header = () => {
               {translate('header.pricing')}
             </button>
             {isAuthenticated ? (
-              <>
-                <Button variant="secondary" size="sm" aria-label={translate('header.logout', 'Logout')} onClick={() => navigate('/assets')}>
-                  {translate('header.assets', 'Assets')}
-                </Button>
-                <Button variant="primary" size="sm" aria-label={translate('header.logout', 'Logout')} onClick={handleLogout}>
-                  <LogOut className="w-4 h-4 mr-2" />
-                  {translate('header.logout', 'Logout')}
-                </Button>
-              </>
+              <Button
+                variant="secondary"
+                size="sm"
+                aria-label={translate('header.goToPanel')}
+                onClick={() => navigate('/dashboard')}
+              >
+                {translate('header.goToPanel')}
+              </Button>
             ) : (
               <>
-                <Button variant="secondary" size="sm" aria-label="Iniciar sesión" onClick={() => navigate('/login')}>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  aria-label="Iniciar sesión"
+                  onClick={() => navigate('/login')}
+                >
                   {translate('header.login')}
                 </Button>
-                <Button variant="primary" size="sm" aria-label={translate('header.startTrial')} onClick={() => navigate('/signup')}>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  aria-label={translate('header.startTrial')}
+                  onClick={() => navigate('/signup')}
+                >
                   {translate('header.startTrial')}
                 </Button>
               </>
@@ -184,27 +195,23 @@ export const Header = () => {
                   </button>
                   <div className="border-t border-gray-700 my-1"></div>
                   {isAuthenticated ? (
-                    <>
-                      <button
-                        onClick={() => { setIsMobileMenuOpen(false); navigate('/assets'); }}
-                        className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
-                        role="menuitem"
-                      >
-                        {translate('header.assets', 'Assets')}
-                      </button>
-                      <button
-                        onClick={handleLogout}
-                        className="w-full flex items-center px-4 py-2 text-left text-red-400 hover:bg-red-900/30 hover:text-red-300 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-inset"
-                        role="menuitem"
-                      >
-                        <LogOut className="w-4 h-4 mr-2" />
-                        {translate('header.logout', 'Logout')}
-                      </button>
-                    </>
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/dashboard');
+                      }}
+                      className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
+                      role="menuitem"
+                    >
+                      {translate('header.goToPanel')}
+                    </button>
                   ) : (
                     <>
                       <button
-                        onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          navigate('/login');
+                        }}
                         className="w-full flex items-center px-4 py-2 text-left bg-gray-700 hover:bg-gray-600 text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset rounded font-medium"
                         role="menuitem"
                       >
@@ -212,7 +219,10 @@ export const Header = () => {
                       </button>
                       <div className="border-t border-gray-700 my-1"></div>
                       <button
-                        onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          navigate('/signup');
+                        }}
                         className="w-full flex items-center px-4 py-2 text-left text-gray-300 hover:bg-gray-700 hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset"
                         role="menuitem"
                       >
@@ -229,4 +239,3 @@ export const Header = () => {
     </header>
   );
 };
-

@@ -6,7 +6,33 @@
     "logout": "Déconnexion",
     "assets": "Actifs",
     "startTrial": "Démarrer l'essai",
-    "menu": "Menu"
+    "menu": "Menu",
+    "goToPanel": "Aller au tableau"
+  },
+  "appNav": {
+    "panel": "Panneau de navigation",
+    "dashboard": "Tableau de bord",
+    "scans": "Analyses",
+    "settings": "Paramètres",
+    "profile": "Profil",
+    "logout": "Se déconnecter",
+    "collapse": "Réduire le menu latéral",
+    "expand": "Développer le menu latéral"
+  },
+  "appPages": {
+    "comingSoon": "Disponible bientôt",
+    "dashboard": {
+      "title": "Tableau de bord",
+      "description": "Vous aurez ici une vue globale de vos actifs, analyses récentes et alertes clés."
+    },
+    "settings": {
+      "title": "Paramètres",
+      "description": "Gérez ici les préférences du compte, notifications et paramètres de sécurité."
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Consultez et mettez à jour vos informations personnelles et organisationnelles."
+    }
   },
   "hero": {
     "title": "Découvrez ce que vous exposez sur Internet avant qu'un attaquant ne le fasse",
@@ -627,4 +653,3 @@
     }
   }
 }
-

@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { loginUser } from '../../services/authService';
 import type { LoginRequest } from '../../types/auth';
+import { useAuth } from '../../hooks/useAuth';
 
 // ----- Email validation regex -----
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,6 +12,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const Login = () => {
   const { t: translate } = useTranslation();
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // ----- Form fields -----
   const [email, setEmail] = useState('');
@@ -49,7 +50,7 @@ export const Login = () => {
         rememberDevice,
       };
       
-      await loginUser(payload);
+      await login(payload);
       // Redirect to dashboard on success
       navigate('/dashboard');
     } catch (err: any) {
