@@ -75,7 +75,41 @@
     },
     "settings": {
       "title": "Settings",
-      "description": "Manage account preferences, notifications, and security settings from here."
+      "description": "Manage app appearance, language, and dashboard preferences.",
+      "appearance": {
+        "title": "Appearance",
+        "description": "Choose how you want to display the interface.",
+        "themeOptions": {
+          "system": "System",
+          "light": "Light",
+          "dark": "Dark"
+        }
+      },
+      "language": {
+        "title": "Language & region",
+        "description": "Select the primary interface language.",
+        "label": "Language",
+        "options": {
+          "es": "Español",
+          "en": "English",
+          "fr": "Français",
+          "de": "Deutsch"
+        }
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Define how your dashboard metrics are refreshed.",
+        "autoRefreshLabel": "Auto refresh",
+        "autoRefreshHint": "Refresh metrics periodically in the background.",
+        "refreshIntervalLabel": "Refresh interval",
+        "intervalOptions": {
+          "30": "Every 30 seconds",
+          "60": "Every 1 minute",
+          "300": "Every 5 minutes",
+          "900": "Every 15 minutes"
+        }
+      },
+      "saved": "Changes are saved automatically"
     },
     "profile": {
       "title": "Profile",

@@ -77,7 +77,41 @@
     },
     "settings": {
       "title": "Configuración",
-      "description": "Desde esta sección podrás gestionar preferencias de cuenta, notificaciones y ajustes de seguridad."
+      "description": "Gestiona la apariencia de la app, el idioma y las preferencias del dashboard.",
+      "appearance": {
+        "title": "Apariencia",
+        "description": "Elige cómo quieres visualizar la interfaz.",
+        "themeOptions": {
+          "system": "Sistema",
+          "light": "Claro",
+          "dark": "Oscuro"
+        }
+      },
+      "language": {
+        "title": "Idioma y región",
+        "description": "Selecciona el idioma principal de la interfaz.",
+        "label": "Idioma",
+        "options": {
+          "es": "Español",
+          "en": "English",
+          "fr": "Français",
+          "de": "Deutsch"
+        }
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Define cómo se actualizan tus métricas del panel.",
+        "autoRefreshLabel": "Actualizar automáticamente",
+        "autoRefreshHint": "Recarga las métricas en segundo plano de forma periódica.",
+        "refreshIntervalLabel": "Intervalo de actualización",
+        "intervalOptions": {
+          "30": "Cada 30 segundos",
+          "60": "Cada 1 minuto",
+          "300": "Cada 5 minutos",
+          "900": "Cada 15 minutos"
+        }
+      },
+      "saved": "Cambios guardados automáticamente"
     },
     "profile": {
       "title": "Perfil",

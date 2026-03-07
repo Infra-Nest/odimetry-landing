@@ -69,4 +69,205 @@
   button:disabled {
     cursor: not-allowed;
   }
+
+  html[data-theme='light'] body {
+    @apply !bg-gray-100 !text-gray-900;
+  }
+
+  /* Sidebar y navegación */
+  html[data-theme='light'] aside {
+    @apply !bg-white !border-gray-200;
+  }
+
+  /* Fondos oscuros a claros */
+  html[data-theme='light'] .bg-gray-950,
+  html[data-theme='light'] .bg-gray-950\/60,
+  html[data-theme='light'] .bg-gray-950\/70,
+  html[data-theme='light'] .bg-gray-950\/50 {
+    @apply !bg-white;
+  }
+
+  html[data-theme='light'] .bg-gray-900,
+  html[data-theme='light'] .bg-gray-900\/60,
+  html[data-theme='light'] .bg-gray-900\/70,
+  html[data-theme='light'] .bg-gray-900\/50 {
+    @apply !bg-gray-50;
+  }
+
+  html[data-theme='light'] .bg-gray-800,
+  html[data-theme='light'] .bg-gray-800\/60,
+  html[data-theme='light'] .bg-gray-800\/70,
+  html[data-theme='light'] .bg-gray-800\/50 {
+    @apply !bg-gray-100;
+  }
+
+  /* Bordes */
+  html[data-theme='light'] .border-gray-900,
+  html[data-theme='light'] .border-gray-850,
+  html[data-theme='light'] .border-gray-800,
+  html[data-theme='light'] .border-gray-750,
+  html[data-theme='light'] .border-gray-700 {
+    @apply !border-gray-200;
+  }
+
+  /* Fondos y bordes con colores de estado */
+  html[data-theme='light'] .bg-green-500\/10 {
+    @apply !bg-green-100;
+  }
+
+  html[data-theme='light'] .border-green-500\/25 {
+    @apply !border-green-300;
+  }
+
+  html[data-theme='light'] .bg-blue-500\/10 {
+    @apply !bg-blue-100;
+  }
+
+  html[data-theme='light'] .border-blue-500\/25 {
+    @apply !border-blue-300;
+  }
+
+  html[data-theme='light'] .bg-blue-500\/15 {
+    @apply !bg-blue-100;
+  }
+
+  html[data-theme='light'] .border-blue-500\/30 {
+    @apply !border-blue-300;
+  }
+
+  html[data-theme='light'] .bg-red-500\/10 {
+    @apply !bg-red-100;
+  }
+
+  html[data-theme='light'] .border-red-500\/25,
+  html[data-theme='light'] .border-red-500\/30 {
+    @apply !border-red-300;
+  }
+
+  html[data-theme='light'] .bg-amber-500\/10,
+  html[data-theme='light'] .bg-amber-500\/15 {
+    @apply !bg-amber-100;
+  }
+
+  html[data-theme='light'] .bg-violet-500\/10,
+  html[data-theme='light'] .bg-violet-500\/15 {
+    @apply !bg-violet-100;
+  }
+
+  html[data-theme='light'] .text-blue-100 {
+    @apply !text-blue-800;
+  }
+
+  /* Textos claros a oscuros */
+  html[data-theme='light'] .text-gray-100 {
+    @apply !text-gray-900;
+  }
+
+  html[data-theme='light'] .text-gray-200 {
+    @apply !text-gray-800;
+  }
+
+  html[data-theme='light'] .text-gray-300 {
+    @apply !text-gray-700;
+  }
+
+  html[data-theme='light'] .text-gray-400 {
+    @apply !text-gray-600;
+  }
+
+  html[data-theme='light'] .text-gray-500 {
+    @apply !text-gray-500;
+  }
+
+  /* Colores de estado - ajuste para mejor contraste */
+  html[data-theme='light'] .text-green-200,
+  html[data-theme='light'] .text-green-300 {
+    @apply !text-green-700;
+  }
+
+  html[data-theme='light'] .text-blue-200,
+  html[data-theme='light'] .text-blue-300 {
+    @apply !text-blue-700;
+  }
+
+  html[data-theme='light'] .text-red-200,
+  html[data-theme='light'] .text-red-300 {
+    @apply !text-red-700;
+  }
+
+  html[data-theme='light'] .text-amber-200,
+  html[data-theme='light'] .text-amber-300 {
+    @apply !text-amber-700;
+  }
+
+  html[data-theme='light'] .text-violet-200,
+  html[data-theme='light'] .text-violet-300 {
+    @apply !text-violet-700;
+  }
+
+  html[data-theme='light'] .text-emerald-200,
+  html[data-theme='light'] .text-emerald-300 {
+    @apply !text-emerald-700;
+  }
+
+  /* Hover states - backgrounds */
+  html[data-theme='light'] .hover\:bg-gray-800:hover,
+  html[data-theme='light'] .hover\:bg-gray-900:hover {
+    @apply !bg-gray-200;
+  }
+
+  html[data-theme='light'] .hover\:bg-gray-700:hover {
+    @apply !bg-gray-300;
+  }
+
+  /* Hover states - borders */
+  html[data-theme='light'] .hover\:border-gray-600:hover,
+  html[data-theme='light'] .hover\:border-gray-700:hover {
+    @apply !border-gray-300;
+  }
+
+  /* Focus states */
+  html[data-theme='light'] .focus\:border-blue-500:focus {
+    @apply !border-blue-500;
+  }
+
+  /* Fondos de secciones */
+  html[data-theme='light'] section {
+    @apply !bg-gray-50;
+  }
+
+  /* Gradientes oscuros a claros */
+  html[data-theme='light'] .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, rgb(59 130 246 / 0.1), rgb(249 250 251), rgb(243 244 246)) !important;
+  }
+
+  html[data-theme='light'] .bg-gradient-to-r {
+    background-image: linear-gradient(to right, rgb(249 250 251), rgb(243 244 246)) !important;
+  }
+
+  /* Fondos con transparencia específicos */
+  html[data-theme='light'] .bg-gray-950\/70 {
+    @apply !bg-white;
+  }
+
+  /* Círculos y elementos decorativos */
+  html[data-theme='light'] .stroke-gray-800 {
+    @apply !stroke-gray-300;
+  }
+
+  html[data-theme='light'] .stroke-gray-700 {
+    @apply !stroke-gray-400;
+  }
+
+  /* Inputs y selects */
+  html[data-theme='light'] input,
+  html[data-theme='light'] select,
+  html[data-theme='light'] textarea {
+    @apply !bg-white !border-gray-300 !text-gray-900;
+  }
+
+  html[data-theme='light'] input::placeholder,
+  html[data-theme='light'] textarea::placeholder {
+    @apply !text-gray-400;
+  }
 }

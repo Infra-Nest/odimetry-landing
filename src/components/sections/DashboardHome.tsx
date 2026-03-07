@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   AlertTriangle,
   ArrowUpRight,
@@ -19,6 +19,7 @@ import { Button } from '../ui/Button';
 import { getAssets } from '../../services/assetsService';
 import { getScans } from '../../services/scanService';
 import type { AssetStatus } from '../../types/assets';
+import { loadAppSettings } from '../../utils/appSettings';
 
 type ScanStatusCount = {
   completed: number;
@@ -313,10 +314,15 @@ export const DashboardHome = () => {
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [refreshSettings, setRefreshSettings] = useState(() => loadAppSettings().dashboard);
 
-  const loadDashboardData = async () => {
+  const loadDashboardData = useCallback(async (options?: { silent?: boolean }) => {
+    const silent = Boolean(options?.silent);
+
     try {
-      setLoading(true);
+      if (!silent) {
+        setLoading(true);
+      }
       setError(null);
 
       const [
@@ -391,13 +397,35 @@ export const DashboardHome = () => {
           }),
       );
     } finally {
-      setLoading(false);
+      if (!silent) {
+        setLoading(false);
+      }
     }
-  };
+  }, [t]);
 
   useEffect(() => {
     loadDashboardData();
+  }, [loadDashboardData]);
+
+  useEffect(() => {
+    const settings = loadAppSettings();
+    setRefreshSettings(settings.dashboard);
   }, []);
+
+  useEffect(() => {
+    if (!refreshSettings.autoRefresh) {
+      return;
+    }
+
+    const intervalMs = refreshSettings.refreshInterval * 1000;
+    const intervalId = window.setInterval(() => {
+      void loadDashboardData({ silent: true });
+    }, intervalMs);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [refreshSettings.autoRefresh, refreshSettings.refreshInterval, loadDashboardData]);
 
   const securityScore = useMemo(() => {
     if (!metrics) {
@@ -454,7 +482,9 @@ export const DashboardHome = () => {
           <Button
             variant="secondary"
             size="sm"
-            onClick={loadDashboardData}
+            onClick={() => {
+              void loadDashboardData();
+            }}
             className="justify-center"
             aria-label={t('appPages.dashboard.refresh', { defaultValue: 'Actualizar métricas' })}
           >

@@ -77,7 +77,41 @@
     },
     "settings": {
       "title": "Paramètres",
-      "description": "Gérez ici les préférences du compte, notifications et paramètres de sécurité."
+      "description": "Gérez l'apparence de l'application, la langue et les préférences du tableau de bord.",
+      "appearance": {
+        "title": "Apparence",
+        "description": "Choisissez la façon d'afficher l'interface.",
+        "themeOptions": {
+          "system": "Système",
+          "light": "Clair",
+          "dark": "Sombre"
+        }
+      },
+      "language": {
+        "title": "Langue et région",
+        "description": "Sélectionnez la langue principale de l'interface.",
+        "label": "Langue",
+        "options": {
+          "es": "Español",
+          "en": "English",
+          "fr": "Français",
+          "de": "Deutsch"
+        }
+      },
+      "dashboard": {
+        "title": "Tableau de bord",
+        "description": "Définissez comment les métriques du tableau de bord sont actualisées.",
+        "autoRefreshLabel": "Actualisation automatique",
+        "autoRefreshHint": "Actualise les métriques périodiquement en arrière-plan.",
+        "refreshIntervalLabel": "Intervalle d'actualisation",
+        "intervalOptions": {
+          "30": "Toutes les 30 secondes",
+          "60": "Toutes les 1 minute",
+          "300": "Toutes les 5 minutes",
+          "900": "Toutes les 15 minutes"
+        }
+      },
+      "saved": "Les modifications sont enregistrées automatiquement"
     },
     "profile": {
       "title": "Profil",

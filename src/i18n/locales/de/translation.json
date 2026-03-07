@@ -75,7 +75,41 @@
     },
     "settings": {
       "title": "Einstellungen",
-      "description": "Verwalten Sie hier Kontopräferenzen, Benachrichtigungen und Sicherheitseinstellungen."
+      "description": "Verwalten Sie App-Darstellung, Sprache und Dashboard-Präferenzen.",
+      "appearance": {
+        "title": "Darstellung",
+        "description": "Wählen Sie, wie die Oberfläche angezeigt werden soll.",
+        "themeOptions": {
+          "system": "System",
+          "light": "Hell",
+          "dark": "Dunkel"
+        }
+      },
+      "language": {
+        "title": "Sprache und Region",
+        "description": "Wählen Sie die primäre Sprache der Oberfläche.",
+        "label": "Sprache",
+        "options": {
+          "es": "Español",
+          "en": "English",
+          "fr": "Français",
+          "de": "Deutsch"
+        }
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Legen Sie fest, wie Ihre Dashboard-Metriken aktualisiert werden.",
+        "autoRefreshLabel": "Automatisch aktualisieren",
+        "autoRefreshHint": "Aktualisiert Metriken regelmäßig im Hintergrund.",
+        "refreshIntervalLabel": "Aktualisierungsintervall",
+        "intervalOptions": {
+          "30": "Alle 30 Sekunden",
+          "60": "Alle 1 Minute",
+          "300": "Alle 5 Minuten",
+          "900": "Alle 15 Minuten"
+        }
+      },
+      "saved": "Änderungen werden automatisch gespeichert"
     },
     "profile": {
       "title": "Profil",
