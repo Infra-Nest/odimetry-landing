@@ -1,10 +1,7 @@
 import type { ScanHistoryFilters, Scan } from '../types/scan';
+import { fetchWithAuth } from '../utils/fetchWithAuth';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
-
-function getAuthToken(): string | null {
-  return localStorage.getItem('access_token');
-}
 
 export interface ScansListResponse {
   items: Scan[];
@@ -17,10 +14,6 @@ export interface ScansListResponse {
 }
 
 export async function getScans(filter: ScanHistoryFilters & { page?: number; per_page?: number }): Promise<ScansListResponse> {
-  const token = getAuthToken();
-  if (!token) {
-    throw new Error('No authentication token found');
-  }
 
   const orgId = localStorage.getItem('organization_id');
   if (!orgId) {
@@ -58,11 +51,10 @@ export async function getScans(filter: ScanHistoryFilters & { page?: number; per
   url.search = new URLSearchParams(params).toString();
 
   try {
-    const res = await fetch(url.toString(), {
+    const res = await fetchWithAuth(url.toString(), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
       },
     });
     

@@ -98,6 +98,14 @@
           "de": "Deutsch"
         }
       },
+      "organization": {
+        "title": "Organisation par défaut",
+        "description": "Sélectionnez l'organisation qui sera chargée automatiquement lors de la connexion.",
+        "label": "Organisation",
+        "loading": "Chargement...",
+        "noOrganizations": "Aucune organisation",
+        "selectPlaceholder": "Sélectionner une organisation"
+      },
       "dashboard": {
         "title": "Tableau de bord",
         "description": "Définissez comment les métriques du tableau de bord sont actualisées.",

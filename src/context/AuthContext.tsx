@@ -9,6 +9,7 @@ import {
 import {
   ACCESS_TOKEN_KEY,
   REMEMBER_DEVICE_KEY,
+  getAuthToken,
   loginUser,
   logoutUser,
 } from '../services/authService';
@@ -31,17 +32,25 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState<string | null>(() =>
-    localStorage.getItem(ACCESS_TOKEN_KEY),
+    getAuthToken(),
   );
 
   const syncToken = useCallback(() => {
-    setToken(localStorage.getItem(ACCESS_TOKEN_KEY));
+    setToken(getAuthToken());
   }, []);
 
   const login = useCallback(
     async (payload: LoginRequest) => {
       await loginUser(payload);
       syncToken();
+      
+      // Aplicar la organización por defecto después del login
+      try {
+        const { applyDefaultOrganization } = await import('../utils/appSettings');
+        await applyDefaultOrganization();
+      } catch (error) {
+        console.error('Failed to apply default organization after login:', error);
+      }
     },
     [syncToken],
   );

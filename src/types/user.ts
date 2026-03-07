@@ -5,6 +5,7 @@ export interface User {
   surname?: string;
   phone_number?: string;
   profile_image_url?: string;
+    default_organization_id?: string | null;
   created_at: string;
   updated_at?: string;
 }

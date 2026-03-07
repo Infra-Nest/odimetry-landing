@@ -96,6 +96,14 @@
           "de": "Deutsch"
         }
       },
+      "organization": {
+        "title": "Default Organization",
+        "description": "Select the organization that will be loaded automatically when you log in.",
+        "label": "Organization",
+        "loading": "Loading...",
+        "noOrganizations": "No organizations",
+        "selectPlaceholder": "Select organization"
+      },
       "dashboard": {
         "title": "Dashboard",
         "description": "Define how your dashboard metrics are refreshed.",

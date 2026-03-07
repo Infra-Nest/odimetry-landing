@@ -98,6 +98,14 @@
           "de": "Deutsch"
         }
       },
+      "organization": {
+        "title": "Organización predeterminada",
+        "description": "Selecciona la organización que se cargará automáticamente al iniciar sesión.",
+        "label": "Organización",
+        "loading": "Cargando...",
+        "noOrganizations": "Sin organizaciones",
+        "selectPlaceholder": "Seleccionar organización"
+      },
       "dashboard": {
         "title": "Dashboard",
         "description": "Define cómo se actualizan tus métricas del panel.",

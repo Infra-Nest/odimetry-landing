@@ -10,6 +10,7 @@ export interface AppSettings {
   theme: ThemeMode;
   language: SupportedLanguage;
   dashboard: DashboardSettings;
+  defaultOrganizationId?: string;
 }
 
 export const APP_SETTINGS_STORAGE_KEY = 'odimetry.app.settings';
@@ -21,6 +22,7 @@ export const DEFAULT_APP_SETTINGS: AppSettings = {
     autoRefresh: true,
     refreshInterval: 60,
   },
+  defaultOrganizationId: undefined,
 };
 
 const SUPPORTED_LANGUAGES: SupportedLanguage[] = ['es', 'en', 'fr', 'de'];
@@ -62,6 +64,10 @@ export const loadAppSettings = (): AppSettings => {
           ? parsed.dashboard.refreshInterval
           : DEFAULT_APP_SETTINGS.dashboard.refreshInterval,
       },
+      defaultOrganizationId:
+        typeof parsed.defaultOrganizationId === 'string'
+          ? parsed.defaultOrganizationId
+          : undefined,
     };
   } catch {
     return DEFAULT_APP_SETTINGS;
@@ -102,4 +108,28 @@ export const initializeAppSettings = (): AppSettings => {
   const settings = loadAppSettings();
   applyThemeMode(settings.theme);
   return settings;
+};
+
+export const applyDefaultOrganization = async (): Promise<void> => {
+  const settings = loadAppSettings();
+  
+  if (!settings.defaultOrganizationId) {
+    return;
+  }
+
+  const currentOrganizationId = localStorage.getItem('organization_id');
+  
+  // Si ya está en la organización correcta, no hacer nada
+  if (currentOrganizationId === settings.defaultOrganizationId) {
+    return;
+  }
+
+  // Aplicar el cambio de organización
+  try {
+    const { switchOrganization } = await import('../services/userService');
+    await switchOrganization(settings.defaultOrganizationId);
+    console.log('✅ Default organization applied:', settings.defaultOrganizationId);
+  } catch (error) {
+    console.error('Failed to apply default organization:', error);
+  }
 };

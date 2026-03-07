@@ -2,8 +2,15 @@ import type { CreateUserRequest, LoginRequest } from '../types/auth';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 export const ACCESS_TOKEN_KEY = 'access_token';
+export const REFRESH_TOKEN_KEY = 'refresh_token';
 export const REMEMBER_DEVICE_KEY = 'rememberDevice';
+export const SESSION_STARTED_AT_KEY = 'session_started_at';
+export const LAST_REFRESH_AT_KEY = 'last_refresh_at';
 const DEV_FAKE_ACCESS_TOKEN = 'dev-fake-access-token';
+
+const SESSION_MAX_AGE_MS = Number(import.meta.env.VITE_SESSION_MAX_AGE_MS ?? 1000 * 60 * 60 * 12);
+const REFRESH_MIN_INTERVAL_MS = Number(import.meta.env.VITE_REFRESH_MIN_INTERVAL_MS ?? 30_000);
+const AUTH_REFRESH_MODE = String(import.meta.env.VITE_AUTH_REFRESH_MODE ?? 'hybrid').toLowerCase();
 
 export const IS_FAKE_LOGIN_ENABLED =
   import.meta.env.DEV || import.meta.env.VITE_ENABLE_FAKE_LOGIN === 'true';
@@ -15,12 +22,56 @@ export const FAKE_LOGIN_CREDENTIALS = {
 
 function persistSession(token: string, rememberDevice?: boolean): void {
   localStorage.setItem(ACCESS_TOKEN_KEY, token);
+  localStorage.setItem(SESSION_STARTED_AT_KEY, Date.now().toString());
 
   if (rememberDevice) {
     localStorage.setItem(REMEMBER_DEVICE_KEY, 'true');
   } else {
     localStorage.removeItem(REMEMBER_DEVICE_KEY);
   }
+}
+
+export function isAbsoluteSessionExpired(): boolean {
+  const startedAtRaw = localStorage.getItem(SESSION_STARTED_AT_KEY);
+  if (!startedAtRaw) {
+    return false;
+  }
+
+  const startedAt = Number(startedAtRaw);
+  if (!Number.isFinite(startedAt)) {
+    return false;
+  }
+
+  return Date.now() - startedAt > SESSION_MAX_AGE_MS;
+}
+
+export function getAuthToken(): string | null {
+  const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+  if (!token) {
+    return null;
+  }
+
+  if (isAbsoluteSessionExpired()) {
+    console.warn('⚠️ Absolute session lifetime exceeded. Logging out.');
+    logoutUser();
+    return null;
+  }
+
+  return token;
+}
+
+function canAttemptRefreshNow(): boolean {
+  const lastRefreshRaw = localStorage.getItem(LAST_REFRESH_AT_KEY);
+  if (!lastRefreshRaw) {
+    return true;
+  }
+
+  const lastRefresh = Number(lastRefreshRaw);
+  if (!Number.isFinite(lastRefresh)) {
+    return true;
+  }
+
+  return Date.now() - lastRefresh >= REFRESH_MIN_INTERVAL_MS;
 }
 
 export async function loginUser(payload: LoginRequest): Promise<void> {
@@ -52,10 +103,15 @@ export async function loginUser(payload: LoginRequest): Promise<void> {
     );
   }
 
-  // Store token if provided
+  // Store tokens if provided
   if (data?.access_token) {
-    localStorage.setItem('access_token', data.access_token);
+    localStorage.setItem(ACCESS_TOKEN_KEY, data.access_token);
     console.log('✅ Access token stored');
+  }
+
+  if (data?.refresh_token) {
+    localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh_token);
+    console.log('✅ Refresh token stored');
   }
 
   // Store user_id 
@@ -108,6 +164,9 @@ export async function loginUser(payload: LoginRequest): Promise<void> {
   if (payload.rememberDevice) {
     localStorage.setItem('rememberDevice', 'true');
   }
+
+  localStorage.setItem(SESSION_STARTED_AT_KEY, Date.now().toString());
+  localStorage.removeItem(LAST_REFRESH_AT_KEY);
 }
 
 export async function createUser(payload: CreateUserRequest): Promise<void> {
@@ -131,8 +190,70 @@ export async function createUser(payload: CreateUserRequest): Promise<void> {
 
 export function logoutUser(): void {
   localStorage.removeItem(ACCESS_TOKEN_KEY);
+  localStorage.removeItem(REFRESH_TOKEN_KEY);
   localStorage.removeItem('user_id');
   localStorage.removeItem('organization_id');
   localStorage.removeItem(REMEMBER_DEVICE_KEY);
+  localStorage.removeItem(SESSION_STARTED_AT_KEY);
+  localStorage.removeItem(LAST_REFRESH_AT_KEY);
   console.log('✅ Session cleared. Logged out.');
+}
+
+/**
+ * Refresh the access token using the refresh token
+ */
+export async function refreshAccessToken(): Promise<boolean> {
+  const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
+
+  if (isAbsoluteSessionExpired()) {
+    console.warn('⚠️ Session expired by absolute lifetime.');
+    logoutUser();
+    return false;
+  }
+
+  if (!canAttemptRefreshNow()) {
+    console.warn('⚠️ Refresh throttled to avoid aggressive retries.');
+    return false;
+  }
+
+  const requiresLocalRefreshToken = AUTH_REFRESH_MODE === 'localstorage';
+  
+  if (requiresLocalRefreshToken && !refreshToken) {
+    console.warn('⚠️ No refresh token available');
+    return false;
+  }
+
+  try {
+    const shouldSendBodyToken = AUTH_REFRESH_MODE !== 'cookie' && Boolean(refreshToken);
+    const res = await fetch(`${API_BASE}/users/refresh-token`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: shouldSendBodyToken ? JSON.stringify({ refresh_token: refreshToken }) : JSON.stringify({}),
+    });
+
+    if (!res.ok) {
+      console.error('❌ Refresh token expired or invalid');
+      logoutUser();
+      return false;
+    }
+
+    const data = await res.json();
+    localStorage.setItem(LAST_REFRESH_AT_KEY, Date.now().toString());
+    
+    if (data?.access_token) {
+      localStorage.setItem(ACCESS_TOKEN_KEY, data.access_token);
+      console.log('✅ Access token refreshed');
+    }
+    
+    if (data?.refresh_token) {
+      localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh_token);
+      console.log('✅ Refresh token updated');
+    }
+
+    return true;
+  } catch (error) {
+    console.error('❌ Error refreshing token:', error);
+    return false;
+  }
 }

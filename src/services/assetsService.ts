@@ -1,16 +1,9 @@
 import type { AssetsListResponse, AssetsFilter, Asset } from '../types/assets';
+import { fetchWithAuth } from '../utils/fetchWithAuth';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 
-function getAuthToken(): string | null {
-  return localStorage.getItem('access_token');
-}
-
 export async function getAssets(filter: AssetsFilter): Promise<AssetsListResponse> {
-  const token = getAuthToken();
-  if (!token) {
-    throw new Error('No authentication token found');
-  }
 
   const orgId = localStorage.getItem('organization_id');
   
@@ -35,11 +28,10 @@ export async function getAssets(filter: AssetsFilter): Promise<AssetsListRespons
 
   url.search = new URLSearchParams(params).toString();
 
-  const res = await fetch(url.toString(), {
+  const res = await fetchWithAuth(url.toString(), {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -91,16 +83,10 @@ export async function getAssets(filter: AssetsFilter): Promise<AssetsListRespons
 }
 
 export async function createAsset(assetData: Partial<Asset>): Promise<Asset> {
-  const token = getAuthToken();
-  if (!token) {
-    throw new Error('No authentication token found');
-  }
-
-  const res = await fetch(`${API_BASE}/assets`, {
+  const res = await fetchWithAuth(`${API_BASE}/assets`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(assetData),
   });

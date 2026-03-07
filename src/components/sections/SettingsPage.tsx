@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BellRing, Globe, LayoutDashboard, MonitorCog, Moon, Settings, Sun } from 'lucide-react';
+import { BellRing, Building2, Globe, LayoutDashboard, MonitorCog, Moon, Settings, Sun } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 import {
@@ -12,6 +12,8 @@ import {
   type SupportedLanguage,
   type ThemeMode,
 } from '../../utils/appSettings';
+import { getUserOrganizations, updateUserProfile } from '../../services/userService';
+import type { UserOrganization } from '../../types/user';
 
 const REFRESH_INTERVALS: Array<DashboardSettings['refreshInterval']> = [30, 60, 300, 900];
 
@@ -30,10 +32,32 @@ export const SettingsPage = () => {
       language: (loaded.language || i18n.language || 'es') as SupportedLanguage,
     };
   });
+  const [organizations, setOrganizations] = useState<UserOrganization[]>([]);
+  const [loadingOrganizations, setLoadingOrganizations] = useState(true);
+    const [savingOrganization, setSavingOrganization] = useState(false);
 
   useEffect(() => {
     saveAppSettings(settings);
   }, [settings]);
+
+  useEffect(() => {
+    const fetchOrganizations = async () => {
+      try {
+        setLoadingOrganizations(true);
+        console.log('📋 Fetching organizations...');
+        const orgs = await getUserOrganizations();
+        console.log('✅ Organizations loaded:', orgs);
+        setOrganizations(orgs);
+      } catch (error) {
+        console.error('❌ Failed to load organizations:', error);
+        setOrganizations([]);
+      } finally {
+        setLoadingOrganizations(false);
+      }
+    };
+
+    void fetchOrganizations();
+  }, []);
 
   const setTheme = (theme: ThemeMode) => {
     setSettings((prev) => ({ ...prev, theme }));
@@ -63,6 +87,30 @@ export const SettingsPage = () => {
         refreshInterval: interval,
       },
     }));
+  };
+
+    const setDefaultOrganization = async (organizationId: string) => {
+      try {
+        setSavingOrganization(true);
+      
+        // Actualizar en el backend
+        await updateUserProfile({
+          default_organization_id: organizationId || null,
+        });
+      
+        // Actualizar en el estado local
+        setSettings((prev) => ({
+          ...prev,
+          defaultOrganizationId: organizationId || undefined,
+        }));
+      
+        console.log('✅ Default organization saved:', organizationId);
+      } catch (error) {
+        console.error('❌ Failed to save default organization:', error);
+        // TODO: Mostrar un toast o notificación de error al usuario
+      } finally {
+        setSavingOrganization(false);
+      }
   };
 
   const themeModes = useMemo<Array<ThemeMode>>(() => ['system', 'light', 'dark'], []);
@@ -138,6 +186,57 @@ export const SettingsPage = () => {
                 <option value="en">{t('appPages.settings.language.options.en')}</option>
                 <option value="fr">{t('appPages.settings.language.options.fr')}</option>
                 <option value="de">{t('appPages.settings.language.options.de')}</option>
+              </select>
+            </article>
+
+            <article className="rounded-xl border border-gray-800 bg-gray-900/60 p-5">
+              <div className="flex items-center gap-2 text-gray-100">
+                <Building2 className="h-4 w-4 text-purple-300" aria-hidden="true" />
+                <h2 className="text-lg font-semibold">
+                  {t('appPages.settings.organization.title', {
+                    defaultValue: 'Organización predeterminada',
+                  })}
+                </h2>
+              </div>
+              <p className="mt-2 text-sm text-gray-400">
+                {t('appPages.settings.organization.description', {
+                  defaultValue: 'Selecciona la organización que se cargará automáticamente al iniciar sesión.',
+                })}
+              </p>
+
+              <label htmlFor="settings-organization" className="mt-4 block text-sm font-medium text-gray-300">
+                {t('appPages.settings.organization.label', {
+                  defaultValue: 'Organización',
+                })}
+              </label>
+              {/* Debug info */}
+              <p className="mt-1 text-xs text-gray-500">
+                Debug: {loadingOrganizations ? 'Cargando...' : `${organizations.length} organizaciones encontradas`}
+              </p>
+              <select
+                id="settings-organization"
+                 className="mt-2 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 outline-none transition-colors focus:border-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+                value={settings.defaultOrganizationId || ''}
+                 onChange={(event) => void setDefaultOrganization(event.target.value)}
+                 disabled={loadingOrganizations || organizations.length === 0 || savingOrganization}
+              >
+                <option value="">
+                  {loadingOrganizations
+                    ? t('appPages.settings.organization.loading', { defaultValue: 'Cargando...' })
+                    : organizations.length === 0
+                      ? t('appPages.settings.organization.noOrganizations', {
+                          defaultValue: 'Sin organizaciones',
+                        })
+                      : t('appPages.settings.organization.selectPlaceholder', {
+                          defaultValue: 'Seleccionar organización',
+                        })}
+                </option>
+                {organizations.map((org) => (
+                  <option key={org.organization_id} value={org.organization_id}>
+                    {org.name}
+                    {org.role ? ` (${org.role})` : ''}
+                  </option>
+                ))}
               </select>
             </article>
 

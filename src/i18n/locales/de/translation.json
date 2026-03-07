@@ -96,6 +96,14 @@
           "de": "Deutsch"
         }
       },
+      "organization": {
+        "title": "Standard-Organisation",
+        "description": "Wählen Sie die Organisation, die beim Anmelden automatisch geladen wird.",
+        "label": "Organisation",
+        "loading": "Lädt...",
+        "noOrganizations": "Keine Organisationen",
+        "selectPlaceholder": "Organisation auswählen"
+      },
       "dashboard": {
         "title": "Dashboard",
         "description": "Legen Sie fest, wie Ihre Dashboard-Metriken aktualisiert werden.",
