@@ -17,6 +17,7 @@ export const CreateAsset = () => {
   // Form state
   const [name, setName] = useState('');
   const [type, setType] = useState('');
+  const [value, setValue] = useState('');
   const [serial, setSerial] = useState('');
   const [assetTag, setAssetTag] = useState('');
   const [status, setStatus] = useState('active');
@@ -31,6 +32,7 @@ export const CreateAsset = () => {
   const validate = () => {
     if (!name.trim()) return translate('createAsset.errors.nameRequired', 'Asset name is required');
     if (!type.trim()) return translate('createAsset.errors.typeRequired', 'Asset type is required');
+    if (!value.trim()) return translate('createAsset.errors.valueRequired', 'Asset value is required');
     if (!ASSET_TYPES.includes(type)) return translate('createAsset.errors.invalidType', 'Invalid asset type');
     if (!ASSET_STATUSES.includes(status)) return translate('createAsset.errors.invalidStatus', 'Invalid status');
     return null;
@@ -60,7 +62,9 @@ export const CreateAsset = () => {
       const assetData: Partial<Asset> = {
         name,
         type,
+        value,
         status: status as any,
+        client_id: orgId.toString(),
         organization_id: orgId.toString(),
         owner_id: userId ? userId.toString() : undefined,
         serial: serial || undefined,
@@ -142,6 +146,35 @@ export const CreateAsset = () => {
                 <option value="host">{translate('createAsset.types.host', 'Host')}</option>
                 <option value="ip">{translate('createAsset.types.ip', 'IP Address')}</option>
               </select>
+            </div>
+
+            {/* Value (Required) */}
+            <div>
+              <label htmlFor="value" className="block text-sm font-medium text-gray-300 mb-1">
+                {translate('createAsset.fields.value', 'Value')} *
+              </label>
+              <input
+                id="value"
+                type="text"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                placeholder={
+                  type === 'domain'
+                    ? 'example.com'
+                    : type === 'host'
+                    ? 'server01.example.com'
+                    : type === 'ip'
+                    ? '192.168.1.1'
+                    : translate('createAsset.placeholders.value', 'Enter asset value')
+                }
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                disabled={loading}
+              />
+              <p className="mt-1 text-xs text-gray-500">
+                {type === 'domain' && translate('createAsset.hints.domain', 'Enter the domain name (e.g., example.com)')}
+                {type === 'host' && translate('createAsset.hints.host', 'Enter the host name (e.g., server.example.com)')}
+                {type === 'ip' && translate('createAsset.hints.ip', 'Enter the IP address (e.g., 192.168.1.1)')}
+              </p>
             </div>
 
             {/* Serial and Asset Tag */}

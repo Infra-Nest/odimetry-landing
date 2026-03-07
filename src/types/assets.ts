@@ -5,10 +5,12 @@ export interface Asset {
   name: string;
   label?: string;
   type: string;
+  value?: string;
   category?: string;
   serial?: string;
   asset_tag?: string;
   status?: AssetStatus;
+  client_id?: string;
   organization_id: string;
   owner_id?: string;
   assigned_to?: string;
