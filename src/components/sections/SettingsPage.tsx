@@ -44,12 +44,9 @@ export const SettingsPage = () => {
     const fetchOrganizations = async () => {
       try {
         setLoadingOrganizations(true);
-        console.log('📋 Fetching organizations...');
         const orgs = await getUserOrganizations();
-        console.log('✅ Organizations loaded:', orgs);
         setOrganizations(orgs);
-      } catch (error) {
-        console.error('❌ Failed to load organizations:', error);
+      } catch {
         setOrganizations([]);
       } finally {
         setLoadingOrganizations(false);
@@ -89,28 +86,23 @@ export const SettingsPage = () => {
     }));
   };
 
-    const setDefaultOrganization = async (organizationId: string) => {
-      try {
-        setSavingOrganization(true);
-      
-        // Actualizar en el backend
-        await updateUserProfile({
-          default_organization_id: organizationId || null,
-        });
-      
-        // Actualizar en el estado local
-        setSettings((prev) => ({
-          ...prev,
-          defaultOrganizationId: organizationId || undefined,
-        }));
-      
-        console.log('✅ Default organization saved:', organizationId);
-      } catch (error) {
-        console.error('❌ Failed to save default organization:', error);
-        // TODO: Mostrar un toast o notificación de error al usuario
-      } finally {
-        setSavingOrganization(false);
-      }
+  const setDefaultOrganization = async (organizationId: string) => {
+    try {
+      setSavingOrganization(true);
+
+      await updateUserProfile({
+        default_organization_id: organizationId || null,
+      });
+
+      setSettings((prev) => ({
+        ...prev,
+        defaultOrganizationId: organizationId || undefined,
+      }));
+    } catch {
+      // Keep current value on error
+    } finally {
+      setSavingOrganization(false);
+    }
   };
 
   const themeModes = useMemo<Array<ThemeMode>>(() => ['system', 'light', 'dark'], []);
@@ -209,16 +201,12 @@ export const SettingsPage = () => {
                   defaultValue: 'Organización',
                 })}
               </label>
-              {/* Debug info */}
-              <p className="mt-1 text-xs text-gray-500">
-                Debug: {loadingOrganizations ? 'Cargando...' : `${organizations.length} organizaciones encontradas`}
-              </p>
               <select
                 id="settings-organization"
-                 className="mt-2 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 outline-none transition-colors focus:border-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-2 w-full rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 outline-none transition-colors focus:border-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
                 value={settings.defaultOrganizationId || ''}
-                 onChange={(event) => void setDefaultOrganization(event.target.value)}
-                 disabled={loadingOrganizations || organizations.length === 0 || savingOrganization}
+                onChange={(event) => void setDefaultOrganization(event.target.value)}
+                disabled={loadingOrganizations || organizations.length === 0 || savingOrganization}
               >
                 <option value="">
                   {loadingOrganizations

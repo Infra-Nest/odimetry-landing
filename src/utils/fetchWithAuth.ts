@@ -37,8 +37,6 @@ export async function fetchWithAuth(
     return response;
   }
 
-  console.log('🔄 Token expired, attempting refresh...');
-
   // Prevent multiple simultaneous refresh requests
   let refreshOk = false;
 
@@ -57,7 +55,6 @@ export async function fetchWithAuth(
   }
 
   if (!refreshOk) {
-    console.error('❌ Refresh failed, keeping original 401 response');
     return response;
   }
 
@@ -65,7 +62,6 @@ export async function fetchWithAuth(
   const newToken = getAuthToken();
   
   if (!newToken) {
-    console.error('❌ No token after refresh, redirecting to login');
     logoutUser();
     // Don't redirect here to avoid circular dependencies
     // Let the component/context handle it
@@ -76,8 +72,6 @@ export async function fetchWithAuth(
     ...headers,
     Authorization: `Bearer ${newToken}`,
   };
-
-  console.log('🔄 Retrying request with refreshed token...');
   
   return fetch(url, {
     ...restOptions,
