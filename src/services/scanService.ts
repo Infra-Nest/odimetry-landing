@@ -1,4 +1,5 @@
 import type { ScanHistoryFilters, ScanHistoryResponse } from '../types/scan';
+import { notifySessionExpired } from './authService';
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 
@@ -44,6 +45,10 @@ export async function getScanHistory(
   });
 
   const data = await res.json().catch(() => null);
+
+  if (res.status === 401) {
+    notifySessionExpired();
+  }
 
   if (!res.ok) {
     console.error('Scan history error response:', data);

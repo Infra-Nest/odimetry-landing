@@ -11,6 +11,7 @@
     "panel": "Navigation panel",
     "dashboard": "Dashboard",
     "scans": "Scans",
+    "authority": "Authority files",
     "settings": "Settings",
     "profile": "Profile",
     "logout": "Log out",
@@ -518,6 +519,50 @@
       "fetchScan": "Error retrieving scan data."
     }
   },
+  "authorityUpload": {
+    "listTitle": "Authority Files",
+    "total": "Total",
+    "uploadButton": "Upload authority file",
+    "organization": "Organization",
+    "noOrganizations": "No organizations available",
+    "loadingFiles": "Loading authority files...",
+    "noFiles": "No authority files found",
+    "asset": "Asset",
+    "download": "Download",
+    "downloading": "Downloading…",
+    "status": {
+      "pending": "Requested",
+      "approved": "Accepted",
+      "rejected": "Rejected"
+    },
+    "fields": {
+      "uploaded": "Uploaded",
+      "reviewed": "Reviewed",
+      "reviewNote": "Review note"
+    },
+    "title": "Upload authority file",
+    "subtitle": "Upload a document (e.g. an invoice) proving that the domain to be reviewed belongs to you or your company.",
+    "domain": "Domain to review",
+    "file": "Authority file (invoice)",
+    "fileHint": "Click to select a file",
+    "fileFormats": "PDF, PNG, JPEG or WEBP · up to 10 MB",
+    "consent": "I authorize and consent to running tests and scans against the declared domain.",
+    "termsPrefix": "I accept the",
+    "termsLink": "terms and conditions",
+    "uploading": "Uploading…",
+    "submit": "Upload file",
+    "errors": {
+      "listFetch": "Failed to load authority files.",
+      "download": "Failed to download the file.",
+      "domainRequired": "Please enter the domain to review.",
+      "fileRequired": "Please select an authority file to upload.",
+      "fileType": "Unsupported file type. Allowed: PDF, PNG, JPEG, WEBP.",
+      "fileSize": "File exceeds the maximum allowed size of 10 MB.",
+      "consentRequired": "You must accept the consent to run tests.",
+      "termsRequired": "You must accept the terms and conditions.",
+      "general": "Upload failed."
+    }
+  },
   "scans": {
     "title": "Scan History",
     "total": "Total Scans",
@@ -526,17 +571,36 @@
     "scanId": "Scan ID",
     "hostsScanned": "Hosts Scanned",
     "portsFound": "Ports Found",
+    "organization": "Organization",
+    "newScan": "New scan",
+    "newScanComingSoon": "Coming soon",
     "fields": {
       "type": "Type",
       "created": "Created",
       "started": "Started",
       "finished": "Finished"
+    },
+    "newScanModal": {
+      "title": "New scan",
+      "subtitle": "Queue a scan for an asset with approved authority.",
+      "asset": "Authorized asset",
+      "loadingAssets": "Loading assets…",
+      "noAuthorizedAssets": "No authorized assets available",
+      "noAuthorizedAssetsHint": "Upload and get an authority document approved before requesting a scan.",
+      "scanType": "Scan type",
+      "submit": "Run scan",
+      "submitComingSoon": "Running scans is coming soon",
+      "errors": {
+        "assetsFetch": "Failed to load authorized assets."
+      }
     }
   },
   "status": {
     "pending": "Pending",
+    "queued": "Queued",
     "running": "Running",
     "completed": "Completed",
+    "done": "Done",
     "failed": "Failed"
   },
   "common": {
@@ -544,7 +608,9 @@
     "loading": "Loading...",
     "loadingScans": "Loading scans...",
     "more": "more",
-    "error": "Error"
+    "error": "Error",
+    "cancel": "Cancel",
+    "close": "Close"
   },
   "pagination": {
     "page": "Page",

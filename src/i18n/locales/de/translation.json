@@ -11,6 +11,7 @@
     "panel": "Navigationsbereich",
     "dashboard": "Dashboard",
     "scans": "Scans",
+    "authority": "Autoritätsdateien",
     "settings": "Einstellungen",
     "profile": "Profil",
     "logout": "Abmelden",
@@ -518,6 +519,50 @@
       "fetchScan": "Fehler beim Abrufen der Scandaten."
     }
   },
+  "authorityUpload": {
+    "listTitle": "Autorisierungsdokumente",
+    "total": "Gesamt",
+    "uploadButton": "Autorisierungsdokument hochladen",
+    "organization": "Organisation",
+    "noOrganizations": "Keine Organisationen verfügbar",
+    "loadingFiles": "Autorisierungsdokumente werden geladen...",
+    "noFiles": "Keine Autorisierungsdokumente gefunden",
+    "asset": "Asset",
+    "download": "Herunterladen",
+    "downloading": "Wird heruntergeladen…",
+    "status": {
+      "pending": "Angefragt",
+      "approved": "Akzeptiert",
+      "rejected": "Abgelehnt"
+    },
+    "fields": {
+      "uploaded": "Hochgeladen",
+      "reviewed": "Geprüft",
+      "reviewNote": "Prüfhinweis"
+    },
+    "title": "Autorisierungsdokument hochladen",
+    "subtitle": "Laden Sie ein Dokument (z. B. eine Rechnung) hoch, das belegt, dass die zu prüfende Domain Ihnen oder Ihrem Unternehmen gehört.",
+    "domain": "Zu prüfende Domain",
+    "file": "Autorisierungsdokument (Rechnung)",
+    "fileHint": "Klicken Sie, um eine Datei auszuwählen",
+    "fileFormats": "PDF, PNG, JPEG oder WEBP · bis zu 10 MB",
+    "consent": "Ich autorisiere und stimme der Durchführung von Tests und Scans für die angegebene Domain zu.",
+    "termsPrefix": "Ich akzeptiere die",
+    "termsLink": "Allgemeinen Geschäftsbedingungen",
+    "uploading": "Wird hochgeladen…",
+    "submit": "Datei hochladen",
+    "errors": {
+      "listFetch": "Fehler beim Laden der Autorisierungsdokumente.",
+      "download": "Fehler beim Herunterladen der Datei.",
+      "domainRequired": "Bitte geben Sie die zu prüfende Domain ein.",
+      "fileRequired": "Bitte wählen Sie ein Autorisierungsdokument zum Hochladen aus.",
+      "fileType": "Nicht unterstützter Dateityp. Erlaubt: PDF, PNG, JPEG, WEBP.",
+      "fileSize": "Die Datei überschreitet die maximal zulässige Größe von 10 MB.",
+      "consentRequired": "Sie müssen der Durchführung von Tests zustimmen.",
+      "termsRequired": "Sie müssen die Allgemeinen Geschäftsbedingungen akzeptieren.",
+      "general": "Hochladen fehlgeschlagen."
+    }
+  },
   "scans": {
     "title": "Scan-Verlauf",
     "total": "Scans insgesamt",
@@ -526,17 +571,36 @@
     "scanId": "Scan-ID",
     "hostsScanned": "Gescannte Hosts",
     "portsFound": "Gefundene Ports",
+    "organization": "Organisation",
+    "newScan": "Neuer Scan",
+    "newScanComingSoon": "Demnächst verfügbar",
     "fields": {
       "type": "Typ",
       "created": "Erstellt",
       "started": "Gestartet",
       "finished": "Abgeschlossen"
+    },
+    "newScanModal": {
+      "title": "Neuer Scan",
+      "subtitle": "Planen Sie einen Scan für ein Asset mit genehmigter Autorisierung.",
+      "asset": "Autorisiertes Asset",
+      "loadingAssets": "Assets werden geladen…",
+      "noAuthorizedAssets": "Keine autorisierten Assets verfügbar",
+      "noAuthorizedAssetsHint": "Laden Sie ein Autorisierungsdokument hoch und lassen Sie es genehmigen, bevor Sie einen Scan anfordern.",
+      "scanType": "Scan-Typ",
+      "submit": "Scan ausführen",
+      "submitComingSoon": "Das Ausführen von Scans ist bald verfügbar",
+      "errors": {
+        "assetsFetch": "Fehler beim Laden der autorisierten Assets."
+      }
     }
   },
   "status": {
     "pending": "Ausstehend",
+    "queued": "In Warteschlange",
     "running": "Laufend",
     "completed": "Abgeschlossen",
+    "done": "Fertig",
     "failed": "Fehlgeschlagen"
   },
   "common": {
@@ -545,7 +609,9 @@
     "loadingScans": "Scans werden geladen...",
     "more": "mehr",
     "error": "Fehler",
-    "allRightsReserved": "Alle Rechte vorbehalten"
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "cancel": "Abbrechen",
+    "close": "Schließen"
   },
   "pagination": {
     "page": "Seite",

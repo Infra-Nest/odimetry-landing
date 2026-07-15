@@ -64,6 +64,16 @@ export function logoutUser(): void {
   localStorage.removeItem(REMEMBER_DEVICE_KEY);
 }
 
+/** Dispatched when an API call reports an expired/invalid session so the app
+ * can react everywhere (not just where the request originated) and send the
+ * user back to the login screen. */
+export const SESSION_EXPIRED_EVENT = 'auth:session-expired';
+
+export function notifySessionExpired(): void {
+  logoutUser();
+  window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT));
+}
+
 export async function createUser(payload: CreateUserRequest): Promise<void> {
   const res = await fetch(`${API_BASE}/users/signup`, {
     method: 'POST',

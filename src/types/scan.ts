@@ -1,5 +1,5 @@
-export type ScanStatus = 'pending' | 'running' | 'completed' | 'failed';
-export type ScanType = 'full' | 'quick' | 'custom';
+export type ScanStatus = 'queued' | 'running' | 'done' | 'failed';
+export type ScanType = 'port_service';
 export type PortProtocol = 'tcp' | 'udp';
 export type PortState = 'open' | 'closed' | 'filtered';
 

@@ -11,6 +11,7 @@
     "panel": "Panneau de navigation",
     "dashboard": "Tableau de bord",
     "scans": "Analyses",
+    "authority": "Fichiers d'autorité",
     "settings": "Paramètres",
     "profile": "Profil",
     "logout": "Se déconnecter",
@@ -516,6 +517,50 @@
       "fetchScan": "Erreur lors de la récupération des données de scan."
     }
   },
+  "authorityUpload": {
+    "listTitle": "Documents d'Autorité",
+    "total": "Total",
+    "uploadButton": "Télécharger un document d'autorité",
+    "organization": "Organisation",
+    "noOrganizations": "Aucune organisation disponible",
+    "loadingFiles": "Chargement des documents d'autorité...",
+    "noFiles": "Aucun document d'autorité trouvé",
+    "asset": "Actif",
+    "download": "Télécharger",
+    "downloading": "Téléchargement…",
+    "status": {
+      "pending": "Demandé",
+      "approved": "Accepté",
+      "rejected": "Rejeté"
+    },
+    "fields": {
+      "uploaded": "Téléchargé",
+      "reviewed": "Examiné",
+      "reviewNote": "Note d'examen"
+    },
+    "title": "Télécharger un document d'autorité",
+    "subtitle": "Téléchargez un document (par exemple, une facture) prouvant que le domaine à examiner vous appartient, à vous ou à votre entreprise.",
+    "domain": "Domaine à examiner",
+    "file": "Document d'autorité (facture)",
+    "fileHint": "Cliquez pour sélectionner un fichier",
+    "fileFormats": "PDF, PNG, JPEG ou WEBP · jusqu'à 10 Mo",
+    "consent": "J'autorise et consens à l'exécution de tests et d'analyses sur le domaine déclaré.",
+    "termsPrefix": "J'accepte les",
+    "termsLink": "conditions générales",
+    "uploading": "Téléchargement…",
+    "submit": "Télécharger le fichier",
+    "errors": {
+      "listFetch": "Échec du chargement des documents d'autorité.",
+      "download": "Échec du téléchargement du fichier.",
+      "domainRequired": "Veuillez saisir le domaine à examiner.",
+      "fileRequired": "Veuillez sélectionner un document d'autorité à télécharger.",
+      "fileType": "Type de fichier non pris en charge. Autorisés : PDF, PNG, JPEG, WEBP.",
+      "fileSize": "Le fichier dépasse la taille maximale autorisée de 10 Mo.",
+      "consentRequired": "Vous devez accepter le consentement pour exécuter les tests.",
+      "termsRequired": "Vous devez accepter les conditions générales.",
+      "general": "Échec du téléchargement."
+    }
+  },
   "scans": {
     "title": "Historique des Analyses",
     "total": "Total des Analyses",
@@ -524,17 +569,36 @@
     "scanId": "ID d'Analyse",
     "hostsScanned": "Hôtes Analysés",
     "portsFound": "Ports Trouvés",
+    "organization": "Organisation",
+    "newScan": "Nouvelle analyse",
+    "newScanComingSoon": "Bientôt disponible",
     "fields": {
       "type": "Type",
       "created": "Créé",
       "started": "Commencé",
       "finished": "Terminé"
+    },
+    "newScanModal": {
+      "title": "Nouvelle analyse",
+      "subtitle": "Planifiez une analyse pour un actif avec une autorisation approuvée.",
+      "asset": "Actif autorisé",
+      "loadingAssets": "Chargement des actifs…",
+      "noAuthorizedAssets": "Aucun actif autorisé disponible",
+      "noAuthorizedAssetsHint": "Téléchargez et faites approuver un document d'autorité avant de demander une analyse.",
+      "scanType": "Type d'analyse",
+      "submit": "Lancer l'analyse",
+      "submitComingSoon": "Le lancement des analyses arrive bientôt",
+      "errors": {
+        "assetsFetch": "Échec du chargement des actifs autorisés."
+      }
     }
   },
   "status": {
     "pending": "En attente",
+    "queued": "En file d'attente",
     "running": "En cours",
     "completed": "Terminé",
+    "done": "Terminé",
     "failed": "Échoué"
   },
   "common": {
@@ -542,7 +606,9 @@
     "loading": "Chargement...",
     "loadingScans": "Chargement des analyses...",
     "more": "plus",
-    "error": "Erreur"
+    "error": "Erreur",
+    "cancel": "Annuler",
+    "close": "Fermer"
   },
   "pagination": {
     "page": "Page",

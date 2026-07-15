@@ -9,6 +9,7 @@ import {
 import {
   ACCESS_TOKEN_KEY,
   REMEMBER_DEVICE_KEY,
+  SESSION_EXPIRED_EVENT,
   loginUser,
   logoutUser,
 } from '../services/authService';
@@ -63,8 +64,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
 
     window.addEventListener('storage', handleStorage);
+    window.addEventListener(SESSION_EXPIRED_EVENT, syncToken);
     return () => {
       window.removeEventListener('storage', handleStorage);
+      window.removeEventListener(SESSION_EXPIRED_EVENT, syncToken);
     };
   }, [syncToken]);
 

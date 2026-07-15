@@ -3,26 +3,31 @@ import { useTranslation } from "react-i18next";
 import type { Scan, ScanHistoryFilters, ScanStatus } from "../../types/scan";
 import { getScanHistory } from "../../services/scanService";
 import { useAuth } from "../../hooks/useAuth";
+import { useUserOrganizations } from "../../hooks/useUserOrganizations";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { LockOpen, Lock } from "lucide-react";
+import { NewScanModal } from "./NewScanModal";
 
 const STATUS_STYLES: Record<ScanStatus, string> = {
-  pending: "bg-amber-950/40 border-amber-600 text-amber-400",
+  queued: "bg-amber-950/40 border-amber-600 text-amber-400",
   running: "bg-blue-950/40 border-blue-600 text-blue-400",
-  completed: "bg-green-950/40 border-green-600 text-green-400",
+  done: "bg-green-950/40 border-green-600 text-green-400",
   failed: "bg-red-950/40 border-red-600 text-red-400",
 };
 
 export const ScansList = () => {
   const { t } = useTranslation();
   const { token } = useAuth();
+  const { organizations, isLoading: organizationsLoading, error: organizationsError } =
+    useUserOrganizations(token);
   const [scans, setScans] = useState<Scan[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [total, setTotal] = useState(0);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [isNewScanModalOpen, setIsNewScanModalOpen] = useState(false);
   const [filters, setFilters] = useState<ScanHistoryFilters>({
     limit: 50,
     offset: 0,
@@ -31,8 +36,20 @@ export const ScansList = () => {
   });
 
   useEffect(() => {
-    if (!token) {
-      setError(t("errors.noToken"));
+    if (!filters.organization_id && organizations.length > 0) {
+      setFilters((previous) => ({
+        ...previous,
+        organization_id: organizations[0].id,
+        offset: 0,
+      }));
+    }
+  }, [filters.organization_id, organizations]);
+
+  useEffect(() => {
+    if (!token || !filters.organization_id) {
+      if (!organizationsLoading && !filters.organization_id) {
+        setError(t("scans.errors.organizationRequired", "Select an organization first."));
+      }
       return;
     }
 
@@ -52,7 +69,7 @@ export const ScansList = () => {
     };
 
     fetchScans();
-  }, [filters, token, t, refreshKey]);
+  }, [filters, token, t, refreshKey, organizationsLoading]);
 
   const handleRefresh = () => {
     setRefreshKey((prev) => prev + 1);
@@ -93,7 +110,7 @@ export const ScansList = () => {
     <section className="py-12 bg-gray-900 min-h-screen">
       <Container>
         <div className="space-y-6">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="text-3xl font-bold text-gray-100">
                 {t("scans.title")}
@@ -103,15 +120,44 @@ export const ScansList = () => {
                 <span className="font-semibold text-gray-200">{total}</span>
               </p>
             </div>
-            <Button onClick={handleRefresh} disabled={isLoading}>
-              {isLoading ? t("common.loading") : t("common.refresh")}
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={!filters.organization_id}
+                onClick={() => setIsNewScanModalOpen(true)}
+              >
+                {t("scans.newScan", "New scan")}
+              </Button>
+              <Button onClick={handleRefresh} disabled={isLoading}>
+                {isLoading ? t("common.loading") : t("common.refresh")}
+              </Button>
+            </div>
+          </div>
+
+          <div className="max-w-md">
+            <label className="mb-1 block text-sm font-medium text-gray-300" htmlFor="scanOrganization">
+              {t("scans.organization", "Organization")}
+            </label>
+            <select
+              id="scanOrganization"
+              value={filters.organization_id ?? ""}
+              disabled
+              className="w-full cursor-not-allowed rounded-lg border border-gray-800 bg-gray-800/60 px-4 py-2.5 text-gray-400 opacity-80"
+            >
+              {organizations.map((organization) => (
+                <option key={organization.id} value={organization.id}>
+                  {organization.name} (ID: {organization.id})
+                </option>
+              ))}
+            </select>
+            {organizationsError && <p className="mt-1 text-sm text-red-300">{organizationsError}</p>}
           </div>
 
           {/* Status Filters */}
           <div className="flex gap-2 flex-wrap">
             {(
-              ["pending", "running", "completed", "failed"] as ScanStatus[]
+              ["queued", "running", "done", "failed"] as ScanStatus[]
             ).map((status) => (
               <button
                 key={status}
@@ -319,6 +365,17 @@ export const ScansList = () => {
           )}
         </div>
       </Container>
+
+      {isNewScanModalOpen && filters.organization_id && (
+        <NewScanModal
+          organizationId={filters.organization_id}
+          organizationName={
+            organizations.find((organization) => organization.id === filters.organization_id)
+              ?.name
+          }
+          onClose={() => setIsNewScanModalOpen(false)}
+        />
+      )}
     </section>
   );
 }

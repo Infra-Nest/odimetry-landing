@@ -11,6 +11,7 @@
     "panel": "Panel de navegación",
     "dashboard": "Dashboard",
     "scans": "Escaneos",
+    "authority": "Archivos de autoridad",
     "settings": "Configuración",
     "profile": "Perfil",
     "logout": "Cerrar sesión",
@@ -519,6 +520,50 @@
       "fileTooLarge": "El archivo es demasiado grande (máximo 2MB)"
     }
   },
+  "authorityUpload": {
+    "listTitle": "Documentos de Autoridad",
+    "total": "Total",
+    "uploadButton": "Subir documento de autoridad",
+    "organization": "Organización",
+    "noOrganizations": "No hay organizaciones disponibles",
+    "loadingFiles": "Cargando documentos de autoridad...",
+    "noFiles": "No se encontraron documentos de autoridad",
+    "asset": "Activo",
+    "download": "Descargar",
+    "downloading": "Descargando…",
+    "status": {
+      "pending": "Solicitado",
+      "approved": "Aceptado",
+      "rejected": "Rechazado"
+    },
+    "fields": {
+      "uploaded": "Subido",
+      "reviewed": "Revisado",
+      "reviewNote": "Nota de revisión"
+    },
+    "title": "Subir documento de autoridad",
+    "subtitle": "Sube un documento (por ejemplo, una factura) que demuestre que el dominio a revisar te pertenece a ti o a tu empresa.",
+    "domain": "Dominio a revisar",
+    "file": "Documento de autoridad (factura)",
+    "fileHint": "Haz clic para seleccionar un archivo",
+    "fileFormats": "PDF, PNG, JPEG o WEBP · hasta 10 MB",
+    "consent": "Autorizo y doy mi consentimiento para ejecutar pruebas y escaneos contra el dominio declarado.",
+    "termsPrefix": "Acepto los",
+    "termsLink": "términos y condiciones",
+    "uploading": "Subiendo…",
+    "submit": "Subir archivo",
+    "errors": {
+      "listFetch": "Error al cargar los documentos de autoridad.",
+      "download": "Error al descargar el archivo.",
+      "domainRequired": "Por favor introduce el dominio a revisar.",
+      "fileRequired": "Por favor selecciona un documento de autoridad para subir.",
+      "fileType": "Tipo de archivo no soportado. Permitidos: PDF, PNG, JPEG, WEBP.",
+      "fileSize": "El archivo supera el tamaño máximo permitido de 10 MB.",
+      "consentRequired": "Debes aceptar el consentimiento para ejecutar pruebas.",
+      "termsRequired": "Debes aceptar los términos y condiciones.",
+      "general": "Error al subir el archivo."
+    }
+  },
   "scans": {
     "title": "Historial de Escaneos",
     "total": "Total de Escaneos",
@@ -527,17 +572,36 @@
     "scanId": "ID de Escaneo",
     "hostsScanned": "Hosts Escaneados",
     "portsFound": "Puertos Encontrados",
+    "organization": "Organización",
+    "newScan": "Nuevo escaneo",
+    "newScanComingSoon": "Próximamente",
     "fields": {
       "type": "Tipo",
       "created": "Creado",
       "started": "Iniciado",
       "finished": "Finalizado"
+    },
+    "newScanModal": {
+      "title": "Nuevo escaneo",
+      "subtitle": "Programa un escaneo para un activo con autorización aprobada.",
+      "asset": "Activo autorizado",
+      "loadingAssets": "Cargando activos…",
+      "noAuthorizedAssets": "No hay activos autorizados disponibles",
+      "noAuthorizedAssetsHint": "Sube y consigue la aprobación de un documento de autoridad antes de solicitar un escaneo.",
+      "scanType": "Tipo de escaneo",
+      "submit": "Ejecutar escaneo",
+      "submitComingSoon": "La ejecución de escaneos estará disponible próximamente",
+      "errors": {
+        "assetsFetch": "Error al cargar los activos autorizados."
+      }
     }
   },
   "status": {
     "pending": "Pendiente",
+    "queued": "En cola",
     "running": "En ejecución",
     "completed": "Completado",
+    "done": "Finalizado",
     "failed": "Fallido"
   },
   "common": {
@@ -545,7 +609,9 @@
     "loading": "Cargando...",
     "loadingScans": "Cargando escaneos...",
     "more": "más",
-    "error": "Error"
+    "error": "Error",
+    "cancel": "Cancelar",
+    "close": "Cerrar"
   },
   "pagination": {
     "page": "Página",

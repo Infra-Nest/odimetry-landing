@@ -4,6 +4,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { AuthenticatedLayout } from './components/layout/AuthenticatedLayout';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/layout/ProtectedRoute';
+import { AuthorityFileUpload } from './components/sections/AuthorityFileUpload';
 import { CookiePolicy } from './components/sections/CookiePolicy';
 import { Dashboard as DashboardSection } from './components/sections/Dashboard';
 import { DashboardHome } from './components/sections/DashboardHome';
@@ -68,6 +69,10 @@ function App() {
         <Route
           path="/scans"
           element={withAuthenticatedLayout(<ScansList />)}
+        />
+        <Route
+          path="/authority-files"
+          element={withAuthenticatedLayout(<AuthorityFileUpload />)}
         />
         <Route
           path="/settings"

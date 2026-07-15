@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   ChevronRight,
+  FileCheck,
   LayoutDashboard,
   LogOut,
   PanelLeftClose,
@@ -20,7 +21,7 @@ interface SidebarProps {
   onToggleCollapse: () => void;
 }
 
-type NavItemKey = 'dashboard' | 'scans' | 'settings' | 'profile';
+type NavItemKey = 'dashboard' | 'scans' | 'authority' | 'settings' | 'profile';
 
 interface NavItem {
   key: NavItemKey;
@@ -32,6 +33,7 @@ interface NavItem {
 const navigationItems: NavItem[] = [
   { key: 'dashboard', to: '/dashboard', icon: LayoutDashboard, end: true },
   { key: 'scans', to: '/scans', icon: ScanSearch },
+  { key: 'authority', to: '/authority-files', icon: FileCheck },
   { key: 'settings', to: '/settings', icon: Settings },
   { key: 'profile', to: '/profile', icon: UserCircle },
 ];
