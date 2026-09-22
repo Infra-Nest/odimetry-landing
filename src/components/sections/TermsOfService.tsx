@@ -138,7 +138,7 @@ export const TermsOfService = () => {
               <h2 className="text-2xl font-semibold text-gray-100 mb-4">{translate('terms.sections.contact.title')}</h2>
               <p>
                 {translate('terms.sections.contact.description')} 
-                <a href="mailto:legal@odimetry.com" className="text-blue-400 hover:text-blue-300"> legal@odimetry.com</a>
+                <a href="mailto:info@infranest.es" className="text-blue-400 hover:text-blue-300"> info@infranest.es</a>
               </p>
             </section>
           </div>
@@ -147,4 +147,3 @@ export const TermsOfService = () => {
     </section>
   );
 };
-

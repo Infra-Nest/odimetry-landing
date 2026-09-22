@@ -16,7 +16,8 @@ export const CookiePolicy = () => {
       window.scrollTo(0, 0);
     } else {
       // Si ya estamos en esa ruta, scroll suave
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      window.scrollTo({ top: 0, behavior });
     }
   };
 
@@ -145,7 +146,7 @@ export const CookiePolicy = () => {
               <h2 className="text-2xl font-semibold text-gray-100 mb-4">{translate('cookies.sections.contact.title')}</h2>
               <p>
                 {translate('cookies.sections.contact.description')} 
-                <a href="mailto:privacidad@odimetry.com" className="text-blue-400 hover:text-blue-300"> privacidad@odimetry.com</a>
+                <a href="mailto:info@infranest.es" className="text-blue-400 hover:text-blue-300"> info@infranest.es</a>
               </p>
             </section>
           </div>
@@ -154,4 +155,3 @@ export const CookiePolicy = () => {
     </section>
   );
 };
-

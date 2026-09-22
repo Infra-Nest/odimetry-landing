@@ -1,6 +1,8 @@
 # Odimetry Landing Page
 
-Landing page moderna y responsive para **Odimetry**, una plataforma de auditorías automáticas de ciberseguridad que ayuda a las empresas a identificar servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras en su infraestructura.
+Landing page moderna y responsive para **Odimetry**, una herramienta para realizar evaluaciones externas de ciberseguridad sobre dominios y activos autorizados. Identifica servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras, y presenta resultados claros y priorizados.
+
+La identidad visual se define en el brandbook canónico de la landing corporativa de Infranest. Odimetry usa el mismo sistema tipográfico y la misma base navy, con teal como color de producto y ámbar reservado para destacar puntos de atención.
 
 ## 🚀 Características
 
@@ -45,23 +47,35 @@ La landing page incluye las siguientes secciones:
 
 ## 📦 Instalación
 
-1. Clona el repositorio:
+1. Usa Node.js 22 (el repositorio incluye `.nvmrc`):
+
+```bash
+nvm use
+```
+
+2. Clona el repositorio y entra en él:
 ```bash
 git clone <url-del-repositorio>
-cd landing
+cd odimetry-frontend
 ```
 
-2. Instala las dependencias:
+3. Instala las dependencias reproducibles:
 ```bash
-npm install
+npm ci
 ```
 
-3. Inicia el servidor de desarrollo:
+4. Inicia el servidor de desarrollo:
 ```bash
 npm run dev
 ```
 
-4. Abre tu navegador en `http://localhost:5173`
+Abre tu navegador en `http://localhost:5173`. Si también tienes levantada la landing de Infranest, usa otro puerto:
+
+```bash
+npm run dev -- --port 5174
+```
+
+La landing pública no necesita el backend: el pricing usa datos mock y el login local acepta `info@infranest.es` / `odimetry-demo` en desarrollo. Las altas de usuario y las rutas del panel que consultan datos reales sí requieren configurar `VITE_API_BASE_URL`.
 
 ## 🏗️ Scripts disponibles
 
@@ -131,6 +145,10 @@ npm run build
 ```
 
 Los archivos optimizados se generarán en la carpeta `dist/`, listos para ser desplegados en cualquier servidor estático o CDN.
+
+## 🎨 Identidad
+
+Los assets de producto están en `public/brand/` y el isotipo se usa también como favicon. `odimetry-wordmark.svg` es la variante para fondos claros y `odimetry-wordmark-dark.svg` la variante para fondos oscuros. La atribución corporativa se reserva al pie y a los contextos donde sea necesaria, con la fórmula **un producto de Infranest**; no se repite como coletilla en la navegación ni en las secciones. No se debe comunicar seguridad total, ausencia de vulnerabilidades, detección exhaustiva, certificación de cumplimiento, monitorización continua ni remediación automática. El servicio solo debe utilizarse sobre dominios y activos autorizados.
 
 ## 📄 Licencia
 

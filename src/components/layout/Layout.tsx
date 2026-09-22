@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
@@ -7,21 +8,22 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  const { t: translate } = useTranslation();
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="odimetry-page min-h-screen flex flex-col">
       {/* Skip to main content link for accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="odimetry-skip-link sr-only focus:not-sr-only"
       >
-        Saltar al contenido principal
+        {translate('header.skipToContent')}
       </a>
       <Header />
-      <main id="main-content" className="grow" role="main">
+      <main id="main-content" className="grow" role="main" tabIndex={-1}>
         {children}
       </main>
       <Footer />
     </div>
   );
 };
-

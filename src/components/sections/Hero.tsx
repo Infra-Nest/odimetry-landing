@@ -1,54 +1,87 @@
+import { ArrowDownRight, ArrowUpRight, Radar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 
 export const Hero = () => {
   const { t: translate } = useTranslation();
 
   return (
-    <section 
-      className="relative bg-gradient-to-br from-black via-gray-950 to-black text-white py-16 sm:py-20 md:py-32 overflow-hidden"
-      aria-labelledby="hero-heading"
-    >
-      {/* Efecto de fondo tecnológico */}
-      <div className="absolute inset-0 opacity-20" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradientranslate(circle_at_50%_50%,rgba(96,165,250,0.4),transparent_50%)]"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-      </div>
-
-      <Container className="relative z-10">
-        <div className="text-center max-w-4xl mx-auto px-2 sm:px-0">
-          <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-5 sm:mb-6 leading-tight">
-            {translate('hero.title')}
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
-            {translate('hero.description')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              className="w-full sm:w-auto"
-              aria-label={translate('hero.analyzeDomain')}
-            >
-              {translate('hero.analyzeDomain')}
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto border-white text-white hover:bg-white/10 bg-transparent hover:border-white/80"
-              aria-label={translate('hero.viewExample')}
-            >
-              {translate('hero.viewExample')}
-            </Button>
+    <section className="odimetry-hero" aria-labelledby="hero-heading">
+      <Container className="odimetry-container">
+        <div className="odimetry-hero__grid">
+          <div className="odimetry-hero__copy">
+            <p className="odimetry-eyebrow">
+              <span className="odimetry-signal" aria-hidden="true" />
+              {translate('hero.eyebrow')}
+            </p>
+            <h1 id="hero-heading">{translate('hero.title')}</h1>
+            <p className="odimetry-hero__description">{translate('hero.description')}</p>
+            <div className="odimetry-hero__actions">
+              <Link className="odimetry-button odimetry-button--accent" to="/signup">
+                {translate('hero.analyzeDomain')}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+              <a className="odimetry-text-link" href="#dashboard">
+                {translate('hero.viewExample')}
+                <ArrowDownRight aria-hidden="true" />
+              </a>
+            </div>
+            <p className="odimetry-hero__note">{translate('hero.noCreditCard')}</p>
           </div>
-          <p className="mt-6 text-sm text-gray-500">
-            {translate('hero.noCreditCard')}
-          </p>
+
+          <div className="odimetry-hero__visual" role="group" aria-label={translate('hero.visualTitle')}>
+            <div className="odimetry-radar" aria-hidden="true">
+              <span className="odimetry-radar__ring odimetry-radar__ring--outer" />
+              <span className="odimetry-radar__ring odimetry-radar__ring--middle" />
+              <span className="odimetry-radar__ring odimetry-radar__ring--inner" />
+              <span className="odimetry-radar__cross odimetry-radar__cross--horizontal" />
+              <span className="odimetry-radar__cross odimetry-radar__cross--vertical" />
+              <span className="odimetry-radar__beam" />
+              <span className="odimetry-radar__point odimetry-radar__point--one" />
+              <span className="odimetry-radar__point odimetry-radar__point--two" />
+              <span className="odimetry-radar__core"><Radar /></span>
+            </div>
+
+            <div className="odimetry-scan-card">
+              <div className="odimetry-scan-card__header">
+                <span>{translate('hero.visualTitle')}</span>
+                <span className="odimetry-status"><i />{translate('hero.visualStatus')}</span>
+              </div>
+              <div className="odimetry-scan-card__domain">{translate('dashboard.exampleDomain')}</div>
+              <div className="odimetry-scan-card__rows">
+                <div><span>{translate('hero.visualSurface')}</span><strong>01</strong></div>
+                <div><span>{translate('dashboard.portsAndServices')}</span><strong>03</strong></div>
+                <div><span>{translate('dashboard.vulnerabilitiesDetected')}</span><strong className="is-warning">02</strong></div>
+              </div>
+              <p>{translate('hero.visualNote')}</p>
+            </div>
+          </div>
+        </div>
+
+        <dl className="odimetry-hero__readout" aria-label={translate('hero.readoutLabel')}>
+          <div>
+            <dt>{translate('hero.readoutScope')}</dt>
+            <dd>{translate('hero.readoutScopeValue')}</dd>
+          </div>
+          <div>
+            <dt>{translate('hero.readoutSignals')}</dt>
+            <dd>{translate('hero.readoutSignalsValue')}</dd>
+          </div>
+          <div>
+            <dt>{translate('hero.readoutNext')}</dt>
+            <dd>{translate('hero.readoutNextValue')}</dd>
+          </div>
+        </dl>
+
+        <div className="odimetry-hero__bottom">
+          <span>{translate('hero.bottomLabel')}</span>
+          <a href="#how-it-works">
+            {translate('hero.bottomLink')}
+            <ArrowDownRight aria-hidden="true" />
+          </a>
         </div>
       </Container>
     </section>
   );
 };
-

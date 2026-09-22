@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 
@@ -22,15 +22,22 @@ export const LanguageSelector = ({
   compact = false,
   fullWidth = false,
 }: LanguageSelectorProps) => {
-  const { i18n } = useTranslation();
+  const { i18n, t: translate } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const menuId = useId();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuItemRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
-  const updateMenuPosition = () => {
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
+  const updateMenuPosition = useCallback(() => {
     const trigger = buttonRef.current;
     const menu = menuRef.current;
 
@@ -81,7 +88,7 @@ export const LanguageSelector = ({
     const top = Math.min(Math.max(rawTop, margin), maxTop);
 
     setMenuPosition({ top, left });
-  };
+  }, [menuAlign, menuDirection]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -101,7 +108,7 @@ export const LanguageSelector = ({
       window.removeEventListener('resize', handleReposition);
       window.removeEventListener('scroll', handleReposition, true);
     };
-  }, [isOpen, menuAlign, menuDirection]);
+  }, [isOpen, updateMenuPosition]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -119,26 +126,89 @@ export const LanguageSelector = ({
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      menuItemRefs.current.find((item) => item?.dataset.language === currentLanguage.code)?.focus();
+    });
+  }, [currentLanguage.code, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || !dropdownRef.current?.contains(document.activeElement)) {
+        return;
+      }
+
+      event.preventDefault();
+      setIsOpen(false);
+      requestAnimationFrame(() => buttonRef.current?.focus());
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
   const handleLanguageChange = (code: string) => {
     i18n.changeLanguage(code);
     setIsOpen(false);
+    requestAnimationFrame(() => buttonRef.current?.focus());
+  };
+
+  const handleMenuItemKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (event.key === 'Tab') {
+      setIsOpen(false);
+      buttonRef.current?.focus();
+      return;
+    }
+    const lastIndex = languages.length - 1;
+    let nextIndex: number | null = null;
+
+    if (event.key === 'ArrowDown') {
+      nextIndex = index === lastIndex ? 0 : index + 1;
+    } else if (event.key === 'ArrowUp') {
+      nextIndex = index === 0 ? lastIndex : index - 1;
+    } else if (event.key === 'Home') {
+      nextIndex = 0;
+    } else if (event.key === 'End') {
+      nextIndex = lastIndex;
+    }
+
+    if (nextIndex !== null) {
+      event.preventDefault();
+      menuItemRefs.current[nextIndex]?.focus();
+    }
   };
 
   return (
-    <div className={`relative ${fullWidth ? 'w-full' : 'w-auto'}`} ref={dropdownRef}>
+    <div
+      className={`relative ${fullWidth ? 'w-full' : 'w-auto'}`}
+      ref={dropdownRef}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsOpen(false);
+      }}
+    >
       <button
         ref={buttonRef}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center rounded-lg px-3 py-3 text-gray-300 transition-colors hover:bg-gray-800 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 ${fullWidth ? 'w-full' : 'w-auto'}`}
-        aria-label="Seleccionar idioma"
+        type="button"
+        onClick={() => setIsOpen((open) => !open)}
+        className={`flex items-center rounded-lg px-3 py-3 text-gray-300 transition-colors hover:bg-gray-800 hover:text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 ${fullWidth ? 'w-full' : 'w-auto'}`}
+        aria-label={translate('header.selectLanguage')}
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-controls={menuId}
+        aria-haspopup="menu"
       >
         <div className="flex w-10 shrink-0 items-center justify-center">
           <Globe className="w-4 h-4" aria-hidden="true" />
         </div>
         <div
-          className={`flex items-center overflow-hidden whitespace-nowrap transition-all duration-300 ${
+          className={`flex items-center overflow-hidden whitespace-nowrap transition-[opacity,margin-left,width] duration-300 ${
             compact ? 'ml-0 w-0 opacity-0' : 'ml-3 w-auto opacity-100'
           }`}
         >
@@ -152,25 +222,38 @@ export const LanguageSelector = ({
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed z-[70] w-48 max-h-72 overflow-y-auto rounded-lg border border-gray-700 bg-gray-800 shadow-lg"
+          id={menuId}
+          role="menu"
+          aria-label={translate('header.selectLanguage')}
+          aria-orientation="vertical"
+          className="fixed z-[70] w-48 max-h-72 overflow-y-auto overscroll-contain rounded-lg border border-gray-700 bg-gray-800 shadow-lg"
           style={{ top: `${menuPosition.top}px`, left: `${menuPosition.left}px` }}
         >
-          <div className="py-1" role="menu" aria-orientation="vertical">
-            {languages.map((language) => (
+          <div className="py-1">
+            {languages.map((language, index) => (
               <button
                 key={language.code}
+                ref={(element) => {
+                  menuItemRefs.current[index] = element;
+                }}
+                type="button"
                 onClick={() => handleLanguageChange(language.code)}
-                className={`w-full flex items-center space-x-3 px-4 py-2 text-left hover:bg-gray-700 transition-colors ${
+                onKeyDown={(event) => handleMenuItemKeyDown(event, index)}
+                data-language={language.code}
+                className={`flex w-full items-center space-x-3 px-4 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-300 hover:bg-gray-700 ${
                   i18n.language === language.code
-                    ? 'bg-gray-700 text-blue-400'
+                    ? 'bg-gray-700 text-gray-100'
                     : 'text-gray-300'
                 }`}
-                role="menuitem"
+                role="menuitemradio"
+                tabIndex={-1}
+                aria-checked={currentLanguage.code === language.code}
+                lang={language.code}
               >
                 <span className="text-xl" aria-hidden="true">{language.flag}</span>
                 <span className="flex-1 text-sm font-medium">{language.name}</span>
                 {i18n.language === language.code && (
-                  <span className="text-blue-400" aria-hidden="true">✓</span>
+                  <span className="text-gray-100" aria-hidden="true">✓</span>
                 )}
               </button>
             ))}

@@ -8,19 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta de colores técnica para ciberseguridad
+        // Odimetry: teal de visibilidad sobre la base navy de Infranest.
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50: '#e8f5f6',
+          100: '#cfe9eb',
+          200: '#a5d5d9',
+          300: '#6fc0c8',
+          400: '#2da8b3',
+          500: '#087e8b',
+          600: '#076f7b',
+          700: '#075c66',
+          800: '#064850',
+          900: '#04363d',
+          950: '#02252b',
         },
         security: {
           green: '#10b981', // Verde de seguridad
@@ -29,24 +29,24 @@ export default {
           orange: '#f97316', // Naranja de riesgo
         },
         gray: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-          950: '#030712',
+          50: '#f5f7f8',
+          100: '#e8eef0',
+          200: '#d8dee3',
+          300: '#b7c3c8',
+          400: '#8b9ba2',
+          500: '#64757d',
+          600: '#4b5d66',
+          700: '#334650',
+          800: '#233641',
+          900: '#17212b',
+          950: '#101d27',
         },
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['Sora', 'Manrope', 'system-ui', 'sans-serif'],
       },
     },
   },
   plugins: [],
 }
-

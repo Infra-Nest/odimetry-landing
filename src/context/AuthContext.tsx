@@ -1,5 +1,4 @@
 import {
-  createContext,
   useCallback,
   useEffect,
   useMemo,
@@ -13,17 +12,7 @@ import {
   logoutUser,
 } from '../services/authService';
 import type { LoginRequest } from '../types/auth';
-
-interface AuthContextValue {
-  token: string | null;
-  isAuthenticated: boolean;
-  login: (payload: LoginRequest) => Promise<void>;
-  logout: () => void;
-}
-
-export const AuthContext = createContext<AuthContextValue | undefined>(
-  undefined,
-);
+import { AuthContext, type AuthContextValue } from './AuthContextDefinition';
 
 interface AuthProviderProps {
   children: ReactNode;

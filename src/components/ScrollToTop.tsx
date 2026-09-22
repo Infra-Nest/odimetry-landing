@@ -35,6 +35,7 @@ export const ScrollToTop = () => {
       if (element) {
         // Pequeño delay para asegurar que el elemento esté renderizado
         setTimeout(() => {
+          const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
           // Solo aplicar offset en móvil
           const isMobile = window.innerWidth < 768;
           if (isMobile) {
@@ -44,11 +45,11 @@ export const ScrollToTop = () => {
             const offsetPosition = elementPosition - headerHeight;
             window.scrollTo({
               top: offsetPosition,
-              behavior: 'smooth'
+              behavior
             });
           } else {
             // En desktop, scroll normal
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior });
           }
         }, 100);
       }
@@ -57,4 +58,3 @@ export const ScrollToTop = () => {
 
   return null;
 };
-

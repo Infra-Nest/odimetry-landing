@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
+import { SEO } from './components/SEO';
 import { AuthenticatedLayout } from './components/layout/AuthenticatedLayout';
 import { Layout } from './components/layout/Layout';
 import { ProtectedRoute } from './components/layout/ProtectedRoute';
@@ -15,6 +16,7 @@ import { Login } from './components/sections/Login';
 import { Pricing } from './components/sections/Pricing';
 import { PrivacyPolicy } from './components/sections/PrivacyPolicy';
 import { Problem } from './components/sections/Problem';
+import { ProductFAQ } from './components/sections/ProductFAQ';
 import { ProfilePage } from './components/sections/ProfilePage';
 import { ScansList } from './components/sections/ScansList';
 import { SettingsPage } from './components/sections/SettingsPage';
@@ -22,6 +24,7 @@ import { SignUp } from './components/sections/SignUp';
 import { Solution } from './components/sections/Solution';
 import { Target } from './components/sections/Target';
 import { TermsOfService } from './components/sections/TermsOfService';
+import { Workflow } from './components/sections/Workflow';
 
 const withPublicLayout = (children: ReactNode) => <Layout>{children}</Layout>;
 
@@ -35,12 +38,14 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <SEO />
       <Routes>
         <Route
           path="/"
           element={withPublicLayout(
             <>
               <Hero />
+              <Workflow />
               <Problem />
               <Solution />
               <Features />
@@ -48,6 +53,7 @@ function App() {
               <Target />
               <Differentiators />
               <Pricing />
+              <ProductFAQ />
               <FinalCTA />
             </>,
           )}
