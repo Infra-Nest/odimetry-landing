@@ -20,9 +20,8 @@ export const Container = ({
   };
   
   return (
-    <div className={`mx-auto px-5 sm:px-6 md:px-8 lg:px-8 ${maxWidths[size]} ${className}`}>
+    <div className={`odimetry-container mx-auto px-5 sm:px-6 md:px-8 lg:px-8 ${maxWidths[size]} ${className}`}>
       {children}
     </div>
   );
 };
-

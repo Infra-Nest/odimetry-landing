@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
@@ -22,6 +22,8 @@ export const Login = () => {
   // ----- UI state -----
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   // ----- Validation -----
   const validate = () => {
@@ -39,6 +41,11 @@ export const Login = () => {
     const validationError = validate();
     if (validationError) {
       setError(validationError);
+      if (!email || !EMAIL_REGEX.test(email)) {
+        emailRef.current?.focus();
+      } else {
+        passwordRef.current?.focus();
+      }
       return;
     }
 
@@ -53,8 +60,9 @@ export const Login = () => {
       await login(payload);
       // Redirect to dashboard on success
       navigate('/dashboard');
-    } catch (err: any) {
-      setError(err?.message || translate('login.errors.general', 'Login failed. Please try again.'));
+    } catch (err: unknown) {
+      const fallback = translate('login.errors.general', 'Login failed. Please try again.');
+      setError(err instanceof Error && err.message ? err.message : fallback);
     } finally {
       setLoading(false);
     }
@@ -74,12 +82,12 @@ export const Login = () => {
           </div>
 
           {error && (
-            <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+            <div id="login-feedback" className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg" role="alert" aria-live="assertive" aria-atomic="true">
               <p className="text-red-400 text-sm">{error}</p>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4" aria-label={translate('login.title')}>
+          <form onSubmit={handleSubmit} className="space-y-4" aria-label={translate('login.title')} aria-busy={loading}>
 
             {/* Email */}
             <div>
@@ -88,11 +96,16 @@ export const Login = () => {
               </label>
               <input
                 id="email"
+                ref={emailRef}
+                name="email"
                 type="email"
+                autoComplete="email"
+                spellCheck={false}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={translate('login.emailPlaceholder', 'nombre@empresa.com')}
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 placeholder-gray-500 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none transition-[border-color,box-shadow,background-color]"
+                aria-describedby={error ? 'login-feedback' : undefined}
                 disabled={loading}
               />
             </div>
@@ -106,7 +119,7 @@ export const Login = () => {
                 <button
                   type="button"
                   onClick={() => navigate('/forgot-password')}
-                  className="text-xs text-blue-400 hover:text-blue-300 transition"
+                  className="text-xs text-blue-400 hover:text-blue-300 transition-colors"
                   disabled={loading}
                 >
                   {translate('login.forgotPassword')}
@@ -114,11 +127,14 @@ export const Login = () => {
               </div>
               <input
                 id="password"
+                ref={passwordRef}
+                name="password"
                 type="password"
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-100 placeholder-gray-500 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none transition-[border-color,box-shadow,background-color]"
+                aria-describedby={error ? 'login-feedback' : undefined}
                 disabled={loading}
               />
             </div>
@@ -127,10 +143,11 @@ export const Login = () => {
             <div className="flex items-center space-x-2">
               <input
                 id="rememberDevice"
+                name="rememberDevice"
                 type="checkbox"
                 checked={rememberDevice}
                 onChange={(e) => setRememberDevice(e.target.checked)}
-                className="h-4 w-4 text-blue-500 bg-gray-800 border-gray-700 rounded focus:ring-blue-400 cursor-pointer"
+                className="h-4 w-4 text-blue-500 bg-gray-800 border-gray-700 rounded focus-visible:ring-2 focus-visible:ring-blue-400 cursor-pointer"
                 disabled={loading}
               />
               <label htmlFor="rememberDevice" className="text-sm text-gray-400 cursor-pointer">
@@ -140,7 +157,7 @@ export const Login = () => {
 
             <div className="pt-2">
               <Button type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>
-                {loading ? translate('login.loading', 'Iniciando sesión...') : translate('login.submit')}
+                {loading ? translate('login.loading', 'Iniciando sesión…') : translate('login.submit')}
               </Button>
             </div>
           </form>
@@ -148,13 +165,9 @@ export const Login = () => {
           {/* Signup Link */}
           <div className="mt-6 text-center text-sm text-gray-400">
             {translate('login.noAccount')}{' '}
-            <button
-              onClick={() => navigate('/signup')}
-              className="text-blue-400 hover:text-blue-300 font-medium transition"
-              disabled={loading}
-            >
+            <Link to="/signup" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
               {translate('login.registerHere')}
-            </button>
+            </Link>
           </div>
 
         </div>

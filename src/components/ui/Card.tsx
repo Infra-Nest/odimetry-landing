@@ -8,7 +8,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Card = ({ children, className = '', hover = false, ...props }: CardProps) => {
   const hoverStyles = hover 
-    ? 'transition-all duration-300 hover:shadow-xl hover:-translate-y-2' 
+    ? 'transition-[transform,box-shadow] duration-300 hover:shadow-xl hover:-translate-y-2'
     : '';
   
   return (
@@ -17,4 +17,3 @@ export const Card = ({ children, className = '', hover = false, ...props }: Card
     </div>
   );
 };
-

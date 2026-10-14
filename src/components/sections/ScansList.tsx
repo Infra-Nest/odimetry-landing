@@ -115,7 +115,9 @@ export const ScansList = () => {
             ).map((status) => (
               <button
                 key={status}
+                type="button"
                 onClick={() => handleStatusFilter(status)}
+                aria-pressed={filters.status?.includes(status) ?? false}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors border ${
                   filters.status?.includes(status)
                     ? "bg-gray-700 border-blue-500 text-blue-400"
@@ -129,15 +131,15 @@ export const ScansList = () => {
 
           {/* Error State General */}
           {error && (
-            <div className="bg-red-950/40 border border-red-600 rounded-lg p-4">
+            <div className="bg-red-950/40 border border-red-600 rounded-lg p-4" role="alert" aria-live="assertive">
               <p className="text-red-200">{error}</p>
             </div>
           )}
 
           {/* Loading State */}
           {isLoading && !scans.length && (
-            <div className="text-center py-12">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-600 border-t-blue-400"></div>
+            <div className="text-center py-12" role="status" aria-live="polite">
+              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-600 border-t-blue-400" aria-hidden="true"></div>
               <p className="mt-4 text-gray-400">{t("common.loadingScans")}</p>
             </div>
           )}

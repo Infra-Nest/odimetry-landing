@@ -95,7 +95,7 @@ export const PrivacyPolicy = () => {
                 <li>{translate('privacy.sections.rights.items.portability')}</li>
               </ul>
               <p>
-                {translate('privacy.sections.rights.contact')} <a href="mailto:privacidad@odimetry.com" className="text-blue-400 hover:text-blue-300">privacidad@odimetry.com</a>
+                {translate('privacy.sections.rights.contact')} <a href="mailto:info@infranest.es" className="text-blue-400 hover:text-blue-300">info@infranest.es</a>
               </p>
             </section>
 
@@ -117,7 +117,7 @@ export const PrivacyPolicy = () => {
               <h2 className="text-2xl font-semibold text-gray-100 mb-4">{translate('privacy.sections.contact.title')}</h2>
               <p>
                 {translate('privacy.sections.contact.description')} 
-                <a href="mailto:privacidad@odimetry.com" className="text-blue-400 hover:text-blue-300"> privacidad@odimetry.com</a>
+                <a href="mailto:info@infranest.es" className="text-blue-400 hover:text-blue-300"> info@infranest.es</a>
               </p>
             </section>
           </div>
@@ -126,4 +126,3 @@ export const PrivacyPolicy = () => {
     </section>
   );
 };
-

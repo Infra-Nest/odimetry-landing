@@ -1,0 +1,10 @@
+# Editable source documentation must stay in the repository, not in the
+# deployment upload or the public static output.
+docs/
+*.md
+
+# Local tooling and environment files are never deployment assets.
+.codebase-memory/
+.env
+.env.*
+*.map

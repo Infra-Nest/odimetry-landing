@@ -1,11 +1,23 @@
 {
+  "seo": {
+    "title": "Evaluación externa de ciberseguridad | Odimetry",
+    "description": "Evalúa la exposición digital de tu dominio con Odimetry: identifica servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras desde fuera.",
+    "legalDescription": "Consulta la información de Odimetry sobre {{page}}.",
+    "privateDescription": "Accede a tu cuenta de Odimetry para gestionar evaluaciones sobre activos autorizados.",
+    "imageAlt": "Odimetry: Evaluación externa de ciberseguridad."
+  },
   "header": {
-    "features": "Características",
+    "howItWorks": "Cómo funciona",
+    "features": "Qué observa",
     "pricing": "Precios",
     "login": "Iniciar sesión",
-    "startTrial": "Iniciar prueba",
+    "startTrial": "Crear cuenta",
     "menu": "Menú",
-    "goToPanel": "Ir al panel"
+    "goToPanel": "Ir al panel",
+    "home": "Odimetry, inicio",
+    "navigation": "Navegación principal",
+    "selectLanguage": "Seleccionar idioma",
+    "skipToContent": "Saltar al contenido principal"
   },
   "appNav": {
     "panel": "Panel de navegación",
@@ -33,15 +45,30 @@
     }
   },
   "hero": {
-    "title": "Descubre qué expones en Internet antes de que lo haga un atacante",
-    "description": "Auditorías automáticas de ciberseguridad que identifican servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras. Sin instalaciones, sin agentes, solo visibilidad clara y accionable.",
-    "analyzeDomain": "Analiza tu dominio",
+    "eyebrow": "Evaluación externa de ciberseguridad",
+    "title": "Conoce qué expone tu negocio en Internet",
+    "description": "Odimetry evalúa dominios y activos autorizados desde fuera. Te ayuda a entender los servicios visibles, las posibles vulnerabilidades conocidas y las configuraciones que conviene revisar, con hallazgos priorizados y próximos pasos orientativos.",
+    "analyzeDomain": "Crear cuenta",
     "viewExample": "Ver ejemplo de informe",
-    "noCreditCard": "Sin tarjeta de crédito • Resultados en minutos • Sin compromiso"
+    "noCreditCard": "En desarrollo y validación. Consulta la disponibilidad de las evaluaciones antes de empezar.",
+    "visualTitle": "Lectura externa",
+    "visualStatus": "Ejemplo ilustrativo",
+    "visualSurface": "Superficie digital",
+    "visualNote": "Solo sobre dominios y activos autorizados.",
+    "bottomLabel": "Del dominio autorizado a una lectura clara.",
+    "bottomLink": "Así funciona Odimetry",
+    "readoutLabel": "Qué te ayuda a entender",
+    "readoutScope": "Alcance",
+    "readoutScopeValue": "Dominio autorizado",
+    "readoutSignals": "Señales",
+    "readoutSignalsValue": "Servicios y configuraciones",
+    "readoutNext": "Siguiente paso",
+    "readoutNextValue": "Informe priorizado"
   },
   "problem": {
+    "kicker": "Lo que se ve desde fuera",
     "title": "Muchas empresas no saben qué están exponiendo",
-    "subtitle": "La mayoría de organizaciones desconocen los riesgos reales que enfrentan en Internet. Sin visibilidad, no hay control.",
+    "subtitle": "Un servicio visible o una configuración desactualizada pueden pasar desapercibidos. Una primera evaluación externa ayuda a decidir dónde mirar.",
     "risks": {
       "exposedServices": {
         "title": "Servicios expuestos sin protección",
@@ -53,94 +80,123 @@
       },
       "vulnerabilities": {
         "title": "Vulnerabilidades conocidas sin parchear",
-        "description": "CVEs (Common Vulnerabilities and Exposures) conocidas que no han sido corregidas, dejando sistemas expuestos a ataques."
+        "description": "Fallos de seguridad documentados en el software (CVE) que podrían afectar a las versiones observadas y requieren verificación."
       },
       "configurations": {
         "title": "Configuraciones inseguras",
-        "description": "Ajustes por defecto peligrosos, headers de seguridad faltantes o políticas de acceso demasiado permisivas."
+        "description": "Ajustes por defecto, cabeceras de protección web ausentes o accesos más abiertos de lo necesario."
       }
     }
   },
   "solution": {
-    "title": "Automatiza auditorías técnicas complejas en minutos",
-    "description": "Odimetry escanea tu infraestructura desde fuera, identificando riesgos reales sin necesidad de acceso interno ni instalaciones. No prometemos seguridad total, pero sí visibilidad y control sobre lo que realmente expones.",
+    "kicker": "Cómo funciona",
+    "title": "Una primera lectura para saber por dónde empezar",
+    "description": "Odimetry evalúa dominios y activos autorizados desde fuera, muestra señales de riesgo observables y presenta los hallazgos de forma priorizada, sin acceso interno ni instalaciones. No prometemos seguridad total, pero sí visibilidad para decidir qué revisar.",
     "speed": {
-      "title": "Rapidez",
-      "description": "Auditorías completas en minutos, no en días. Resultados inmediatos para decisiones rápidas."
+      "title": "Sin despliegues internos",
+      "description": "Empieza por un dominio autorizado, sin instalar agentes ni dar acceso al interior de tu red."
     },
     "clarity": {
       "title": "Claridad",
-      "description": "Informes técnicos pero comprensibles. Sin ruido innecesario, solo lo que importa y cómo solucionarlo."
+      "description": "Entiende qué se ha observado, por qué importa y qué puedes consultar con tu responsable técnico."
     },
     "actionable": {
       "title": "Accionable",
-      "description": "Cada hallazgo incluye contexto y recomendaciones concretas. No solo alertas, sino soluciones."
+      "description": "Hallazgos priorizados y recomendaciones orientativas para organizar los siguientes pasos."
     },
-    "auditSummary": "Resumen de auditoría",
-    "lastUpdate": "Hace 5 min",
-    "critical": "Críticos",
-    "warnings": "Advertencias",
-    "correct": "Correctos",
+    "auditSummary": "Ejemplo de evaluación",
+    "auditMetrics": "Comprobaciones del ejemplo",
+    "technicalDetails": "Detalles técnicos",
+    "lastUpdate": "Datos ilustrativos",
+    "critical": "Prioridad alta",
+    "warnings": "Prioridad media",
+    "correct": "Sin alertas",
     "total": "Total",
     "openPorts": "Puertos abiertos",
     "detected": "detectados",
     "sslCertificate": "Certificado SSL",
     "valid": "Válido",
-    "cvesFound": "CVEs encontradas",
-    "criticalCves": "críticas"
+    "cvesFound": "Hallazgos a revisar",
+    "criticalCves": "priorizados"
+  },
+  "workflow": {
+    "kicker": "Un recorrido corto",
+    "title": "Del dominio autorizado a una decisión clara",
+    "description": "Odimetry ordena la primera lectura de tu superficie digital para que sepas qué revisar, sin instalar agentes ni dar acceso interno.",
+    "steps": {
+      "authorize": {
+        "title": "Define el alcance",
+        "description": "Indica un dominio o activo que administras y establece el perímetro autorizado para la evaluación."
+      },
+      "observe": {
+        "title": "Observa lo que está expuesto",
+        "description": "Recibe señales sobre servicios visibles, configuración SSL/TLS y vulnerabilidades conocidas."
+      },
+      "decide": {
+        "title": "Decide qué revisar",
+        "description": "Consulta los hallazgos priorizados y utiliza las recomendaciones orientativas para ordenar los siguientes pasos."
+      }
+    },
+    "flowLabel": "La lógica de Odimetry",
+    "flowTitle": "Observar para decidir",
+    "flowNote": "Una lectura externa, tres decisiones claras",
+    "note": "Una evaluación externa orienta la conversación técnica; no sustituye una revisión completa de seguridad."
   },
   "features": {
-    "title": "Características técnicas",
-    "subtitle": "Herramientas diseñadas para equipos técnicos que necesitan resultados claros y accionables.",
+    "kicker": "Qué observa",
+    "title": "Qué puede observar una evaluación externa",
+    "subtitle": "Una lectura comprensible para pymes y autónomos, con el detalle que necesita quien vaya a revisar los hallazgos.",
     "items": {
       "domainAudit": {
-        "title": "Auditoría automática por dominio",
-        "description": "Introduce un dominio y obtén un análisis completo en minutos. Sin configuración compleja ni conocimientos técnicos avanzados."
+        "title": "Evaluación externa por dominio",
+        "description": "Parte de un dominio autorizado para conocer qué es visible desde Internet, sin instalar software en tus sistemas."
       },
       "sslTls": {
-        "title": "Análisis SSL/TLS",
-        "description": "Evalúa la configuración de certificados, protocolos soportados, cipher suites y detecta configuraciones inseguras o obsoletas."
+        "title": "Protección de las conexiones",
+        "description": "Revisa certificados, protocolos y opciones de cifrado SSL/TLS para señalar configuraciones desactualizadas o débiles."
       },
       "ports": {
-        "title": "Detección de puertos y servicios",
-        "description": "Identifica servicios expuestos públicamente, versiones detectables y configuraciones que podrían representar riesgos."
+        "title": "Servicios visibles en Internet",
+        "description": "Identifica puertos, servicios y versiones observables para que puedas revisar si necesitan estar expuestos."
       },
       "cves": {
         "title": "Vulnerabilidades conocidas (CVEs)",
-        "description": "Compara tu infraestructura con bases de datos de CVEs para detectar vulnerabilidades conocidas que requieren parches."
+        "description": "Relaciona las versiones observadas con fallos de seguridad documentados. Las posibles coincidencias necesitan validación técnica."
       },
       "reports": {
-        "title": "Informes accionables",
-        "description": "Documentación clara y técnica con recomendaciones específicas. No solo alertas, sino soluciones concretas para cada hallazgo."
+        "title": "Informes que ayudan a decidir",
+        "description": "Hallazgos con contexto, prioridad y recomendaciones orientativas para conversar con tu equipo o proveedor técnico."
       },
       "history": {
         "title": "Historial y seguimiento",
-        "description": "Compara auditorías a lo largo del tiempo para medir mejoras y detectar regresiones en la configuración de seguridad."
+        "description": "Compara evaluaciones a lo largo del tiempo para medir mejoras y detectar regresiones en la configuración de seguridad."
       }
     }
   },
   "dashboard": {
-    "title": "Panel de control técnico",
-    "subtitle": "Visualiza el estado de seguridad de tus dominios en un solo lugar.",
-    "lastAudit": "Última auditoría: hace 2 horas",
-    "active": "Activo",
-    "warnings": "Advertencias",
-    "correct": "Correctos",
+    "kicker": "Una lectura en contexto",
+    "title": "Del hallazgo al siguiente paso",
+    "securityMetrics": "Comprobaciones del ejemplo",
+    "subtitle": "Un ejemplo de cómo presentar una señal técnica con contexto y una recomendación que puedas trasladar a quien mantiene tus sistemas.",
+    "lastAudit": "Evaluación externa de ejemplo",
+    "active": "Datos ilustrativos",
+    "warnings": "Prioridad media",
+    "correct": "Sin alertas",
     "portsAndServices": "Puertos y servicios",
-    "sslTlsAnalysis": "Análisis SSL/TLS",
+    "sslTlsAnalysis": "Conexiones cifradas (SSL/TLS)",
     "certificate": "Certificado",
     "protocols": "Protocolos",
-    "cipherSuites": "Cipher suites",
-    "secure": "Seguros",
-    "hsts": "HSTS",
-    "notConfigured": "No configurado",
-    "vulnerabilitiesDetected": "Vulnerabilidades detectadas",
+    "cipherSuites": "Opciones de cifrado",
+    "secure": "Sin alertas observadas",
+    "hsts": "Uso obligatorio de HTTPS (HSTS)",
+    "notConfigured": "No observado",
+    "vulnerabilitiesDetected": "Qué revisar y por qué",
     "exposed": "Expuesto",
-    "risk": "Riesgo",
-    "secureStatus": "Seguro",
-    "critical": "Crítico",
-    "medium": "Medio",
-    "exampleDomain": "ejemplo.com",
+    "risk": "Revisar acceso",
+    "secureStatus": "HTTPS observado",
+    "critical": "Prioridad alta",
+    "medium": "Prioridad media",
+    "exampleDomain": "ejemplo.test",
     "port": "Puerto",
     "port443": "Puerto 443",
     "port22": "Puerto 22",
@@ -149,34 +205,40 @@
     "ssh": "SSH",
     "mysql": "MySQL",
     "tlsVersions": "TLS 1.2, 1.3",
-    "cve1": "CVE-2023-12345",
-    "cve1Description": "Vulnerabilidad crítica en versión detectada de Apache",
-    "cve2": "CVE-2023-67890",
-    "cve2Description": "Configuración insegura en servidor web"
-  },
-  "target": {
-    "title": "Para quién es Odimetry",
-    "subtitle": "Diseñado para equipos que valoran la visibilidad y el control sobre promesas vacías.",
-    "smes": {
-      "title": "Pymes",
-      "description": "Empresas que necesitan visibilidad sobre su exposición en Internet sin recursos técnicos dedicados. Ideal para cumplimiento básico y concienciación."
-    },
-    "startups": {
-      "title": "Startups",
-      "description": "Equipos en crecimiento que priorizan la velocidad pero no pueden permitirse riesgos de seguridad. Auditorías rápidas para decisiones informadas."
-    },
-    "ctos": {
-      "title": "CTOs / DevOps",
-      "description": "Profesionales técnicos que necesitan herramientas claras y accionables. Sin ruido, solo datos técnicos relevantes para mejorar la postura de seguridad."
-    },
-    "consultants": {
-      "title": "Consultoras técnicas y proveedores IT",
-      "description": "Agencias que ofrecen servicios de seguridad a clientes. Auditorías externas rápidas como parte de sus servicios de consultoría."
+    "exampleNote": "Datos ficticios, no una evaluación real. «Sin alertas» solo se refiere a las comprobaciones ilustradas; no garantiza la seguridad del activo.",
+    "meaning": "Qué significa",
+    "nextStep": "Siguiente paso orientativo",
+    "findings": {
+      "database": {
+        "title": "Un servicio de base de datos responde desde Internet",
+        "meaning": "El servicio MySQL es accesible desde fuera. Esto no demuestra una intrusión, pero conviene confirmar si ese acceso es necesario.",
+        "nextStep": "Pide a tu responsable técnico que verifique el acceso público y valore limitarlo a las redes autorizadas. Repite la evaluación tras cualquier cambio."
+      },
+      "https": {
+        "title": "No se observa una política para exigir HTTPS",
+        "meaning": "La respuesta web del ejemplo no incluye la cabecera HSTS. Los navegadores podrían no recibir la instrucción de usar siempre una conexión cifrada.",
+        "nextStep": "Consulta si procede activar HSTS, tras comprobar que el dominio funciona correctamente por HTTPS. Valida el alcance antes de incluir subdominios."
+      }
     }
   },
+  "target": {
+    "kicker": "Para quién tiene sentido",
+    "title": "Para quien cuida de su negocio",
+    "subtitle": "Pymes y autónomos son el punto de partida. No necesitas ser especialista para entender una primera lectura y decidir a quién pedir ayuda.",
+    "smes": {
+      "title": "Pequeñas y medianas empresas",
+      "description": "Conoce lo que tu negocio expone en Internet y ordena las revisiones con tu equipo o proveedor tecnológico."
+    },
+    "selfEmployed": {
+      "title": "Profesionales autónomos",
+      "description": "Entiende qué conviene revisar en tu web o dominio, con contexto y próximos pasos que puedas compartir."
+    },
+    "secondary": "También puede servir de apoyo a equipos técnicos, consultoras y organizaciones mayores que necesiten una primera evaluación externa dentro de un alcance autorizado."
+  },
   "differentiators": {
+    "kicker": "Una herramienta deliberadamente externa",
     "title": "Por qué Odimetry es diferente",
-    "subtitle": "Auditorías externas que no requieren cambios en tu infraestructura.",
+    "subtitle": "Evaluaciones externas que no requieren cambios en tu infraestructura.",
     "items": {
       "noAgents": "No requiere agentes",
       "noInternalAccess": "No requiere acceso interno",
@@ -184,25 +246,31 @@
       "noNoise": "Sin ruido innecesario",
       "actionable": "Pensado para acción, no solo alertas"
     },
-    "description": "Odimetry escanea desde fuera, igual que lo haría un atacante. Esto significa que no necesitas instalar nada, configurar agentes ni dar acceso a tus sistemas internos. Solo introduce un dominio y obtén resultados claros y accionables en minutos."
+    "description": "Odimetry evalúa desde fuera, como observaría un atacante, pero solo debe utilizarse sobre dominios y activos autorizados. No necesitas instalar nada, configurar agentes ni dar acceso a tus sistemas internos: obtén resultados claros y priorizados para decidir qué revisar."
   },
   "pricing": {
+    "loading": "Cargando planes…",
+    "error": "No se pudieron cargar los planes.",
+    "empty": "No hay planes disponibles.",
+    "retry": "Reintentar",
+    "monthly": "/mes",
+    "kicker": "Una propuesta en validación",
     "title": "Planes y precios",
-    "subtitle": "Elige el plan que mejor se adapte a tus necesidades. Todos los planes incluyen auditorías completas.",
-    "note": "* Precios orientativos",
+    "subtitle": "Estos planes describen la propuesta comercial en desarrollo. Consulta el alcance y la disponibilidad antes de elegir.",
+    "note": "Precios y capacidades orientativos, sujetos a validación. No se activa una suscripción desde esta página.",
     "plans": {
       "free": {
         "name": "Free",
         "price": "0",
         "period": "€/mes",
-        "description": "Ideal para probar la plataforma",
+        "description": "Propuesta para una primera evaluación",
         "features": {
           "domains": "1 dominio",
-          "audit": "Auditoría básica",
+          "audit": "Evaluación básica",
           "report": "Informe limitado",
           "history": "Sin histórico"
         },
-        "cta": "Empezar gratis"
+        "cta": "Consultar disponibilidad"
       },
       "starter": {
         "name": "Starter",
@@ -211,49 +279,79 @@
         "description": "Para pequeñas empresas y proyectos",
         "features": {
           "domains": "Hasta 3 dominios",
-          "audit": "Auditorías completas",
+          "audit": "Evaluación detallada",
           "report": "Informes descargables",
           "history": "Histórico limitado",
           "support": "Soporte por email"
         },
-        "cta": "Comenzar prueba",
-        "popular": "Más popular"
+        "cta": "Consultar disponibilidad",
+        "popular": "Plan destacado"
       },
       "pro": {
         "name": "Pro",
-        "price": "49",
+        "price": "49,90",
         "period": "€/mes",
         "description": "Para equipos y uso profesional",
         "features": {
           "domains": "Dominios ilimitados",
-          "audit": "Auditorías avanzadas",
+          "audit": "Evaluación avanzada",
           "history": "Histórico completo",
           "teams": "Preparado para equipos",
           "api": "API de integración",
           "support": "Soporte prioritario"
         },
-        "cta": "Contactar ventas"
+        "cta": "Consultar disponibilidad"
       }
-    }
+    },
+    "featuresLabel": "Capacidades previstas"
   },
   "finalCta": {
-    "title": "Analiza tu dominio en minutos",
-    "description": "Sin instalación, sin compromiso. Descubre qué expones en Internet y toma el control de tu seguridad.",
+    "kicker": "Una primera lectura, con límites claros",
+    "title": "Entiende qué conviene revisar",
+    "description": "Odimetry está en desarrollo y validación de mercado. Crea una cuenta o consulta la disponibilidad en los planes; el registro no activa una suscripción.",
     "fastResults": {
-      "title": "Resultados en minutos",
-      "description": "Auditorías completas sin esperas"
+      "title": "Contexto antes que ruido",
+      "description": "Hallazgos con prioridad y próximos pasos"
     },
     "noInstallation": {
       "title": "Sin instalación",
       "description": "No requiere agentes ni acceso interno"
     },
     "noCommitment": {
-      "title": "Sin compromiso",
-      "description": "Prueba gratuita sin tarjeta de crédito"
+      "title": "En desarrollo y validación",
+      "description": "Disponibilidad y alcance por confirmar"
+    }
+  },
+  "faq": {
+    "title": "Qué esperar de Odimetry",
+    "description": "Una herramienta útil empieza por explicar qué observa y qué queda fuera de su alcance.",
+    "items": {
+      "audience": {
+        "question": "¿Necesito conocimientos de ciberseguridad?",
+        "answer": "No para comprender el resumen de una evaluación. Odimetry está pensado para pymes y autónomos, con o sin perfil técnico. Los hallazgos incluyen contexto y prioridades; para verificar o aplicar cambios puede ser necesario contar con tu equipo o proveedor técnico."
+      },
+      "scope": {
+        "question": "¿Puedo evaluar cualquier dominio?",
+        "answer": "No. Solo debes evaluar dominios y activos propios o para los que tengas autorización explícita. Define el perímetro autorizado antes de iniciar una evaluación."
+      },
+      "limits": {
+        "question": "¿Qué límites tiene una evaluación externa?",
+        "answer": "Refleja las señales observables en el momento del análisis y dentro del alcance autorizado. Los resultados pueden cambiar y no detectan necesariamente todas las vulnerabilidades. No garantiza ausencia de incidentes ni sustituye una auditoría interna completa, un pentest manual o la monitorización continua."
+      },
+      "certification": {
+        "question": "¿Un informe acredita cumplimiento o certifica seguridad?",
+        "answer": "No. Odimetry no certifica la seguridad ni acredita ISO 27001 u otro cumplimiento normativo. Los hallazgos y recomendaciones son orientativos y requieren revisión en el contexto de tu organización."
+      },
+      "availability": {
+        "question": "¿Odimetry ya está disponible comercialmente?",
+        "answer": "Odimetry está en desarrollo y validación de mercado. Los planes y capacidades mostrados son orientativos. Consulta con nosotros la disponibilidad y el alcance de las evaluaciones; crear una cuenta no activa por sí solo una prueba ni una suscripción."
+      }
     }
   },
   "footer": {
-    "description": "Auditorías de ciberseguridad automatizadas para empresas que valoran la visibilidad y el control.",
+    "home": "Odimetry, volver al inicio",
+    "description": "Evaluaciones externas de ciberseguridad sobre dominios y activos autorizados, con hallazgos priorizados y próximos pasos orientativos.",
+    "brandByline": "un producto de Infranest",
     "legal": "Legal",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
@@ -480,18 +578,21 @@
     }
   },
   "signup": {
+    "workspace": "Tu espacio",
     "title": "Crea tu cuenta",
-    "subtitle": "Comienza tu prueba gratuita",
+    "subtitle": "Prepara tu espacio en Odimetry",
     "email": "Correo electrónico",
     "password": "Contraseña (mínimo 12 caracteres)",
     "passwordPlaceholder": "Al menos 12 caracteres",
     "firstname": "Nombre (opcional)",
     "surname": "Apellidos (opcional)",
-    "createOrganization": "Crear organización",
+    "createOrganization": "Crear mi propio espacio",
     "phoneNumber": "Número de teléfono (opcional)",
+    "profileImage": "Imagen de perfil (opcional)",
     "organization": {
-      "id": "ID de la organización",
-      "name": "Nombre de la organización",
+      "id": "ID facilitado por tu administrador",
+      "name": "Nombre de tu espacio",
+      "type": "Tipo de organización",
       "orgType": "Tipo de organización",
       "description": "Descripción (opcional)",
       "websiteUrl": "Sitio web (opcional)",
@@ -506,18 +607,22 @@
       "business": "Negocio"
     },
     "submit": "Crear cuenta",
-    "submitting": "Creando...",
+    "submitting": "Creando…",
     "success": "¡Cuenta creada! Revisa tu correo.",
     "errors": {
       "general": "Algo salió mal, por favor inténtalo de nuevo.",
       "emailRequired": "Por favor introduce tu correo.",
       "passwordLength": "La contraseña debe tener al menos 12 caracteres.",
-      "orgRequired": "Por favor selecciona una organización o crea una nueva.",
-      "orgNameRequired": "El nombre de la organización es obligatorio.",
+      "orgRequired": "Introduce el ID facilitado por tu administrador o crea tu propio espacio.",
+      "orgNameRequired": "Escribe un nombre para tu espacio.",
       "noToken": "No se encontró el token de autenticación.",
       "fetchScan": "Error al recuperar los datos del escaneo.",
       "fileTooLarge": "El archivo es demasiado grande (máximo 2MB)"
-    }
+    },
+    "existingOrganization": "Unirme a una organización existente",
+    "workspaceHint": "Para tu negocio o uso profesional. No necesitas el ID de ninguna organización.",
+    "existingOrgHint": "Elige esta opción solo si un administrador te ha autorizado a unirte y te ha facilitado el ID interno de la organización.",
+    "availabilityNote": "Odimetry está en desarrollo y validación. Crear una cuenta no activa una suscripción ni garantiza acceso a todas las funciones."
   },
   "scans": {
     "title": "Historial de Escaneos",
@@ -542,8 +647,8 @@
   },
   "common": {
     "refresh": "Actualizar",
-    "loading": "Cargando...",
-    "loadingScans": "Cargando escaneos...",
+    "loading": "Cargando…",
+    "loadingScans": "Cargando escaneos…",
     "more": "más",
     "error": "Error"
   },
@@ -567,7 +672,7 @@
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "rememberDevice": "Recordar dispositivo por 30 días",
     "submit": "Iniciar Sesión",
-    "loading": "Iniciando sesión...",
+    "loading": "Iniciando sesión…",
     "noAccount": "¿No tienes cuenta?",
     "registerHere": "Regístrate aquí",
     "errors": {

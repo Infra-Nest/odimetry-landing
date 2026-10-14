@@ -7,7 +7,6 @@ import {
   PanelLeftOpen,
   ScanSearch,
   Settings,
-  Shield,
   UserCircle,
 } from 'lucide-react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -59,7 +58,7 @@ const navigationItems: NavItem[] = [
  */
 
 const textClasses = (isCollapsed: boolean) =>
-  `overflow-hidden whitespace-nowrap transition-all duration-300 ${
+  `overflow-hidden whitespace-nowrap transition-[opacity,margin-left,width] duration-300 ${
     isCollapsed ? 'ml-0 w-0 opacity-0' : 'ml-3 w-auto opacity-100'
   }`;
 
@@ -87,7 +86,14 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse }: SidebarProps) => {
           title={translate('appNav.dashboard')}
         >
           <div className="flex w-10 shrink-0 items-center justify-center">
-            <Shield className="h-7 w-7 text-blue-400" aria-hidden="true" />
+            <img
+              src="/brand/odimetry-mark.svg"
+              width="28"
+              height="28"
+              alt=""
+              className="h-7 w-7 shrink-0"
+              aria-hidden="true"
+            />
           </div>
           <span className={`text-lg font-bold ${textClasses(isCollapsed)}`}>
             Odimetry
@@ -106,7 +112,7 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse }: SidebarProps) => {
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `group flex items-center rounded-xl border px-[11px] py-3 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-950 ${
+                `group flex items-center rounded-xl border px-[11px] py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 ${
                   isActive
                     ? 'border-blue-500/70 bg-blue-500/10 text-blue-200'
                     : 'border-transparent text-gray-300 hover:border-gray-700 hover:bg-gray-800 hover:text-gray-100'
@@ -136,8 +142,9 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse }: SidebarProps) => {
       {/* Collapse toggle */}
       <div className="p-2">
         <button
+          type="button"
           onClick={onToggleCollapse}
-          className="flex w-full items-center rounded-xl border border-transparent px-[11px] py-3 text-sm font-medium text-gray-300 transition-colors hover:border-gray-700 hover:bg-gray-800 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-950"
+          className="flex w-full items-center rounded-xl border border-transparent px-[11px] py-3 text-sm font-medium text-gray-300 transition-colors hover:border-gray-700 hover:bg-gray-800 hover:text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950"
           aria-label={
             isCollapsed ? translate('appNav.expand') : translate('appNav.collapse')
           }
@@ -168,8 +175,9 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse }: SidebarProps) => {
         />
 
         <button
+          type="button"
           onClick={handleLogout}
-          className="flex w-full items-center rounded-xl border border-transparent px-[11px] py-3 text-sm font-medium text-gray-300 transition-colors hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-gray-950"
+          className="flex w-full items-center rounded-xl border border-transparent px-[11px] py-3 text-sm font-medium text-gray-300 transition-colors hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950"
           aria-label={translate('appNav.logout')}
           title={translate('appNav.logout')}
         >
