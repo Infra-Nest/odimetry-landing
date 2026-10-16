@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import "./index.css"
 import './i18n/config'
 import App from "./App.tsx"
-import { AuthProvider } from './context/AuthContext'
 
 // Deshabilitar la restauración automática de scroll de React Router
 if ('scrollRestoration' in window.history) {
@@ -13,10 +12,8 @@ if ('scrollRestoration' in window.history) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )

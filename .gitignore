@@ -11,6 +11,7 @@ lerna-debug.log*
 node_modules
 .pnp
 .pnp.js
+.codebase-memory/*
 
 # Build outputs
 dist
@@ -88,3 +89,4 @@ storybook-static
 # Temporary folders
 tmp/
 temp/
+

@@ -16,23 +16,14 @@ La identidad visual se define en el brandbook canónico de la landing corporativ
 
 ## 📋 Secciones
 
-La landing page incluye las siguientes secciones:
+Esta publicación es solo la landing pública (`/`). Incluye:
 
-- **Hero**: Sección principal con call-to-action
-- **Problem**: Identificación de problemas de seguridad comunes
-- **Solution**: Propuesta de valor y beneficios
-- **Features**: Características técnicas de la plataforma
-- **Dashboard**: Vista previa del panel de control
-- **Target**: Público objetivo
-- **Differentiators**: Diferenciadores competitivos
-- **Pricing**: Planes y precios
-- **Final CTA**: Llamada a la acción final
+- **Hero**: propuesta y llamada a apuntarse a la lista de interesados
+- **Una lectura en contexto**: ejemplo de informe ilustrativo
+- **Formulario de interés**: solo correo electrónico
+- **FAQ**: límites y expectativas del producto
 
-### Páginas legales
-
-- Política de Privacidad (`/privacy`)
-- Términos de Servicio (`/terms`)
-- Política de Cookies (`/cookies`)
+No se publican rutas de la aplicación (`/signup`, `/login`, panel, etc.) ni páginas legales.
 
 ## 🛠️ Tecnologías
 
@@ -75,7 +66,9 @@ Abre tu navegador en `http://localhost:5173`. Si también tienes levantada la la
 npm run dev -- --port 5174
 ```
 
-La landing pública no necesita el backend: el pricing usa datos mock y el login local acepta `info@infranest.es` / `odimetry-demo` en desarrollo. Las altas de usuario y las rutas del panel que consultan datos reales sí requieren configurar `VITE_API_BASE_URL`.
+Este lanzamiento es una landing informativa. El informe es ilustrativo; las rutas de acceso y panel redirigen a la página pública. El formulario de interés envía una solicitud con la dirección de correo a `info@infranest.es` mediante una función de Vercel. No necesita el backend de Odimetry, base de datos, migraciones ni `VITE_API_BASE_URL`.
+
+`npm run dev` levanta la interfaz con Vite, pero no ejecuta la función `/api/interest`; en ese modo el envío mostrará un error. Para probar el envío hace falta un entorno de funciones de Vercel con las mismas variables SMTP de Zoho que usa `infranest.es`.
 
 ## 🏗️ Scripts disponibles
 
@@ -138,13 +131,29 @@ El proyecto utiliza **Tailwind CSS** para los estilos. La configuración se encu
 
 ## 🚢 Despliegue
 
-Para construir la aplicación para producción:
+Antes de publicar, ejecuta:
 
 ```bash
+npm run lint
 npm run build
+npm run preview
 ```
 
-Los archivos optimizados se generarán en la carpeta `dist/`, listos para ser desplegados en cualquier servidor estático o CDN.
+La build queda en `dist/`. En Vercel, importa el proyecto como Vite, con raíz `./`, comando `npm run build` y directorio de salida `dist`. `vercel.json` solo reescribe `/` a `index.html`; el resto de rutas de la aplicación o legales responden 404.
+
+Para activar el formulario, configura en el proyecto de Vercel de Odimetry las mismas variables que en Infranest:
+
+- `ZOHO_SMTP_HOST`
+- `ZOHO_SMTP_PORT` (`465` o `587`)
+- `ZOHO_SMTP_USER`
+- `ZOHO_SMTP_PASS`
+- `CONTACT_TO_EMAIL` (recomendado: `info+odimetry@infranest.es`)
+
+El aviso se envía por SMTP de Zoho desde `ZOHO_SMTP_USER`, llega a `CONTACT_TO_EMAIL` y la dirección del interesado queda como respuesta. Guarda las credenciales solo en las variables del proyecto, nunca en Git.
+
+Antes de abrir el formulario al público, configura en Vercel Firewall un límite de peticiones para `/api/interest` por IP. El límite incluido en la función solo actúa por instancia y no sustituye esa protección. El aviso recibido no verifica que la dirección pertenezca a quien rellenó el formulario.
+
+Para conectar `odimetry.es`, añade el dominio al proyecto y aplica en tu proveedor DNS los registros que Vercel indique. Tras publicar, comprueba HTTPS, el formulario de interés y que rutas como `/signup` o `/privacy` respondan 404.
 
 ## 🎨 Identidad
 

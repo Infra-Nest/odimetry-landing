@@ -4,18 +4,6 @@ import { useLocation } from 'react-router-dom';
 
 const origin = 'https://odimetry.es';
 const locales: Record<string, string> = { es: 'es_ES', en: 'en_GB', fr: 'fr_FR', de: 'de_DE' };
-const pageKeys: Record<string, string> = {
-  '/privacy': 'privacy.title',
-  '/terms': 'terms.title',
-  '/cookies': 'cookies.title',
-  '/login': 'login.title',
-  '/signup': 'signup.title',
-  '/dashboard': 'appNav.dashboard',
-  '/scans': 'appNav.scans',
-  '/settings': 'appNav.settings',
-  '/profile': 'appNav.profile',
-};
-const publicPaths = ['/', '/privacy', '/terms', '/cookies'];
 
 export const SEO = () => {
   const { t, i18n } = useTranslation();
@@ -24,13 +12,10 @@ export const SEO = () => {
   useEffect(() => {
     const language = i18n.resolvedLanguage?.split('-')[0] || 'es';
     const path = pathname.replace(/\/+$/, '') || '/';
-    const canonical = origin + path;
-    const indexable = publicPaths.includes(path);
-    const page = pageKeys[path] ? t(pageKeys[path]) : 'Odimetry';
-    const title = path === '/' ? t('seo.title') : page === 'Odimetry' ? page : `${page} | Odimetry`;
-    const description = path === '/'
-      ? t('seo.description')
-      : t(indexable ? 'seo.legalDescription' : 'seo.privateDescription', { page });
+    const indexable = path === '/';
+    const canonical = origin + '/';
+    const title = t('seo.title');
+    const description = t('seo.description');
     const setMeta = (attribute: 'name' | 'property', key: string, value: string) => {
       let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
       if (!element) {
@@ -84,7 +69,7 @@ export const SEO = () => {
             inLanguage: language,
             publisher: { '@id': origin + '/#organization' },
           },
-          ...(path === '/' ? [{
+          {
             '@type': 'SoftwareApplication',
             '@id': origin + '/#product',
             name: 'Odimetry',
@@ -94,7 +79,7 @@ export const SEO = () => {
             brand: { '@type': 'Brand', name: 'Odimetry' },
             description,
             publisher: { '@id': origin + '/#organization' },
-          }] : []),
+          },
           {
             '@type': 'WebPage',
             '@id': canonical + '#webpage',
@@ -103,7 +88,7 @@ export const SEO = () => {
             inLanguage: language,
             description,
             isPartOf: { '@id': origin + '/#website' },
-            ...(path === '/' ? { about: { '@id': origin + '/#product' } } : {}),
+            about: { '@id': origin + '/#product' },
           },
         ] : [],
       });

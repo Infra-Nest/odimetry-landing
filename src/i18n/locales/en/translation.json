@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "External cybersecurity assessment | Odimetry",
-    "description": "Assess your domain's digital exposure with Odimetry: identify exposed services, known vulnerabilities and insecure configurations from the outside.",
+    "description": "Odimetry assesses authorised domains and assets from the outside. Join the list to receive updates while the product is in development.",
     "legalDescription": "Read Odimetry's information about {{page}}.",
     "privateDescription": "Access your Odimetry account to manage assessments for authorized assets.",
     "imageAlt": "Odimetry: External cybersecurity assessment."
@@ -10,6 +10,7 @@
     "howItWorks": "How it works",
     "features": "What it observes",
     "pricing": "Pricing",
+    "interest": "Get updates",
     "login": "Sign In",
     "startTrial": "Create account",
     "menu": "Menu",
@@ -17,7 +18,8 @@
     "home": "Odimetry, home",
     "navigation": "Main navigation",
     "selectLanguage": "Select language",
-    "skipToContent": "Skip to main content"
+    "skipToContent": "Skip to main content",
+    "example": "View example"
   },
   "appNav": {
     "panel": "Navigation panel",
@@ -47,16 +49,16 @@
   "hero": {
     "eyebrow": "External cybersecurity assessment",
     "title": "Understand what your business exposes online",
-    "description": "Odimetry assesses authorized domains and assets from the outside. Understand visible services, potential known vulnerabilities and configurations worth reviewing, with prioritized findings and suggested next steps.",
-    "analyzeDomain": "Create account",
+    "description": "An external assessment of the authorised scope, with prioritised findings and suggested next steps.",
+    "interest": "Get updates",
     "viewExample": "View example report",
-    "noCreditCard": "In development and validation. Check assessment availability before getting started.",
+    "availabilityNote": "Odimetry is in development. This page shows an illustrative view of the product.",
     "visualTitle": "External reading",
     "visualStatus": "Illustrative example",
     "visualSurface": "Digital surface",
     "visualNote": "Only for authorized domains and assets.",
-    "bottomLabel": "From an authorized domain to a clear reading.",
-    "bottomLink": "How Odimetry works",
+    "bottomLabel": "From an authorised domain to a clear reading.",
+    "bottomLink": "View the example report",
     "readoutLabel": "What it helps you understand",
     "readoutScope": "Scope",
     "readoutScopeValue": "Authorized domain",
@@ -219,6 +221,28 @@
         "meaning": "The example web response does not include the HSTS header. Browsers may not receive the instruction to always use an encrypted connection.",
         "nextStep": "Discuss whether to enable HSTS after checking the domain works correctly over HTTPS. Validate the scope before including subdomains."
       }
+    },
+    "stepsLabel": "How Odimetry works",
+    "differentiatorsLabel": "Why Odimetry is different",
+    "total": "Total",
+    "valid": "Valid",
+    "steps": {
+      "authorize": {
+        "title": "Define the scope",
+        "description": "Enter a domain or asset you manage."
+      },
+      "observe": {
+        "title": "See what is exposed",
+        "description": "Visible services, SSL/TLS and signals to review."
+      },
+      "decide": {
+        "title": "Decide what to review",
+        "description": "Prioritised findings and next steps."
+      }
+    },
+    "differentiators": {
+      "externalOnly": "No agents, installs or internal access",
+      "actionable": "Built for action, not just alerts"
     }
   },
   "target": {
@@ -305,10 +329,23 @@
     },
     "featuresLabel": "Planned capabilities"
   },
+  "interest": {
+    "emailLabel": "Your email address",
+    "emailPlaceholder": "name@company.com",
+    "submit": "Request updates",
+    "sending": "Sending…",
+    "sendingStatus": "We are sending your request…",
+    "success": "We have received your request. Your address must be verified before Odimetry updates are sent.",
+    "sendError": "We could not send your request. Please try again.",
+    "rateLimited": "You have reached the sending limit. Wait 15 minutes before trying again.",
+    "alternative": "You can also email us directly at",
+    "privacyNote": "By submitting this form, you request Odimetry updates. Infranest will use your email to handle the request, verify the address before sending updates, and let you unsubscribe at info@infranest.es.",
+    "privacyLink": "Privacy policy"
+  },
   "finalCta": {
-    "kicker": "An initial assessment, with clear limits",
-    "title": "Understand what is worth reviewing",
-    "description": "Odimetry is in development and market validation. Create an account or check availability in the plans; registration does not activate a subscription.",
+    "kicker": "Odimetry in development",
+    "title": "Follow Odimetry’s progress",
+    "description": "Leave your email and we will send Infranest your request for Odimetry updates.",
     "fastResults": {
       "title": "Context before noise",
       "description": "Findings with priorities and next steps"
@@ -344,7 +381,7 @@
       },
       "availability": {
         "question": "Is Odimetry commercially available yet?",
-        "answer": "Odimetry is in development and market validation. The plans and capabilities shown are indicative. Contact us about assessment availability and scope; creating an account does not by itself activate a trial or subscription."
+        "answer": "Odimetry is in development and market validation. To receive updates, leave your email in the interest section."
       }
     }
   },
@@ -353,15 +390,15 @@
     "description": "External cybersecurity assessments for authorized domains and assets, with prioritized findings and guidance for next steps.",
     "brandByline": "a product of Infranest",
     "legal": "Legal",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "cookies": "Cookie Policy",
+    "privacy": "Odimetry privacy",
+    "terms": "Website terms",
+    "cookies": "Cookies and local storage",
     "contact": "Contact",
     "support": "Support",
     "copyright": "All rights reserved."
   },
   "privacy": {
-    "title": "Privacy Policy",
+    "title": "Odimetry privacy",
     "lastUpdate": "Last updated: January 1, 2025",
     "sections": {
       "infoCollected": {
@@ -425,7 +462,7 @@
     }
   },
   "terms": {
-    "title": "Terms of Service",
+    "title": "Website terms",
     "lastUpdate": "Last updated: January 1, 2025",
     "sections": {
       "acceptance": {
@@ -501,7 +538,7 @@
     }
   },
   "cookies": {
-    "title": "Cookie Policy",
+    "title": "Cookies and local storage",
     "lastUpdate": "Last updated: January 1, 2025",
     "sections": {
       "whatAre": {

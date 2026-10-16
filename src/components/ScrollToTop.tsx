@@ -33,9 +33,7 @@ export const ScrollToTop = () => {
       const elementId = hash.substring(1); // Remover el #
       const element = document.getElementById(elementId);
       if (element) {
-        // Pequeño delay para asegurar que el elemento esté renderizado
-        setTimeout(() => {
-          const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+        const scrollToElement = (behavior: ScrollBehavior) => {
           // Solo aplicar offset en móvil
           const isMobile = window.innerWidth < 768;
           if (isMobile) {
@@ -51,7 +49,17 @@ export const ScrollToTop = () => {
             // En desktop, scroll normal
             element.scrollIntoView({ behavior });
           }
+        };
+
+        // Pequeño delay para asegurar que el elemento esté renderizado
+        const timer = window.setTimeout(() => {
+          const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+          scrollToElement(behavior);
         }, 100);
+
+        return () => {
+          window.clearTimeout(timer);
+        };
       }
     }
   }, [hash, pathname]);

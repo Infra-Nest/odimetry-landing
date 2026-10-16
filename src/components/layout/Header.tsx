@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 import { LanguageSelector } from '../ui/LanguageSelector';
-import { useAuth } from '../../hooks/useAuth';
 
 export const Header = () => {
   const { t: translate } = useTranslation();
-  const { isAuthenticated } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
@@ -61,38 +59,12 @@ export const Header = () => {
           </Link>
 
           <nav className="odimetry-nav" aria-label={translate('header.navigation')}>
-            <a href="/#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>
-              {translate('header.howItWorks')}
+            <a href="/#ejemplo" onClick={() => setIsMobileMenuOpen(false)}>
+              {translate('header.example')}
             </a>
-            <a href="/#features" onClick={() => setIsMobileMenuOpen(false)}>
-              {translate('header.features')}
+            <a className="odimetry-button odimetry-button--primary" href="/#interest">
+              {translate('header.interest')}
             </a>
-            <a href="/#pricing" onClick={() => setIsMobileMenuOpen(false)}>
-              {translate('header.pricing')}
-            </a>
-            {isAuthenticated ? (
-              <Link
-                className="odimetry-button odimetry-button--quiet"
-                to="/dashboard"
-              >
-                {translate('header.goToPanel')}
-              </Link>
-            ) : (
-              <>
-                <Link
-                  className="odimetry-button odimetry-button--quiet"
-                  to="/login"
-                >
-                  {translate('header.login')}
-                </Link>
-                <Link
-                  className="odimetry-button odimetry-button--primary"
-                  to="/signup"
-                >
-                  {translate('header.startTrial')}
-                </Link>
-              </>
-            )}
             <LanguageSelector />
           </nav>
 
@@ -112,30 +84,13 @@ export const Header = () => {
 
             {isMobileMenuOpen && (
               <div id="odimetry-mobile-menu" className="odimetry-mobile-menu">
-                <a href="/#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>
-                  {translate('header.howItWorks')}
-                </a>
-                <a href="/#features" onClick={() => setIsMobileMenuOpen(false)}>
-                  {translate('header.features')}
-                </a>
-                <a href="/#pricing" onClick={() => setIsMobileMenuOpen(false)}>
-                  {translate('header.pricing')}
+                <a href="/#ejemplo" onClick={() => setIsMobileMenuOpen(false)}>
+                  {translate('header.example')}
                 </a>
                 <div className="odimetry-mobile-menu__rule" />
-                {isAuthenticated ? (
-                  <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)}>
-                    {translate('header.goToPanel')}
-                  </Link>
-                ) : (
-                  <>
-                    <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                      {translate('header.login')}
-                    </Link>
-                    <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>
-                      {translate('header.startTrial')}
-                    </Link>
-                  </>
-                )}
+                <a href="/#interest" onClick={() => setIsMobileMenuOpen(false)}>
+                  {translate('header.interest')}
+                </a>
               </div>
             )}
           </div>

@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Evaluación externa de ciberseguridad | Odimetry",
-    "description": "Evalúa la exposición digital de tu dominio con Odimetry: identifica servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras desde fuera.",
+    "description": "Odimetry evalúa desde fuera dominios y activos autorizados. Apúntate para recibir novedades del producto en desarrollo.",
     "legalDescription": "Consulta la información de Odimetry sobre {{page}}.",
     "privateDescription": "Accede a tu cuenta de Odimetry para gestionar evaluaciones sobre activos autorizados.",
     "imageAlt": "Odimetry: Evaluación externa de ciberseguridad."
@@ -10,6 +10,7 @@
     "howItWorks": "Cómo funciona",
     "features": "Qué observa",
     "pricing": "Precios",
+    "interest": "Recibir novedades",
     "login": "Iniciar sesión",
     "startTrial": "Crear cuenta",
     "menu": "Menú",
@@ -17,7 +18,8 @@
     "home": "Odimetry, inicio",
     "navigation": "Navegación principal",
     "selectLanguage": "Seleccionar idioma",
-    "skipToContent": "Saltar al contenido principal"
+    "skipToContent": "Saltar al contenido principal",
+    "example": "Ver ejemplo"
   },
   "appNav": {
     "panel": "Panel de navegación",
@@ -47,16 +49,16 @@
   "hero": {
     "eyebrow": "Evaluación externa de ciberseguridad",
     "title": "Conoce qué expone tu negocio en Internet",
-    "description": "Odimetry evalúa dominios y activos autorizados desde fuera. Te ayuda a entender los servicios visibles, las posibles vulnerabilidades conocidas y las configuraciones que conviene revisar, con hallazgos priorizados y próximos pasos orientativos.",
-    "analyzeDomain": "Crear cuenta",
+    "description": "Una evaluación externa sobre el alcance autorizado, con hallazgos priorizados y próximos pasos orientativos.",
+    "interest": "Recibir novedades",
     "viewExample": "Ver ejemplo de informe",
-    "noCreditCard": "En desarrollo y validación. Consulta la disponibilidad de las evaluaciones antes de empezar.",
+    "availabilityNote": "Odimetry está en desarrollo. Esta página muestra una vista ilustrativa del producto.",
     "visualTitle": "Lectura externa",
     "visualStatus": "Ejemplo ilustrativo",
     "visualSurface": "Superficie digital",
     "visualNote": "Solo sobre dominios y activos autorizados.",
     "bottomLabel": "Del dominio autorizado a una lectura clara.",
-    "bottomLink": "Así funciona Odimetry",
+    "bottomLink": "Ver el ejemplo de informe",
     "readoutLabel": "Qué te ayuda a entender",
     "readoutScope": "Alcance",
     "readoutScopeValue": "Dominio autorizado",
@@ -219,6 +221,28 @@
         "meaning": "La respuesta web del ejemplo no incluye la cabecera HSTS. Los navegadores podrían no recibir la instrucción de usar siempre una conexión cifrada.",
         "nextStep": "Consulta si procede activar HSTS, tras comprobar que el dominio funciona correctamente por HTTPS. Valida el alcance antes de incluir subdominios."
       }
+    },
+    "stepsLabel": "Cómo funciona Odimetry",
+    "differentiatorsLabel": "Por qué Odimetry es diferente",
+    "total": "Total",
+    "valid": "Válido",
+    "steps": {
+      "authorize": {
+        "title": "Define el alcance",
+        "description": "Indica un dominio o activo que administras."
+      },
+      "observe": {
+        "title": "Observa lo expuesto",
+        "description": "Servicios visibles, SSL/TLS y señales a revisar."
+      },
+      "decide": {
+        "title": "Decide qué revisar",
+        "description": "Hallazgos priorizados y siguientes pasos."
+      }
+    },
+    "differentiators": {
+      "externalOnly": "Sin agentes, instalaciones ni acceso interno",
+      "actionable": "Pensado para acción, no solo alertas"
     }
   },
   "target": {
@@ -305,10 +329,23 @@
     },
     "featuresLabel": "Capacidades previstas"
   },
+  "interest": {
+    "emailLabel": "Tu correo electrónico",
+    "emailPlaceholder": "nombre@empresa.com",
+    "submit": "Solicitar novedades",
+    "sending": "Enviando…",
+    "sendingStatus": "Estamos enviando tu solicitud…",
+    "success": "Hemos recibido tu solicitud. La dirección deberá verificarse antes de enviarte novedades de Odimetry.",
+    "sendError": "No hemos podido enviar la solicitud. Inténtalo de nuevo.",
+    "rateLimited": "Has alcanzado el límite de envíos. Espera 15 minutos antes de volver a intentarlo.",
+    "alternative": "También puedes escribirnos directamente a",
+    "privacyNote": "Al enviar el formulario, solicitas recibir novedades de Odimetry. Infranest usará tu correo para gestionar la solicitud; verificará la dirección antes de enviar novedades y podrás pedir la baja en info@infranest.es.",
+    "privacyLink": "Política de privacidad"
+  },
   "finalCta": {
-    "kicker": "Una primera lectura, con límites claros",
-    "title": "Entiende qué conviene revisar",
-    "description": "Odimetry está en desarrollo y validación de mercado. Crea una cuenta o consulta la disponibilidad en los planes; el registro no activa una suscripción.",
+    "kicker": "Odimetry en desarrollo",
+    "title": "Sigue el desarrollo de Odimetry",
+    "description": "Déjanos tu correo y enviaremos a Infranest tu solicitud para recibir novedades de Odimetry.",
     "fastResults": {
       "title": "Contexto antes que ruido",
       "description": "Hallazgos con prioridad y próximos pasos"
@@ -344,7 +381,7 @@
       },
       "availability": {
         "question": "¿Odimetry ya está disponible comercialmente?",
-        "answer": "Odimetry está en desarrollo y validación de mercado. Los planes y capacidades mostrados son orientativos. Consulta con nosotros la disponibilidad y el alcance de las evaluaciones; crear una cuenta no activa por sí solo una prueba ni una suscripción."
+        "answer": "Odimetry está en desarrollo y validación de mercado. Si quieres recibir novedades, déjanos tu correo en la sección de interés."
       }
     }
   },
@@ -353,15 +390,15 @@
     "description": "Evaluaciones externas de ciberseguridad sobre dominios y activos autorizados, con hallazgos priorizados y próximos pasos orientativos.",
     "brandByline": "un producto de Infranest",
     "legal": "Legal",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio",
-    "cookies": "Política de Cookies",
+    "privacy": "Privacidad de Odimetry",
+    "terms": "Condiciones de esta web",
+    "cookies": "Cookies y almacenamiento local",
     "contact": "Contacto",
     "support": "Soporte",
     "copyright": "Todos los derechos reservados."
   },
   "privacy": {
-    "title": "Política de Privacidad",
+    "title": "Privacidad de Odimetry",
     "lastUpdate": "Última actualización: 1 de enero de 2025",
     "sections": {
       "infoCollected": {
@@ -425,7 +462,7 @@
     }
   },
   "terms": {
-    "title": "Términos de Servicio",
+    "title": "Condiciones de esta web",
     "lastUpdate": "Última actualización: 1 de enero de 2025",
     "sections": {
       "acceptance": {
@@ -501,7 +538,7 @@
     }
   },
   "cookies": {
-    "title": "Política de Cookies",
+    "title": "Cookies y almacenamiento local",
     "lastUpdate": "Última actualización: 1 de enero de 2025",
     "sections": {
       "whatAre": {

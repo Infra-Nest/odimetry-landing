@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Externe Cybersicherheitsbewertung | Odimetry",
-    "description": "Bewerten Sie die digitale Angriffsfläche Ihrer Domain mit Odimetry: exponierte Dienste, bekannte Schwachstellen und unsichere Konfigurationen.",
+    "description": "Odimetry bewertet autorisierte Domains und Assets von außen. Tragen Sie sich ein, um Neuigkeiten zum Produkt in Entwicklung zu erhalten.",
     "legalDescription": "Lesen Sie die Informationen von Odimetry zum Thema {{page}}.",
     "privateDescription": "Melden Sie sich bei Odimetry an, um Bewertungen für autorisierte Assets zu verwalten.",
     "imageAlt": "Odimetry: Externe Cybersicherheitsbewertung."
@@ -10,6 +10,7 @@
     "howItWorks": "So funktioniert es",
     "features": "Was beobachtet wird",
     "pricing": "Preise",
+    "interest": "Neuigkeiten erhalten",
     "login": "Anmelden",
     "startTrial": "Konto erstellen",
     "menu": "Menü",
@@ -17,7 +18,8 @@
     "home": "Odimetry, Startseite",
     "navigation": "Hauptnavigation",
     "selectLanguage": "Sprache auswählen",
-    "skipToContent": "Zum Hauptinhalt springen"
+    "skipToContent": "Zum Hauptinhalt springen",
+    "example": "Beispiel ansehen"
   },
   "appNav": {
     "panel": "Navigationsbereich",
@@ -47,16 +49,16 @@
   "hero": {
     "eyebrow": "Externe Cybersicherheitsbewertung",
     "title": "Verstehen Sie, was Ihr Unternehmen im Internet preisgibt",
-    "description": "Odimetry bewertet autorisierte Domains und Systeme von außen. Verstehen Sie sichtbare Dienste, mögliche bekannte Schwachstellen und prüfenswerte Einstellungen – mit priorisierten Befunden und Vorschlägen für die nächsten Schritte.",
-    "analyzeDomain": "Konto erstellen",
+    "description": "Eine externe Bewertung des autorisierten Umfangs, mit priorisierten Befunden und empfohlenen nächsten Schritten.",
+    "interest": "Neuigkeiten erhalten",
     "viewExample": "Beispielbericht ansehen",
-    "noCreditCard": "In Entwicklung und Validierung. Bitte klären Sie vorab die Verfügbarkeit der Bewertungen.",
+    "availabilityNote": "Odimetry befindet sich in der Entwicklung. Diese Seite zeigt eine beispielhafte Ansicht des Produkts.",
     "visualTitle": "Externe Sicht",
     "visualStatus": "Illustratives Beispiel",
     "visualSurface": "Digitale Oberfläche",
     "visualNote": "Nur für autorisierte Domains und Assets.",
-    "bottomLabel": "Von der autorisierten Domain zur klaren Einschätzung.",
-    "bottomLink": "So funktioniert Odimetry",
+    "bottomLabel": "Von der autorisierten Domain zu einer klaren Übersicht.",
+    "bottomLink": "Beispielbericht ansehen",
     "readoutLabel": "Was Sie besser verstehen können",
     "readoutScope": "Umfang",
     "readoutScopeValue": "Autorisierte Domain",
@@ -177,7 +179,7 @@
     "kicker": "Eine Einschätzung im Kontext",
     "title": "Vom Befund zum nächsten Schritt",
     "securityMetrics": "Prüfungen im Beispiel",
-    "subtitle": "Ein Beispiel dafür, wie ein technisches Signal mit Kontext und einer Empfehlung für die Verantwortlichen Ihrer Systeme dargestellt werden kann.",
+    "subtitle": "Ein Beispiel dafür, wie ein technisches Signal mit Kontext und einer Empfehlung dargestellt wird, die Sie an die Wartungsverantwortlichen weitergeben können.",
     "lastAudit": "Externe Beispielbewertung",
     "active": "Illustrative Daten",
     "warnings": "Mittlere Priorität",
@@ -219,6 +221,28 @@
         "meaning": "Die Webantwort im Beispiel enthält keinen HSTS-Header. Browser erhalten möglicherweise nicht die Anweisung, stets eine verschlüsselte Verbindung zu verwenden.",
         "nextStep": "Besprechen Sie die Aktivierung von HSTS, nachdem die korrekte Funktion der Domain über HTTPS geprüft wurde. Prüfen Sie den Geltungsbereich vor dem Einbeziehen von Subdomains."
       }
+    },
+    "stepsLabel": "So funktioniert Odimetry",
+    "differentiatorsLabel": "Warum Odimetry anders ist",
+    "total": "Gesamt",
+    "valid": "Gültig",
+    "steps": {
+      "authorize": {
+        "title": "Umfang festlegen",
+        "description": "Geben Sie eine Domain oder ein Asset an, das Sie verwalten."
+      },
+      "observe": {
+        "title": "Exposition beobachten",
+        "description": "Sichtbare Dienste, SSL/TLS und zu prüfende Signale."
+      },
+      "decide": {
+        "title": "Entscheiden, was zu prüfen ist",
+        "description": "Priorisierte Befunde und nächste Schritte."
+      }
+    },
+    "differentiators": {
+      "externalOnly": "Ohne Agenten, Installation oder internen Zugriff",
+      "actionable": "Für Handeln gedacht, nicht nur für Alarme"
     }
   },
   "target": {
@@ -305,10 +329,23 @@
     },
     "featuresLabel": "Geplante Funktionen"
   },
+  "interest": {
+    "emailLabel": "Ihre E-Mail-Adresse",
+    "emailPlaceholder": "name@unternehmen.de",
+    "submit": "Neuigkeiten anfordern",
+    "sending": "Wird gesendet…",
+    "sendingStatus": "Wir senden Ihre Anfrage…",
+    "success": "Wir haben Ihre Anfrage erhalten. Vor dem Versand von Odimetry-Neuigkeiten muss die Adresse überprüft werden.",
+    "sendError": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "rateLimited": "Sie haben das Sendelimit erreicht. Versuchen Sie es in 15 Minuten erneut.",
+    "alternative": "Sie können uns auch direkt schreiben an",
+    "privacyNote": "Mit dem Absenden des Formulars beantragen Sie Neuigkeiten zu Odimetry. Infranest verwendet Ihre E-Mail zur Bearbeitung der Anfrage, prüft die Adresse vor dem Versand und Sie können die Abmeldung unter info@infranest.es verlangen.",
+    "privacyLink": "Datenschutzerklärung"
+  },
   "finalCta": {
-    "kicker": "Eine erste Einschätzung mit klaren Grenzen",
-    "title": "Verstehen Sie, was geprüft werden sollte",
-    "description": "Odimetry befindet sich in Entwicklung und Marktvalidierung. Erstellen Sie ein Konto oder erfragen Sie die Verfügbarkeit bei den Tarifen; die Registrierung aktiviert kein Abonnement.",
+    "kicker": "Odimetry in Entwicklung",
+    "title": "Bleiben Sie über Odimetry informiert",
+    "description": "Hinterlassen Sie Ihre E-Mail-Adresse; wir senden Ihre Anfrage zu Odimetry-Neuigkeiten an Infranest.",
     "fastResults": {
       "title": "Kontext statt Rauschen",
       "description": "Befunde mit Prioritäten und nächsten Schritten"
@@ -344,7 +381,7 @@
       },
       "availability": {
         "question": "Ist Odimetry bereits kommerziell verfügbar?",
-        "answer": "Odimetry befindet sich in Entwicklung und Marktvalidierung. Die gezeigten Tarife und Funktionen sind unverbindlich. Kontaktieren Sie uns zu Verfügbarkeit und Umfang der Bewertungen; ein Konto allein aktiviert weder einen Testzugang noch ein Abonnement."
+        "answer": "Odimetry befindet sich in Entwicklung und Marktvalidierung. Wenn Sie Neuigkeiten erhalten möchten, hinterlassen Sie Ihre E-Mail im Interessenbereich."
       }
     }
   },
@@ -353,15 +390,15 @@
     "description": "Externe Cybersicherheitsbewertungen für autorisierte Domains und Assets mit priorisierten Ergebnissen und Hinweisen für die nächsten Schritte.",
     "brandByline": "ein Produkt von Infranest",
     "legal": "Rechtliches",
-    "privacy": "Datenschutzerklärung",
-    "terms": "Nutzungsbedingungen",
-    "cookies": "Cookie-Richtlinie",
+    "privacy": "Datenschutz bei Odimetry",
+    "terms": "Nutzungsbedingungen dieser Website",
+    "cookies": "Cookies und lokaler Speicher",
     "contact": "Kontakt",
     "support": "Support",
     "copyright": "Alle Rechte vorbehalten."
   },
   "privacy": {
-    "title": "Datenschutzerklärung",
+    "title": "Datenschutz bei Odimetry",
     "lastUpdate": "Zuletzt aktualisiert: 1. Januar 2025",
     "sections": {
       "infoCollected": {
@@ -425,7 +462,7 @@
     }
   },
   "terms": {
-    "title": "Nutzungsbedingungen",
+    "title": "Nutzungsbedingungen dieser Website",
     "lastUpdate": "Zuletzt aktualisiert: 1. Januar 2025",
     "sections": {
       "acceptance": {
@@ -501,7 +538,7 @@
     }
   },
   "cookies": {
-    "title": "Cookie-Richtlinie",
+    "title": "Cookies und lokaler Speicher",
     "lastUpdate": "Zuletzt aktualisiert: 1. Januar 2025",
     "sections": {
       "whatAre": {

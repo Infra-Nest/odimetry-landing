@@ -1,12 +1,16 @@
-import { AlertCircle, CheckCircle2, TrendingUp, XCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle2, ListChecks, ScanLine, Target, TrendingUp, XCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
+
+const stepIcons = [Target, ScanLine, ListChecks] as const;
+const stepKeys = ['authorize', 'observe', 'decide'] as const;
+const differentiatorKeys = ['externalOnly', 'actionable'] as const;
 
 export const Dashboard = () => {
   const { t: translate } = useTranslation();
 
   return (
-    <section id="dashboard" className="odimetry-section odimetry-dashboard" aria-labelledby="dashboard-heading">
+    <section id="ejemplo" className="odimetry-section odimetry-dashboard" aria-labelledby="dashboard-heading">
       <Container className="odimetry-container">
         <div className="odimetry-section-heading odimetry-section-heading--split odimetry-section-heading--light">
           <div>
@@ -15,6 +19,22 @@ export const Dashboard = () => {
           </div>
           <p>{translate('dashboard.subtitle')}</p>
         </div>
+
+        <ol className="odimetry-dashboard__steps" aria-label={translate('dashboard.stepsLabel')}>
+          {stepKeys.map((step, index) => {
+            const Icon = stepIcons[index];
+            return (
+              <li key={step}>
+                <span className="odimetry-dashboard__step-index" aria-hidden="true">0{index + 1}</span>
+                <Icon aria-hidden="true" />
+                <div>
+                  <strong>{translate(`dashboard.steps.${step}.title`)}</strong>
+                  <p>{translate(`dashboard.steps.${step}.description`)}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
 
         <article className="odimetry-report" aria-labelledby="dashboard-report-title">
           <header className="odimetry-report__header">
@@ -30,7 +50,7 @@ export const Dashboard = () => {
             <div role="listitem"><span>{translate('dashboard.critical')}</span><strong>1</strong><XCircle aria-hidden="true" /></div>
             <div role="listitem"><span>{translate('dashboard.warnings')}</span><strong>1</strong><AlertCircle aria-hidden="true" /></div>
             <div role="listitem"><span>{translate('dashboard.correct')}</span><strong>12</strong><CheckCircle2 aria-hidden="true" /></div>
-            <div role="listitem"><span>{translate('solution.total')}</span><strong>14</strong><TrendingUp aria-hidden="true" /></div>
+            <div role="listitem"><span>{translate('dashboard.total')}</span><strong>14</strong><TrendingUp aria-hidden="true" /></div>
           </div>
 
           <div className="odimetry-report__columns">
@@ -46,7 +66,7 @@ export const Dashboard = () => {
             <div className="odimetry-report__block">
               <div className="odimetry-report__block-heading"><h3>{translate('dashboard.sslTlsAnalysis')}</h3></div>
               <div className="odimetry-report__rows">
-                <div><span>{translate('dashboard.certificate')}</span><em className="is-clear">{translate('solution.valid')}</em></div>
+                <div><span>{translate('dashboard.certificate')}</span><em className="is-clear">{translate('dashboard.valid')}</em></div>
                 <div><span>{translate('dashboard.protocols')}</span><em>{translate('dashboard.tlsVersions')}</em></div>
                 <div><span>{translate('dashboard.cipherSuites')}</span><em className="is-clear">{translate('dashboard.secure')}</em></div>
                 <div><span>{translate('dashboard.hsts')}</span><em className="is-warning">{translate('dashboard.notConfigured')}</em></div>
@@ -70,6 +90,15 @@ export const Dashboard = () => {
             ))}
           </div>
         </article>
+
+        <ul className="odimetry-dashboard__tags" aria-label={translate('dashboard.differentiatorsLabel')}>
+          {differentiatorKeys.map((key) => (
+            <li key={key}>
+              <CheckCircle2 aria-hidden="true" />
+              <span>{translate(`dashboard.differentiators.${key}`)}</span>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

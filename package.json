@@ -16,6 +16,7 @@
     "i18next": "^23.15.0",
     "i18next-browser-languagedetector": "^7.2.0",
     "lucide-react": "^0.562.0",
+    "nodemailer": "^10.1.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^14.1.0",

@@ -1,5 +1,5 @@
+import type { CSSProperties } from 'react';
 import { ArrowDownRight, ArrowUpRight, Radar } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 
@@ -18,43 +18,46 @@ export const Hero = () => {
             <h1 id="hero-heading">{translate('hero.title')}</h1>
             <p className="odimetry-hero__description">{translate('hero.description')}</p>
             <div className="odimetry-hero__actions">
-              <Link className="odimetry-button odimetry-button--accent" to="/signup">
-                {translate('hero.analyzeDomain')}
+              <a className="odimetry-button odimetry-button--accent" href="#interest">
+                {translate('hero.interest')}
                 <ArrowUpRight aria-hidden="true" />
-              </Link>
-              <a className="odimetry-text-link" href="#dashboard">
+              </a>
+              <a className="odimetry-text-link" href="#ejemplo">
                 {translate('hero.viewExample')}
                 <ArrowDownRight aria-hidden="true" />
               </a>
             </div>
-            <p className="odimetry-hero__note">{translate('hero.noCreditCard')}</p>
+            <p className="odimetry-hero__note">{translate('hero.availabilityNote')}</p>
           </div>
 
-          <div className="odimetry-hero__visual" role="group" aria-label={translate('hero.visualTitle')}>
-            <div className="odimetry-radar" aria-hidden="true">
+          <div className="odimetry-hero__visual" aria-hidden="true">
+            <div className="odimetry-radar">
               <span className="odimetry-radar__ring odimetry-radar__ring--outer" />
               <span className="odimetry-radar__ring odimetry-radar__ring--middle" />
               <span className="odimetry-radar__ring odimetry-radar__ring--inner" />
               <span className="odimetry-radar__cross odimetry-radar__cross--horizontal" />
               <span className="odimetry-radar__cross odimetry-radar__cross--vertical" />
               <span className="odimetry-radar__beam" />
-              <span className="odimetry-radar__point odimetry-radar__point--one" />
-              <span className="odimetry-radar__point odimetry-radar__point--two" />
+              {/* Angles match the beam's CSS rotate (0° = east, clockwise). */}
+              <span
+                className="odimetry-radar__point odimetry-radar__point--one"
+                style={{ '--radar-angle': '302', '--radar-radius': '32%' } as CSSProperties}
+              >
+                <span className="odimetry-radar__blip" />
+              </span>
+              <span
+                className="odimetry-radar__point odimetry-radar__point--two"
+                style={{ '--radar-angle': '143', '--radar-radius': '30%' } as CSSProperties}
+              >
+                <span className="odimetry-radar__blip" />
+              </span>
+              <span
+                className="odimetry-radar__point odimetry-radar__point--three"
+                style={{ '--radar-angle': '55', '--radar-radius': '16%' } as CSSProperties}
+              >
+                <span className="odimetry-radar__blip" />
+              </span>
               <span className="odimetry-radar__core"><Radar /></span>
-            </div>
-
-            <div className="odimetry-scan-card">
-              <div className="odimetry-scan-card__header">
-                <span>{translate('hero.visualTitle')}</span>
-                <span className="odimetry-status"><i />{translate('hero.visualStatus')}</span>
-              </div>
-              <div className="odimetry-scan-card__domain">{translate('dashboard.exampleDomain')}</div>
-              <div className="odimetry-scan-card__rows">
-                <div><span>{translate('hero.visualSurface')}</span><strong>01</strong></div>
-                <div><span>{translate('dashboard.portsAndServices')}</span><strong>03</strong></div>
-                <div><span>{translate('dashboard.vulnerabilitiesDetected')}</span><strong className="is-warning">02</strong></div>
-              </div>
-              <p>{translate('hero.visualNote')}</p>
             </div>
           </div>
         </div>
@@ -76,7 +79,7 @@ export const Hero = () => {
 
         <div className="odimetry-hero__bottom">
           <span>{translate('hero.bottomLabel')}</span>
-          <a href="#how-it-works">
+          <a href="#ejemplo">
             {translate('hero.bottomLink')}
             <ArrowDownRight aria-hidden="true" />
           </a>
