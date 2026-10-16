@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { ScrollToTop } from './components/ScrollToTop';
 import { SEO } from './components/SEO';
 import { Layout } from './components/layout/Layout';
@@ -11,6 +13,8 @@ import { ProductFAQ } from './components/sections/ProductFAQ';
 const withPublicLayout = (children: ReactNode) => <Layout>{children}</Layout>;
 
 function App() {
+  const { pathname } = useLocation();
+
   return (
     <>
       <ScrollToTop />
@@ -28,6 +32,8 @@ function App() {
           )}
         />
       </Routes>
+      <Analytics />
+      <SpeedInsights route={pathname} />
     </>
   );
 }
