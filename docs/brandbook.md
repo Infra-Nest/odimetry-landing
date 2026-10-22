@@ -2,7 +2,7 @@
 
 Documento editable de identidad para Odimetry. Sirve como referencia para la landing, la aplicación, los informes y las piezas comerciales.
 
-> Odimetry es un producto de Infranest. La marca corporativa y la marca de producto se complementan, pero no deben confundirse.
+> Odimetry es un producto de Odimetry. La marca corporativa y la marca de producto se complementan, pero no deben confundirse.
 
 Las referencias Pantone son aproximadas para impresión. En soportes digitales manda siempre el valor HEX indicado.
 
@@ -34,22 +34,22 @@ Odimetry ordena la primera lectura de una superficie digital para que el usuario
 
 ## 2. Arquitectura de marca
 
-- Brandbook corporativo relacionado: [Brandbook Infranest](../../infranest-frontend/docs/brandbook.md).
+- Brandbook corporativo relacionado: [Brandbook Odimetry](../../Odimetry-frontend/docs/brandbook.md).
 - Nombre de producto: **Odimetry**.
 - Descriptor cuando sea necesario: **evaluación externa de ciberseguridad**.
-- Relación corporativa: **Odimetry, un producto de Infranest**.
-- No usar como descriptor habitual: `Producto de Infranest`.
-- Marca corporativa: **Infranest**, siempre con esa capitalización.
-- Contacto público: `info@infranest.es`.
+- Relación corporativa: **Odimetry, un producto de Odimetry**.
+- No usar como descriptor habitual: `Producto de Odimetry`.
+- Marca corporativa: **Odimetry**, siempre con esa capitalización.
+- Contacto público: `info@odimetry.es`.
 
-Usar la coletilla `un producto de Infranest` en el footer, informes, documentos legales o presentaciones cuando sea necesario aclarar la relación entre las marcas. En titulares y navegación de Odimetry no es necesaria.
+Usar la coletilla `un producto de Odimetry` en el footer, informes, documentos legales o presentaciones cuando sea necesario aclarar la relación entre las marcas. En titulares y navegación de Odimetry no es necesaria.
 
 ## 3. Paleta cromática
 
 | Token | HEX | RGB | Pantone de referencia aproximado | Uso |
 | --- | --- | --- | --- | --- |
 | Odimetry teal | `#087E8B` | `8, 126, 139` | Pantone 7716 C | Marca de producto, enlaces, acciones y datos destacados |
-| Infranest teal | `#0FA9A0` | `15, 169, 160` | Pantone 7716 C | Relación con la marca corporativa y acentos secundarios |
+| Odimetry teal | `#0FA9A0` | `15, 169, 160` | Pantone 7716 C | Relación con la marca corporativa y acentos secundarios |
 | Ink / Midnight | `#17212B` | `23, 33, 43` | Pantone 433 C | Texto principal sobre fondos claros |
 | Dark background | `#101D27` | `16, 29, 39` | Pantone 7546 C | Fondos oscuros y bloques de confianza |
 | Warm amber | `#F2B544` | `242, 181, 68` | Pantone 1235 C | Radar del isotipo, señal, énfasis y estados destacados |
@@ -88,7 +88,7 @@ Evitar escribir titulares completos en mayúsculas, abusar del peso bold o usar 
 - [Isotipo Odimetry](../public/brand/odimetry-mark.svg)
 - [Logotipo horizontal](../public/brand/odimetry-wordmark.svg)
 - [Logotipo horizontal para fondo oscuro](../public/brand/odimetry-wordmark-dark.svg)
-- [Isotipo Infranest relacionado](../public/brand/infranest-mark.svg)
+- [Isotipo Odimetry relacionado](../public/brand/Odimetry-mark.svg)
 
 El isotipo es un escudo teal con un radar ámbar. Representa visibilidad externa, alcance y observación dentro de un perímetro autorizado. No representa una garantía de protección total ni una certificación.
 
@@ -106,7 +106,7 @@ El isotipo es un escudo teal con un radar ámbar. Representa visibilidad externa
 - No deformar, rotar, inclinar ni recortar el escudo.
 - No cambiar el ámbar por rojo para representar riesgo.
 - No añadir sombras, brillos, contornos o efectos no definidos en los assets.
-- No sustituir `Odimetry` por `ODIMETRY`, `Odimetry by Infranest` u otras capitalizaciones.
+- No sustituir `Odimetry` por `ODIMETRY`, `Odimetry by Odimetry` u otras capitalizaciones.
 - No colocar el logo sobre fondos con textura o contraste insuficiente.
 
 ## 6. Sistema visual y UI
@@ -188,7 +188,7 @@ Este mensaje debe aparecer solo donde aporte contexto comercial o de producto, n
 ## 10. Contacto y SEO
 
 - Dominio de producto: `https://odimetry.es/`.
-- Contacto: `info@infranest.es`.
+- Contacto: `info@odimetry.es`.
 - Título recomendado: `Odimetry | Evaluación externa de ciberseguridad`.
 - Descripción recomendada: `Conoce qué expone tu negocio en Internet con una evaluación externa de ciberseguridad sobre dominios y activos autorizados.`
 - La URL canónica debe apuntar al dominio público de Odimetry y no a localhost.
@@ -198,11 +198,11 @@ Este mensaje debe aparecer solo donde aporte contexto comercial o de producto, n
 
 Los assets de producto se encuentran en `public/brand/`. Las versiones originales y sus variantes exportadas están documentadas en el paquete de assets del repositorio de backend:
 
-`/Users/ismaelperez/Developer/InfraNest/odimetry-backend/output/brand-assets-originales.zip`
+`/Users/ismaelperez/Developer/Odimetry/odimetry-backend/output/brand-assets-originales.zip`
 
 El PDF de referencia se conserva en:
 
-`/Users/ismaelperez/Developer/InfraNest/odimetry-backend/output/pdf/brandbook-odimetry.pdf`
+`/Users/ismaelperez/Developer/Odimetry/odimetry-backend/output/pdf/brandbook-odimetry.pdf`
 
 Este Markdown es la fuente editable. Si se modifica una decisión de color, tipografía, mensaje o uso de logotipo, actualizar también los assets o el PDF cuando corresponda y comprobar la landing en claro, oscuro, móvil, teclado y zoom del navegador.
 
@@ -216,4 +216,4 @@ npm ci
 npm run dev -- --port 5174
 ```
 
-La landing corporativa de Infranest puede levantarse en paralelo en el puerto 5173 desde `infranest-frontend`.
+La landing corporativa de Odimetry puede levantarse en paralelo en el puerto 5173 desde `Odimetry-frontend`.

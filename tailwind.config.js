@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Odimetry: teal de visibilidad sobre la base navy de Infranest.
+        // Odimetry: teal de visibilidad sobre la base navy de Odimetry.
         primary: {
           50: '#e8f5f6',
           100: '#cfe9eb',

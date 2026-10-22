@@ -2,7 +2,7 @@
 
 Landing page moderna y responsive para **Odimetry**, una herramienta para realizar evaluaciones externas de ciberseguridad sobre dominios y activos autorizados. Identifica servicios expuestos, vulnerabilidades conocidas y configuraciones inseguras, y presenta resultados claros y priorizados.
 
-La identidad visual se define en el brandbook canónico de la landing corporativa de Infranest. Odimetry usa el mismo sistema tipográfico y la misma base navy, con teal como color de producto y ámbar reservado para destacar puntos de atención.
+La identidad visual se define en el brandbook canónico de la landing corporativa de Odimetry. Odimetry usa el mismo sistema tipográfico y la misma base navy, con teal como color de producto y ámbar reservado para destacar puntos de atención.
 
 ## 🚀 Características
 
@@ -60,15 +60,15 @@ npm ci
 npm run dev
 ```
 
-Abre tu navegador en `http://localhost:5173`. Si también tienes levantada la landing de Infranest, usa otro puerto:
+Abre tu navegador en `http://localhost:5173`. Si también tienes levantada la landing de Odimetry, usa otro puerto:
 
 ```bash
 npm run dev -- --port 5174
 ```
 
-Este lanzamiento es una landing informativa. El informe es ilustrativo; las rutas de acceso y panel redirigen a la página pública. El formulario de interés envía una solicitud con la dirección de correo a `info@infranest.es` mediante una función de Vercel. No necesita el backend de Odimetry, base de datos, migraciones ni `VITE_API_BASE_URL`.
+Este lanzamiento es una landing informativa. El informe es ilustrativo; las rutas de acceso y panel redirigen a la página pública. El formulario de interés envía una solicitud con la dirección de correo a `info@odimetry.es` mediante una función de Vercel. No necesita el backend de Odimetry, base de datos, migraciones ni `VITE_API_BASE_URL`.
 
-`npm run dev` levanta la interfaz con Vite, pero no ejecuta la función `/api/interest`; en ese modo el envío mostrará un error. Para probar el envío hace falta un entorno de funciones de Vercel con las mismas variables SMTP de Zoho que usa `infranest.es`.
+`npm run dev` levanta la interfaz con Vite, pero no ejecuta la función `/api/interest`; en ese modo el envío mostrará un error. Para probar el envío hace falta un entorno de funciones de Vercel con las mismas variables SMTP de Zoho que usa `odimetry.es`.
 
 ## 🏗️ Scripts disponibles
 
@@ -141,13 +141,13 @@ npm run preview
 
 La build queda en `dist/`. En Vercel, importa el proyecto como Vite, con raíz `./`, comando `npm run build` y directorio de salida `dist`. `vercel.json` solo reescribe `/` a `index.html`; el resto de rutas de la aplicación o legales responden 404.
 
-Para activar el formulario, configura en el proyecto de Vercel de Odimetry las mismas variables que en Infranest:
+Para activar el formulario, configura en el proyecto de Vercel de Odimetry las mismas variables que en Odimetry:
 
 - `ZOHO_SMTP_HOST`
 - `ZOHO_SMTP_PORT` (`465` o `587`)
 - `ZOHO_SMTP_USER`
 - `ZOHO_SMTP_PASS`
-- `CONTACT_TO_EMAIL` (recomendado: `info+odimetry@infranest.es`)
+- `CONTACT_TO_EMAIL` (recomendado: `info+odimetry@odimetry.es`)
 
 El aviso se envía por SMTP de Zoho desde `ZOHO_SMTP_USER`, llega a `CONTACT_TO_EMAIL` y la dirección del interesado queda como respuesta. Guarda las credenciales solo en las variables del proyecto, nunca en Git.
 
@@ -157,7 +157,7 @@ Para conectar `odimetry.es`, añade el dominio al proyecto y aplica en tu provee
 
 ## 🎨 Identidad
 
-Los assets de producto están en `public/brand/` y el isotipo se usa también como favicon. `odimetry-wordmark.svg` es la variante para fondos claros y `odimetry-wordmark-dark.svg` la variante para fondos oscuros. La atribución corporativa se reserva al pie y a los contextos donde sea necesaria, con la fórmula **un producto de Infranest**; no se repite como coletilla en la navegación ni en las secciones. No se debe comunicar seguridad total, ausencia de vulnerabilidades, detección exhaustiva, certificación de cumplimiento, monitorización continua ni remediación automática. El servicio solo debe utilizarse sobre dominios y activos autorizados.
+Los assets de producto están en `public/brand/` y el isotipo se usa también como favicon. `odimetry-wordmark.svg` es la variante para fondos claros y `odimetry-wordmark-dark.svg` la variante para fondos oscuros. La atribución corporativa se reserva al pie y a los contextos donde sea necesaria, con la fórmula **un producto de Odimetry**; no se repite como coletilla en la navegación ni en las secciones. No se debe comunicar seguridad total, ausencia de vulnerabilidades, detección exhaustiva, certificación de cumplimiento, monitorización continua ni remediación automática. El servicio solo debe utilizarse sobre dominios y activos autorizados.
 
 ## 📄 Licencia
 

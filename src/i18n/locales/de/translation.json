@@ -339,13 +339,13 @@
     "sendError": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
     "rateLimited": "Sie haben das Sendelimit erreicht. Versuchen Sie es in 15 Minuten erneut.",
     "alternative": "Sie können uns auch direkt schreiben an",
-    "privacyNote": "Mit dem Absenden des Formulars beantragen Sie Neuigkeiten zu Odimetry. Infranest verwendet Ihre E-Mail zur Bearbeitung der Anfrage, prüft die Adresse vor dem Versand und Sie können die Abmeldung unter info@infranest.es verlangen.",
+    "privacyNote": "Mit dem Absenden des Formulars beantragen Sie Neuigkeiten zu Odimetry. Odimetry verwendet Ihre E-Mail zur Bearbeitung der Anfrage, prüft die Adresse vor dem Versand und Sie können die Abmeldung unter info@odimetry.es verlangen.",
     "privacyLink": "Datenschutzerklärung"
   },
   "finalCta": {
     "kicker": "Odimetry in Entwicklung",
     "title": "Bleiben Sie über Odimetry informiert",
-    "description": "Hinterlassen Sie Ihre E-Mail-Adresse; wir senden Ihre Anfrage zu Odimetry-Neuigkeiten an Infranest.",
+    "description": "Hinterlassen Sie Ihre E-Mail-Adresse; wir senden Ihre Anfrage zu Odimetry-Neuigkeiten an Odimetry.",
     "fastResults": {
       "title": "Kontext statt Rauschen",
       "description": "Befunde mit Prioritäten und nächsten Schritten"
@@ -388,7 +388,7 @@
   "footer": {
     "home": "Odimetry, zurück zur Startseite",
     "description": "Externe Cybersicherheitsbewertungen für autorisierte Domains und Assets mit priorisierten Ergebnissen und Hinweisen für die nächsten Schritte.",
-    "brandByline": "ein Produkt von Infranest",
+    "brandByline": "ein Produkt von Odimetry",
     "legal": "Rechtliches",
     "privacy": "Datenschutz bei Odimetry",
     "terms": "Nutzungsbedingungen dieser Website",

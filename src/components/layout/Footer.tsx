@@ -28,7 +28,7 @@ export const Footer = () => {
           <nav aria-label={translate('footer.contact')}>
             <p className="odimetry-footer__label">{translate('footer.contact')}</p>
             <ul>
-              <li><a href="mailto:info@infranest.es">info@infranest.es</a></li>
+              <li><a href="mailto:info@odimetry.es">info@odimetry.es</a></li>
             </ul>
           </nav>
         </div>

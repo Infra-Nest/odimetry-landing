@@ -82,7 +82,7 @@ export const FinalCTA = () => {
               </p>
               <p className="odimetry-interest-form__alternative">
                 {translate('interest.alternative')}{' '}
-                <a href="mailto:info@infranest.es">info@infranest.es</a>
+                <a href="mailto:info@odimetry.es">info@odimetry.es</a>
               </p>
               <p id="interest-privacy" className="odimetry-interest-form__privacy">
                 {translate('interest.privacyNote')}

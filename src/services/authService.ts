@@ -9,7 +9,7 @@ export const IS_FAKE_LOGIN_ENABLED =
   import.meta.env.DEV || import.meta.env.VITE_ENABLE_FAKE_LOGIN === 'true';
 
 export const FAKE_LOGIN_CREDENTIALS = {
-  email: (import.meta.env.VITE_FAKE_LOGIN_EMAIL ?? 'info@infranest.es').toLowerCase(),
+  email: (import.meta.env.VITE_FAKE_LOGIN_EMAIL ?? 'info@odimetry.es').toLowerCase(),
   password: import.meta.env.VITE_FAKE_LOGIN_PASSWORD ?? 'odimetry-demo',
 } as const;
 

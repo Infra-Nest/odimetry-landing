@@ -69,7 +69,7 @@ function originMatchesHost(request: InterestRequest): boolean {
 }
 
 function getClientIp(request: InterestRequest): string | null {
-  // Prefer Vercel edge headers; fall back like Infranest contact.
+  // Prefer Vercel edge headers; fall back like Odimetry contact.
   const forwarded = process.env.VERCEL === '1'
     ? (request.headers['x-vercel-forwarded-for']
       ?? request.headers['x-real-ip']
@@ -153,7 +153,7 @@ function createInterestEmailHtml(email: string): string {
         <p style="margin:20px 0 0;color:#64727c;font-size:12px">Recibido: ${sentAt} · odimetry.es</p>
         <p style="margin:12px 0 0;color:#64727c;font-size:12px;line-height:1.6">Esta solicitud no verifica que la dirección pertenezca a quien rellenó el formulario. Confirma la titularidad antes de enviar novedades.</p>
       </td></tr>
-      <tr><td style="padding:16px 30px;background:#17212b;color:#d8dee3;font-size:12px;line-height:1.6">Este aviso se ha enviado desde el formulario de interés de Odimetry, un producto de Infranest.</td></tr>
+      <tr><td style="padding:16px 30px;background:#17212b;color:#d8dee3;font-size:12px;line-height:1.6">Este aviso se ha enviado desde el formulario de interés de Odimetry, un producto de Odimetry.</td></tr>
     </table>
   </body>
 </html>`
@@ -236,7 +236,7 @@ export default async function handler(request: InterestRequest, response: Intere
   const rawPort = process.env.ZOHO_SMTP_PORT?.trim()
   const user = process.env.ZOHO_SMTP_USER?.trim()
   const password = process.env.ZOHO_SMTP_PASS
-  const recipient = process.env.CONTACT_TO_EMAIL?.trim() || 'info+odimetry@infranest.es'
+  const recipient = process.env.CONTACT_TO_EMAIL?.trim() || 'info+odimetry@odimetry.es'
 
   if (!host || !user || !password || !rawPort || (rawPort !== '465' && rawPort !== '587') || !getEmail(recipient)) {
     respond(response, 503, { ok: false, error: 'mail_service_unavailable' })

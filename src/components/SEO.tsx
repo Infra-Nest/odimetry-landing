@@ -57,9 +57,9 @@ export const SEO = () => {
           {
             '@type': 'Organization',
             '@id': origin + '/#organization',
-            name: 'Infranest',
-            url: 'https://infranest.es/',
-            email: 'info@infranest.es',
+            name: 'Odimetry',
+            url: 'https://odimetry.es/',
+            email: 'info@odimetry.es',
           },
           {
             '@type': 'WebSite',

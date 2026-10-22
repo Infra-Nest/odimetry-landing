@@ -75,7 +75,7 @@ export const Pricing = () => {
                 <ul role="list">
                   {(featureKeys[plan.code] || []).map((key) => <li key={key}><Check aria-hidden="true" /><span>{translate(`${baseKey}.features.${key}`)}</span></li>)}
                 </ul>
-                <a href={`mailto:info@infranest.es?subject=${encodeURIComponent(`Odimetry ${name}`)}`} className="odimetry-plan__cta">{translate(`${baseKey}.cta`)}<span className="sr-only"> — {name}</span></a>
+                <a href={`mailto:info@odimetry.es?subject=${encodeURIComponent(`Odimetry ${name}`)}`} className="odimetry-plan__cta">{translate(`${baseKey}.cta`)}<span className="sr-only"> — {name}</span></a>
               </article>
             );
           })}
