@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
+import { localePath, type Locale } from '../../seo/site';
 
-const languages = [
+const languages: Array<{ code: Locale; name: string; flag: string }> = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
@@ -14,6 +15,13 @@ interface LanguageSelectorProps {
   menuDirection?: 'up' | 'down' | 'auto';
   compact?: boolean;
   fullWidth?: boolean;
+  /**
+   * `link` navigates to locale URLs (landing SEO).
+   * `switch` changes i18n in place (authenticated UI, not indexed).
+   */
+  mode?: 'link' | 'switch';
+  /** Current locale for highlighting; defaults to i18n.language. */
+  currentLocale?: Locale;
 }
 
 export const LanguageSelector = ({
@@ -21,6 +29,8 @@ export const LanguageSelector = ({
   menuDirection = 'auto',
   compact = false,
   fullWidth = false,
+  mode = 'switch',
+  currentLocale,
 }: LanguageSelectorProps) => {
   const { i18n, t: translate } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -28,14 +38,18 @@ export const LanguageSelector = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const menuItemRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const menuItemRefs = useRef<Array<HTMLAnchorElement | HTMLButtonElement | null>>([]);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const activeCode =
+    currentLocale ||
+    (languages.find((lang) => lang.code === i18n.language)?.code ?? 'es');
+  const currentLanguage =
+    languages.find((lang) => lang.code === activeCode) || languages[0];
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    document.documentElement.lang = activeCode;
+  }, [activeCode]);
 
   const updateMenuPosition = useCallback(() => {
     const trigger = buttonRef.current;
@@ -155,13 +169,20 @@ export const LanguageSelector = ({
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  const handleLanguageChange = (code: string) => {
-    i18n.changeLanguage(code);
+  const closeMenu = () => {
     setIsOpen(false);
     requestAnimationFrame(() => buttonRef.current?.focus());
   };
 
-  const handleMenuItemKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+  const handleLanguageChange = (code: Locale) => {
+    void i18n.changeLanguage(code);
+    closeMenu();
+  };
+
+  const handleMenuItemKeyDown = (
+    event: React.KeyboardEvent<HTMLAnchorElement | HTMLButtonElement>,
+    index: number,
+  ) => {
     if (event.key === 'Tab') {
       setIsOpen(false);
       buttonRef.current?.focus();
@@ -185,6 +206,11 @@ export const LanguageSelector = ({
       menuItemRefs.current[nextIndex]?.focus();
     }
   };
+
+  const itemClassName = (code: Locale) =>
+    `flex w-full items-center space-x-3 px-4 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-300 hover:bg-gray-700 ${
+      activeCode === code ? 'bg-gray-700 text-gray-100' : 'text-gray-300'
+    }`;
 
   return (
     <div
@@ -230,33 +256,54 @@ export const LanguageSelector = ({
           style={{ top: `${menuPosition.top}px`, left: `${menuPosition.left}px` }}
         >
           <div className="py-1">
-            {languages.map((language, index) => (
-              <button
-                key={language.code}
-                ref={(element) => {
-                  menuItemRefs.current[index] = element;
-                }}
-                type="button"
-                onClick={() => handleLanguageChange(language.code)}
-                onKeyDown={(event) => handleMenuItemKeyDown(event, index)}
-                data-language={language.code}
-                className={`flex w-full items-center space-x-3 px-4 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-300 hover:bg-gray-700 ${
-                  i18n.language === language.code
-                    ? 'bg-gray-700 text-gray-100'
-                    : 'text-gray-300'
-                }`}
-                role="menuitemradio"
-                tabIndex={-1}
-                aria-checked={currentLanguage.code === language.code}
-                lang={language.code}
-              >
-                <span className="text-xl" aria-hidden="true">{language.flag}</span>
-                <span className="flex-1 text-sm font-medium">{language.name}</span>
-                {i18n.language === language.code && (
-                  <span className="text-gray-100" aria-hidden="true">✓</span>
-                )}
-              </button>
-            ))}
+            {languages.map((language, index) =>
+              mode === 'link' ? (
+                <a
+                  key={language.code}
+                  ref={(element) => {
+                    menuItemRefs.current[index] = element;
+                  }}
+                  href={localePath(language.code)}
+                  hrefLang={language.code}
+                  onClick={closeMenu}
+                  onKeyDown={(event) => handleMenuItemKeyDown(event, index)}
+                  data-language={language.code}
+                  className={itemClassName(language.code)}
+                  role="menuitemradio"
+                  tabIndex={-1}
+                  aria-checked={currentLanguage.code === language.code}
+                  lang={language.code}
+                >
+                  <span className="text-xl" aria-hidden="true">{language.flag}</span>
+                  <span className="flex-1 text-sm font-medium">{language.name}</span>
+                  {activeCode === language.code && (
+                    <span className="text-gray-100" aria-hidden="true">✓</span>
+                  )}
+                </a>
+              ) : (
+                <button
+                  key={language.code}
+                  ref={(element) => {
+                    menuItemRefs.current[index] = element;
+                  }}
+                  type="button"
+                  onClick={() => handleLanguageChange(language.code)}
+                  onKeyDown={(event) => handleMenuItemKeyDown(event, index)}
+                  data-language={language.code}
+                  className={itemClassName(language.code)}
+                  role="menuitemradio"
+                  tabIndex={-1}
+                  aria-checked={currentLanguage.code === language.code}
+                  lang={language.code}
+                >
+                  <span className="text-xl" aria-hidden="true">{language.flag}</span>
+                  <span className="flex-1 text-sm font-medium">{language.name}</span>
+                  {activeCode === language.code && (
+                    <span className="text-gray-100" aria-hidden="true">✓</span>
+                  )}
+                </button>
+              ),
+            )}
           </div>
         </div>
       )}

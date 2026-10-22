@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
   <url>
     <loc>https://odimetry.es/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://odimetry.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://odimetry.es/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://odimetry.es/fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://odimetry.es/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://odimetry.es/" />
+  </url>
+  <url>
+    <loc>https://odimetry.es/en</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://odimetry.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://odimetry.es/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://odimetry.es/fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://odimetry.es/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://odimetry.es/" />
+  </url>
+  <url>
+    <loc>https://odimetry.es/fr</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://odimetry.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://odimetry.es/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://odimetry.es/fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://odimetry.es/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://odimetry.es/" />
+  </url>
+  <url>
+    <loc>https://odimetry.es/de</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://odimetry.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://odimetry.es/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://odimetry.es/fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://odimetry.es/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://odimetry.es/" />
   </url>
 </urlset>

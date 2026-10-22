@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 import { LanguageSelector } from '../ui/LanguageSelector';
+import { useLocale, useLocaleHashHref, useLocaleHomePath } from '../../i18n/localeRouting';
 
 export const Header = () => {
   const { t: translate } = useTranslation();
+  const locale = useLocale();
+  const homePath = useLocaleHomePath();
+  const exampleHref = useLocaleHashHref('ejemplo');
+  const interestHref = useLocaleHashHref('interest');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
@@ -46,7 +51,7 @@ export const Header = () => {
     <header className="odimetry-header" role="banner">
       <Container className="odimetry-container">
         <div className="odimetry-header__inner">
-          <Link to="/" className="odimetry-brand" aria-label={translate('header.home')}>
+          <Link to={homePath} className="odimetry-brand" aria-label={translate('header.home')}>
             <img
               src="/brand/odimetry-mark.svg"
               width="40"
@@ -59,17 +64,17 @@ export const Header = () => {
           </Link>
 
           <nav className="odimetry-nav" aria-label={translate('header.navigation')}>
-            <a href="/#ejemplo" onClick={() => setIsMobileMenuOpen(false)}>
+            <a href={exampleHref} onClick={() => setIsMobileMenuOpen(false)}>
               {translate('header.example')}
             </a>
-            <a className="odimetry-button odimetry-button--primary" href="/#interest">
+            <a className="odimetry-button odimetry-button--primary" href={interestHref}>
               {translate('header.interest')}
             </a>
-            <LanguageSelector />
+            <LanguageSelector mode="link" currentLocale={locale} />
           </nav>
 
           <div className="odimetry-header__mobile" ref={mobileMenuRef}>
-            <LanguageSelector />
+            <LanguageSelector mode="link" currentLocale={locale} />
             <button
               type="button"
               ref={mobileMenuButtonRef}
@@ -84,11 +89,11 @@ export const Header = () => {
 
             {isMobileMenuOpen && (
               <div id="odimetry-mobile-menu" className="odimetry-mobile-menu">
-                <a href="/#ejemplo" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href={exampleHref} onClick={() => setIsMobileMenuOpen(false)}>
                   {translate('header.example')}
                 </a>
                 <div className="odimetry-mobile-menu__rule" />
-                <a href="/#interest" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href={interestHref} onClick={() => setIsMobileMenuOpen(false)}>
                   {translate('header.interest')}
                 </a>
               </div>

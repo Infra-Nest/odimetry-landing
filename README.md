@@ -102,14 +102,14 @@ landing/
 
 ## 🌍 Internacionalización
 
-El proyecto soporta múltiples idiomas mediante i18next. Los idiomas disponibles son:
+Cada idioma tiene su propia URL indexable. El idioma lo fija la ruta, no el navegador:
 
-- Español (es)
-- Inglés (en)
-- Francés (fr)
-- Alemán (de)
+- Español (`x-default`): `/`
+- Inglés: `/en`
+- Francés: `/fr`
+- Alemán: `/de`
 
-Las traducciones se encuentran en `src/i18n/locales/[idioma]/translation.json`.
+Las traducciones están en `src/i18n/locales/[idioma]/translation.json`. El build genera HTML con `lang`, canonical, `hreflang` y JSON-LD por idioma (`src/seo/site.ts`, `vite.locale-html.ts`). El sitemap lista las cuatro URLs.
 
 ## 🎨 Estilos
 
@@ -120,14 +120,14 @@ El proyecto utiliza **Tailwind CSS** para los estilos. La configuración se encu
 ### Agregar una nueva sección
 
 1. Crea un nuevo componente en `src/components/sections/`
-2. Importa y añádelo en `src/App.tsx` dentro de la ruta principal
+2. Importa y añádelo en `src/App.tsx` dentro de las rutas de landing
 3. Agrega las traducciones correspondientes en los archivos de idioma
 
 ### Agregar un nuevo idioma
 
 1. Crea una nueva carpeta en `src/i18n/locales/` con el código del idioma
 2. Copia `translation.json` de otro idioma y traduce el contenido
-3. Actualiza `src/i18n/config.ts` para incluir el nuevo idioma
+3. Actualiza `src/i18n/config.ts`, `src/seo/site.ts`, las rutas en `src/App.tsx`, el selector de idioma y `public/sitemap.xml`
 
 ## 🚢 Despliegue
 

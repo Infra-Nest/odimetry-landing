@@ -339,13 +339,13 @@
     "sendError": "Nous n’avons pas pu envoyer votre demande. Réessayez.",
     "rateLimited": "Vous avez atteint la limite d’envoi. Attendez 15 minutes avant de réessayer.",
     "alternative": "Vous pouvez aussi nous écrire directement à",
-    "privacyNote": "En envoyant le formulaire, vous demandez à recevoir des nouvelles d’Odimetry. Odimetry utilisera votre adresse pour traiter la demande, vérifiera l’adresse avant d’envoyer des nouvelles et vous pourrez demander la désinscription à info@odimetry.es.",
+    "privacyNote": "En nous envoyant votre adresse e-mail, vous demandez à recevoir des nouvelles d’Odimetry. Nous utiliserons votre adresse pour traiter la demande, vérifierons l’adresse avant d’envoyer des nouvelles et vous pourrez demander la désinscription à info@odimetry.es.",
     "privacyLink": "Politique de confidentialité"
   },
   "finalCta": {
     "kicker": "Odimetry en développement",
     "title": "Suivez les avancées d’Odimetry",
-    "description": "Laissez votre adresse e-mail et nous transmettrons à Odimetry votre demande de nouvelles d’Odimetry.",
+    "description": "Laissez-nous votre adresse e-mail pour recevoir les nouveautés d’Odimetry directement dans votre boîte de réception.",
     "fastResults": {
       "title": "Du contexte avant le bruit",
       "description": "Des constats avec priorités et prochaines étapes"
@@ -388,7 +388,6 @@
   "footer": {
     "home": "Odimetry, retour à l'accueil",
     "description": "Évaluations externes de cybersécurité sur des domaines et actifs autorisés, avec résultats priorisés et recommandations pour les prochaines étapes.",
-    "brandByline": "un produit d'Odimetry",
     "legal": "Légal",
     "privacy": "Confidentialité d’Odimetry",
     "terms": "Conditions de ce site",

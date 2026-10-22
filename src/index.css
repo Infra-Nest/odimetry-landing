@@ -23,14 +23,14 @@
   --color-gray-800: #233641;
   --color-gray-900: #17212b;
   --color-gray-950: #101d27;
-  --font-sans: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Sora', 'Manrope', system-ui, sans-serif;
+  --font-sans: 'Manrope Variable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Sora Variable', 'Manrope Variable', system-ui, sans-serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-sans);
     color-scheme: dark;
   }
 
@@ -124,7 +124,7 @@
   font-size: 1.05rem;
   background: var(--odimetry-paper);
   color: var(--odimetry-ink);
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Manrope Variable', system-ui, sans-serif;
 }
 
 .odimetry-page .odimetry-container {
@@ -143,7 +143,7 @@
 .odimetry-page h1,
 .odimetry-page h2,
 .odimetry-page h3 {
-  font-family: 'Sora', 'Manrope', system-ui, sans-serif;
+  font-family: 'Sora Variable', 'Manrope Variable', system-ui, sans-serif;
   font-weight: 500;
   letter-spacing: -0.055em;
   text-wrap: balance;
@@ -224,7 +224,7 @@
   gap: 0.75rem;
   flex-shrink: 0;
   color: inherit;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.06em;
@@ -266,7 +266,7 @@
   padding: 0.8rem 1.1rem;
   border: 1px solid transparent;
   border-radius: 5px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Manrope Variable', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.2;
@@ -366,7 +366,7 @@
   border: 0;
   background: transparent;
   color: #b8c5cc;
-  font: 600 0.95rem 'Manrope', sans-serif;
+  font: 600 0.95rem 'Manrope Variable', sans-serif;
   text-align: left;
   text-decoration: none;
 }
@@ -713,7 +713,7 @@
 .odimetry-hero__readout > div + div { padding-left: 1.25rem; }
 .odimetry-hero__readout > div:last-child { border-right: 0; }
 .odimetry-hero__readout dt { color: #9baab1; font-size: 0.82rem; }
-.odimetry-hero__readout dd { margin: 0.35rem 0 0; color: var(--odimetry-paper); font: 500 1rem 'Sora', sans-serif; letter-spacing: -0.03em; }
+.odimetry-hero__readout dd { margin: 0.35rem 0 0; color: var(--odimetry-paper); font: 500 1rem 'Sora Variable', sans-serif; letter-spacing: -0.03em; }
 
 .odimetry-workflow {
   padding-block: clamp(4.5rem, 7vw, 6.5rem);
@@ -786,7 +786,7 @@
 .odimetry-workflow__color--3 { --workflow-color: #f2b544; --workflow-label: #17212b; }
 .odimetry-workflow__connector { fill: none; stroke: var(--workflow-color); stroke-width: 2; }
 .odimetry-workflow__node circle { fill: var(--workflow-color); stroke: #17212b; stroke-width: 1; }
-.odimetry-workflow__node text { fill: var(--workflow-label); font: 700 12px 'Manrope', sans-serif; }
+.odimetry-workflow__node text { fill: var(--workflow-label); font: 700 12px 'Manrope Variable', sans-serif; }
 
 .odimetry-workflow__core {
   position: absolute;
@@ -815,7 +815,7 @@
 }
 
 .odimetry-workflow__core strong {
-  font: 500 1.35rem/1.14 'Sora', sans-serif;
+  font: 500 1.35rem/1.14 'Sora Variable', sans-serif;
   letter-spacing: -0.05em;
 }
 
@@ -1055,7 +1055,7 @@
 .odimetry-audit-board__topline strong {
   display: block;
   color: var(--odimetry-paper);
-  font: 500 1.45rem 'Sora', sans-serif;
+  font: 500 1.45rem 'Sora Variable', sans-serif;
   letter-spacing: -0.05em;
 }
 
@@ -1084,7 +1084,7 @@
   overflow-wrap: break-word;
 }
 .odimetry-audit-metric svg { position: absolute; top: 0.7rem; right: 0.65rem; width: 16px; height: 16px; }
-.odimetry-audit-metric strong { display: block; margin-top: 1rem; font: 500 1.8rem 'Sora', sans-serif; }
+.odimetry-audit-metric strong { display: block; margin-top: 1rem; font: 500 1.8rem 'Sora Variable', sans-serif; }
 .odimetry-audit-metric--critical { border-color: rgba(215, 109, 100, 0.5); color: #f3a59e; }
 .odimetry-audit-metric--warning { border-color: rgba(242, 181, 68, 0.5); color: var(--odimetry-amber); }
 .odimetry-audit-metric--clear { border-color: rgba(15, 169, 160, 0.5); color: #69d2c9; }
@@ -1157,7 +1157,7 @@
 
 .odimetry-dashboard__step-index {
   color: var(--odimetry-amber);
-  font: 700 0.78rem/1 'Sora', sans-serif;
+  font: 700 0.78rem/1 'Sora Variable', sans-serif;
   letter-spacing: 0.08em;
 }
 
@@ -1172,7 +1172,7 @@
   display: block;
   margin-bottom: 0.35rem;
   color: var(--odimetry-paper);
-  font: 600 1rem/1.35 'Sora', sans-serif;
+  font: 600 1rem/1.35 'Sora Variable', sans-serif;
 }
 
 .odimetry-dashboard__steps p {
@@ -1228,7 +1228,7 @@
 
 .odimetry-report__header strong,
 .odimetry-report__header small { display: block; }
-.odimetry-report__header strong { color: var(--odimetry-paper); font: 500 1.2rem 'Sora', sans-serif; letter-spacing: -0.04em; }
+.odimetry-report__header strong { color: var(--odimetry-paper); font: 500 1.2rem 'Sora Variable', sans-serif; letter-spacing: -0.04em; }
 .odimetry-report__header small { margin-top: 0.2rem; color: #9baab1; font-size: 0.82rem; }
 .odimetry-report__header .odimetry-board-label { color: var(--odimetry-teal); text-transform: uppercase; letter-spacing: 0.12em; }
 
@@ -1247,7 +1247,7 @@
 .odimetry-report__metrics > div { position: relative; padding: 1.2rem 1.4rem; border-right: 1px solid rgba(216, 222, 227, 0.2); }
 .odimetry-report__metrics > div:last-child { border-right: 0; }
 .odimetry-report__metrics span { display: block; padding-right: 1.3rem; color: #b8c5cc; font-size: 0.9rem; }
-.odimetry-report__metrics strong { display: block; margin-top: 0.65rem; color: var(--odimetry-paper); font: 500 2rem 'Sora', sans-serif; }
+.odimetry-report__metrics strong { display: block; margin-top: 0.65rem; color: var(--odimetry-paper); font: 500 2rem 'Sora Variable', sans-serif; }
 .odimetry-report__metrics svg { position: absolute; top: 1.2rem; right: 1.2rem; width: 17px; height: 17px; color: var(--odimetry-teal); }
 .odimetry-report__metrics > div:first-child svg { color: var(--odimetry-danger); }
 .odimetry-report__metrics > div:nth-child(2) svg { color: var(--odimetry-amber); }
@@ -1274,7 +1274,7 @@
 .odimetry-finding--critical { border-color: var(--odimetry-danger); }
 .odimetry-finding--warning { border-color: var(--odimetry-amber); }
 .odimetry-finding__heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; }
-.odimetry-finding h4 { margin: 0; color: var(--odimetry-paper); font: 500 1.12rem/1.5 'Sora', sans-serif; }
+.odimetry-finding h4 { margin: 0; color: var(--odimetry-paper); font: 500 1.12rem/1.5 'Sora Variable', sans-serif; }
 .odimetry-finding dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0 0; }
 .odimetry-finding dt { margin-bottom: 0.35rem; color: #69d2c9; font-size: 0.95rem; font-weight: 700; }
 .odimetry-finding dd { margin: 0; color: #b8c5cc; font-size: 1rem; line-height: 1.7; }
@@ -1314,14 +1314,14 @@
 .odimetry-plan h3 { color: var(--odimetry-ink); font-size: 1.35rem; }
 .odimetry-plan__description { min-height: 3.4rem; margin-top: 0.6rem !important; color: var(--odimetry-muted); font-size: 0.95rem; }
 .odimetry-plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.7rem; margin-block: 1rem 1.5rem; padding-block: 1.25rem; border-block: 1px solid var(--odimetry-border); font-variant-numeric: tabular-nums; }
-.odimetry-plan__price strong { color: var(--odimetry-ink); font: 500 2.75rem 'Sora', sans-serif; letter-spacing: -0.08em; }
+.odimetry-plan__price strong { color: var(--odimetry-ink); font: 500 2.75rem 'Sora Variable', sans-serif; letter-spacing: -0.08em; }
 .odimetry-plan__price sup { font-size: 1.05rem; letter-spacing: -0.03em; }
 .odimetry-plan__price span { color: var(--odimetry-muted); font-size: 0.9rem; }
 .odimetry-plan ul { display: grid; gap: 0.75rem; margin: 0 0 1.8rem; padding: 0; list-style: none; }
 .odimetry-plan__features-label { margin-bottom: 0.8rem !important; color: var(--odimetry-ink); font-size: 0.95rem; font-weight: 700; }
 .odimetry-plan li { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--odimetry-muted); font-size: 0.95rem; }
 .odimetry-plan li svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--odimetry-teal); }
-.odimetry-plan__cta { display: flex; align-items: center; justify-content: center; text-align: center; padding: 0.9rem 1rem; width: 100%; min-height: 48px; margin-top: auto; border: 1px solid var(--odimetry-ink); border-radius: 4px; background: transparent; color: var(--odimetry-ink); font: 700 1rem/1.4 'Manrope', sans-serif; }
+.odimetry-plan__cta { display: flex; align-items: center; justify-content: center; text-align: center; padding: 0.9rem 1rem; width: 100%; min-height: 48px; margin-top: auto; border: 1px solid var(--odimetry-ink); border-radius: 4px; background: transparent; color: var(--odimetry-ink); font: 700 1rem/1.4 'Manrope Variable', sans-serif; }
 .odimetry-plan__cta:hover { background: var(--odimetry-ink); color: var(--odimetry-paper); }
 .odimetry-plan--featured .odimetry-plan__cta { border-color: var(--odimetry-teal-dark); background: var(--odimetry-teal-dark); color: var(--odimetry-paper); }
 .odimetry-plan--featured .odimetry-plan__cta:hover { background: var(--odimetry-navy); color: var(--odimetry-paper); }
@@ -1357,8 +1357,7 @@
 .odimetry-footer__main { display: grid; grid-template-columns: 1.5fr 0.6fr 0.6fr; gap: 3rem; padding-block: 4rem; }
 .odimetry-footer__main--landing { grid-template-columns: 1.6fr 0.7fr; }
 .odimetry-footer .odimetry-brand { color: var(--odimetry-paper); }
-.odimetry-footer__brand > p:not(.odimetry-footer__byline) { max-width: 32rem; margin-top: 1rem; font-size: 0.95rem; }
-.odimetry-footer__byline { margin-top: 1.2rem !important; color: var(--odimetry-teal); font-size: 0.85rem; font-weight: 700; }
+.odimetry-footer__brand > p { max-width: 32rem; margin-top: 1rem; font-size: 0.95rem; }
 .odimetry-footer__label { margin-bottom: 1rem !important; color: var(--odimetry-paper); font-size: 0.9rem; font-weight: 700; }
 .odimetry-footer ul { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
 .odimetry-footer a:hover { color: var(--odimetry-paper); }

@@ -13,10 +13,11 @@
     "minimatch": ">=10.2.3"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@fontsource-variable/sora": "^5.3.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "i18next": "^23.15.0",
-    "i18next-browser-languagedetector": "^7.2.0",
     "lucide-react": "^0.562.0",
     "nodemailer": "^10.1.2",
     "react": "^19.2.0",

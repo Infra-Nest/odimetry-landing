@@ -339,13 +339,13 @@
     "sendError": "We could not send your request. Please try again.",
     "rateLimited": "You have reached the sending limit. Wait 15 minutes before trying again.",
     "alternative": "You can also email us directly at",
-    "privacyNote": "By submitting this form, you request Odimetry updates. Odimetry will use your email to handle the request, verify the address before sending updates, and let you unsubscribe at info@odimetry.es.",
+    "privacyNote": "By sending us your email address, you request Odimetry updates. We will use your email to handle the request, verify the address before sending updates, and you can unsubscribe at info@odimetry.es.",
     "privacyLink": "Privacy policy"
   },
   "finalCta": {
     "kicker": "Odimetry in development",
     "title": "Follow Odimetry’s progress",
-    "description": "Leave your email and we will send Odimetry your request for Odimetry updates.",
+    "description": "Leave us your email so you can receive Odimetry news directly in your inbox.",
     "fastResults": {
       "title": "Context before noise",
       "description": "Findings with priorities and next steps"
@@ -388,7 +388,6 @@
   "footer": {
     "home": "Odimetry, back to home",
     "description": "External cybersecurity assessments for authorized domains and assets, with prioritized findings and guidance for next steps.",
-    "brandByline": "",
     "legal": "Legal",
     "privacy": "Odimetry privacy",
     "terms": "Website terms",

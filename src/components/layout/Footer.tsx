@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
+import { useLocaleHomePath } from '../../i18n/localeRouting';
 
 export const Footer = () => {
   const { t: translate } = useTranslation();
+  const homePath = useLocaleHomePath();
 
   return (
     <footer className="odimetry-footer" role="contentinfo">
       <Container className="odimetry-container">
         <div className="odimetry-footer__main odimetry-footer__main--landing">
           <div className="odimetry-footer__brand">
-            <Link to="/" className="odimetry-brand" aria-label={translate('footer.home')}>
+            <Link to={homePath} className="odimetry-brand" aria-label={translate('footer.home')}>
               <img
                 src="/brand/odimetry-mark.svg"
                 width="40"
@@ -21,7 +23,6 @@ export const Footer = () => {
               />
               <span translate="no">Odimetry</span>
             </Link>
-            <p className="odimetry-footer__byline">{translate('footer.brandByline')}</p>
             <p>{translate('footer.description')}</p>
           </div>
 
